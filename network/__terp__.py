@@ -21,7 +21,7 @@
 ##############################################################################
 {
     "name" : "Network Management",
-    "version" : "1.0",
+    "version" : "1.0.1",
     "author" : "Tiny",
     "category" : "Enterprise Specific Modules/Information Technology",
     "depends" : ["base"],
