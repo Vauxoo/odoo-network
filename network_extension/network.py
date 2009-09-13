@@ -1,17 +1,20 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (c) 2008 Zikzakmedia S.L. (http://zikzakmedia.com) All Rights Reserved.
-#                       Jordi Esteve <jesteve@zikzakmedia.com>
-#    $Id$
+#    network_extension module for OpenERP
+#    Copyright (C) 2008 Zikzakmedia S.L. (http://zikzakmedia.com)
+#       Jordi Esteve <jesteve@zikzakmedia.com> All Rights Reserved.
+#    Copyright (C) 2009 SYLEAM (http://syleam.fr)
+#       Christophe Chauvet <christophe.chauvet@syleam.fr> All Rights Reserved.
 #
-#    This program is free software: you can redistribute it and/or modify
+#    This file is a part of network_extension
+#
+#    network_extension is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
-#    This program is distributed in the hope that it will be useful,
+#    network_extension is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
@@ -21,15 +24,20 @@
 #
 ##############################################################################
 
-import time
-from osv import fields, osv
-import base64
+from osv import osv
+from osv import fields
 from tools.translate import _
+
+import base64
+import time
 
 #--------------------------------------------------------------
 # A network is composed of all kind of networkable materials
 #--------------------------------------------------------------
 class network_network(osv.osv):
+    """
+    A network is composed of all kind of networkable materials
+    """
     _inherit = "network.network"
     _columns = {
         'gateway': fields.char('Gateway', size=100),
@@ -37,13 +45,16 @@ class network_network(osv.osv):
         'public_ip_address': fields.char('Public IP address', size=100),
         'public_domain': fields.char('Public domain', size=100),
     }
-network_network()
 
+network_network()
 
 #----------------------------------------------------------
 # A software installed on a material
 #----------------------------------------------------------
 class network_software(osv.osv):
+    """
+    A software installed on a material
+    """
     _inherit = "network.software"
     _columns = {
         'type': fields.many2one('network.software.type',
@@ -60,6 +71,7 @@ class network_software(osv.osv):
     _defaults = {
         'material_id': lambda obj, cursor, user, context: obj._default_material(cursor, user, context=context),
     }
+
 network_software()
 
 
@@ -67,6 +79,9 @@ network_software()
 # Couples of login/password
 #------------------------------------------------------------
 class network_software_logpass(osv.osv):
+    """
+    Couples of login/password
+    """
     _inherit = "network.software.logpass"
     _columns = {
         'name': fields.char('Name', size=100),
@@ -135,14 +150,19 @@ network_software_logpass()
 
 
 #----------------------------------------------------------
-# Protocol (ssh, http, smpt, ...)
+# Protocol (ssh, http, smtp, ...)
 #----------------------------------------------------------
 class network_protocol(osv.osv):
+    """
+    Protocol (ssh, http, smtp, ...)
+    """
     _name = "network.protocol"
     _description = "Protocol"
+
     _columns = {
         'name': fields.char('Name', size=64, select=1),
     }
+
 network_protocol()
 
 
@@ -150,8 +170,12 @@ network_protocol()
 # Services
 #----------------------------------------------------------
 class network_service(osv.osv):
+    """
+    Services
+    """
     _name = "network.service"
     _description = "Service Network"
+
     _columns = {
         'name': fields.char('Name', size=64, select=1),
         'software_id': fields.many2one('network.software', 'Software', required=True),
@@ -203,7 +227,12 @@ network_service()
 
 
 class network_encrypt_password(osv.osv_memory):
+    """
+    Password encryption
+    """
     _name = 'network.encrypt.password'
+    _description = 'Password encryption'
+
     _columns = {
         'name': fields.char('Encrypt/Decrypt password', size=100),
     }
@@ -214,3 +243,5 @@ class network_encrypt_password(osv.osv_memory):
         return super(osv.osv_memory, self).create(cr, uid, vals, context=context)
 
 network_encrypt_password()
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

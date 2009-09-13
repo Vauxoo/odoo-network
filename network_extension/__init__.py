@@ -1,17 +1,20 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (c) 2008 Zikzakmedia S.L. (http://zikzakmedia.com) All Rights Reserved.
-#                       Jordi Esteve <jesteve@zikzakmedia.com>
-#    $Id$
+#    network_extension module for OpenERP
+#    Copyright (C) 2008 Zikzakmedia S.L. (http://zikzakmedia.com)
+#       Jordi Esteve <jesteve@zikzakmedia.com> All Rights Reserved.
+#    Copyright (C) 2009 SYLEAM (http://syleam.fr)
+#       Christophe Chauvet <christophe.chauvet@syleam.fr> All Rights Reserved.
 #
-#    This program is free software: you can redistribute it and/or modify
+#    This file is a part of network_extension
+#
+#    network_extension is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
-#    This program is distributed in the hope that it will be useful,
+#    network_extension is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
@@ -22,5 +25,5 @@
 ##############################################################################
 
 import network
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
