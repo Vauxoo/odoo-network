@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.1\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2009-09-13 12:56:48+0000\n"
+"POT-Creation-Date: 2009-09-13 16:12:15+0000\n"
 "PO-Revision-Date: 2009-08-06 20:37+0100\n"
 "Last-Translator: Jordi Esteve (Zikzakmedia) <jesteve@zikzakmedia.com>\n"
 "Language-Team: \n"
@@ -97,6 +97,12 @@ msgid "Invalid model name in the action definition."
 msgstr "Nombre del modelo inválido en esta acción."
 
 #. module: network
+#: view:network.material:0
+#: view:network.network:0
+msgid "Network Material"
+msgstr "Hardware de la red"
+
+#. module: network
 #: field:network.material,supplier:0
 msgid "Supplier"
 msgstr "Proveedor"
@@ -137,9 +143,9 @@ msgid "Add a password"
 msgstr "Añadir contraseña"
 
 #. module: network
-#: field:network.network,range:0
-msgid "Address range"
-msgstr "Rango de direcciones"
+#: model:network.hardware.type,name:network.demo_hard_type1
+msgid "Hub"
+msgstr ""
 
 #. module: network
 #: view:network.material:0
@@ -206,6 +212,11 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: network
+#: model:ir.ui.menu,name:network.menu_add_new_network
+msgid "Networks"
+msgstr "Redes"
+
+#. module: network
 #: field:network.network,user_id:0
 msgid "Onsite Contact person"
 msgstr "Persona de contacto"
@@ -231,11 +242,6 @@ msgstr "Nombre del componente"
 #: view:network.material:0
 msgid "All Network Material"
 msgstr "Todo el hardware"
-
-#. module: network
-#: model:network.hardware.type,name:network.demo_hard_type1
-msgid "Hub"
-msgstr ""
 
 #. module: network
 #: field:network.material,name:0
@@ -268,10 +274,10 @@ msgid "Notes"
 msgstr "Notas"
 
 #. module: network
-#: view:network.material:0
-#: view:network.network:0
-msgid "Network Material"
-msgstr "Hardware de la red"
+#: field:network.material,date:0
+#: field:network.software,date:0
+msgid "Installation Date"
+msgstr "Fecha de instalación"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.action_software_type
@@ -319,10 +325,9 @@ msgid "Hardware Type"
 msgstr "Tipo de hardware"
 
 #. module: network
-#: field:network.material,date:0
-#: field:network.software,date:0
-msgid "Installation Date"
-msgstr "Fecha de instalación"
+#: view:network.changes:0
+msgid "Description"
+msgstr ""
 
 #. module: network
 #: view:network.material:0
@@ -382,9 +387,10 @@ msgid "Switch"
 msgstr ""
 
 #. module: network
-#: model:ir.ui.menu,name:network.menu_add_new_network
-msgid "Networks"
-msgstr "Redes"
+#: model:ir.model,name:network.model_network_hardware_type
+#: field:network.material,type:0
+msgid "Hardware type"
+msgstr "Tipo de hardware"
 
 #. module: network
 #: model:ir.ui.menu,name:network.menu_hardware
@@ -412,6 +418,11 @@ msgid "LDAP"
 msgstr ""
 
 #. module: network
+#: field:network.changes,user_id:0
+msgid "User"
+msgstr ""
+
+#. module: network
 #: field:network.network,contact_id:0
 msgid "Partner"
 msgstr "Empresa"
@@ -433,10 +444,9 @@ msgid "Tools"
 msgstr "Herramientas"
 
 #. module: network
-#: model:ir.model,name:network.model_network_hardware_type
-#: field:network.material,type:0
-msgid "Hardware type"
-msgstr "Tipo de hardware"
+#: field:network.network,range:0
+msgid "Address range"
+msgstr "Rango de direcciones"
 
 #. module: network
 #: field:network.network,name:0

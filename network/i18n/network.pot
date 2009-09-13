@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2009-09-13 12:56:48+0000\n"
-"PO-Revision-Date: 2009-09-13 12:56:48+0000\n"
+"POT-Creation-Date: 2009-09-13 16:12:15+0000\n"
+"PO-Revision-Date: 2009-09-13 16:12:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -88,6 +88,12 @@ msgid "Invalid model name in the action definition."
 msgstr ""
 
 #. module: network
+#: view:network.material:0
+#: view:network.network:0
+msgid "Network Material"
+msgstr ""
+
+#. module: network
 #: field:network.material,supplier:0
 msgid "Supplier"
 msgstr ""
@@ -128,8 +134,8 @@ msgid "Add a password"
 msgstr ""
 
 #. module: network
-#: field:network.network,range:0
-msgid "Address range"
+#: model:network.hardware.type,name:network.demo_hard_type1
+msgid "Hub"
 msgstr ""
 
 #. module: network
@@ -197,6 +203,11 @@ msgid "Configuration"
 msgstr ""
 
 #. module: network
+#: model:ir.ui.menu,name:network.menu_add_new_network
+msgid "Networks"
+msgstr ""
+
+#. module: network
 #: field:network.network,user_id:0
 msgid "Onsite Contact person"
 msgstr ""
@@ -221,11 +232,6 @@ msgstr ""
 #. module: network
 #: view:network.material:0
 msgid "All Network Material"
-msgstr ""
-
-#. module: network
-#: model:network.hardware.type,name:network.demo_hard_type1
-msgid "Hub"
 msgstr ""
 
 #. module: network
@@ -259,9 +265,9 @@ msgid "Notes"
 msgstr ""
 
 #. module: network
-#: view:network.material:0
-#: view:network.network:0
-msgid "Network Material"
+#: field:network.material,date:0
+#: field:network.software,date:0
+msgid "Installation Date"
 msgstr ""
 
 #. module: network
@@ -310,9 +316,8 @@ msgid "Hardware Type"
 msgstr ""
 
 #. module: network
-#: field:network.material,date:0
-#: field:network.software,date:0
-msgid "Installation Date"
+#: view:network.changes:0
+msgid "Description"
 msgstr ""
 
 #. module: network
@@ -373,8 +378,9 @@ msgid "Switch"
 msgstr ""
 
 #. module: network
-#: model:ir.ui.menu,name:network.menu_add_new_network
-msgid "Networks"
+#: model:ir.model,name:network.model_network_hardware_type
+#: field:network.material,type:0
+msgid "Hardware type"
 msgstr ""
 
 #. module: network
@@ -403,6 +409,11 @@ msgid "LDAP"
 msgstr ""
 
 #. module: network
+#: field:network.changes,user_id:0
+msgid "User"
+msgstr ""
+
+#. module: network
 #: field:network.network,contact_id:0
 msgid "Partner"
 msgstr ""
@@ -424,9 +435,8 @@ msgid "Tools"
 msgstr ""
 
 #. module: network
-#: model:ir.model,name:network.model_network_hardware_type
-#: field:network.material,type:0
-msgid "Hardware type"
+#: field:network.network,range:0
+msgid "Address range"
 msgstr ""
 
 #. module: network
