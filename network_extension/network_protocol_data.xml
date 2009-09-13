@@ -1,13 +1,14 @@
 <?xml version="1.0" ?>
 <openerp>
-        <data>
+    <data>
+
         ##############################################################################
         #
         #    network_extension module for OpenERP
         #    Copyright (C) 2008 Zikzakmedia S.L. (http://zikzakmedia.com)
-        #       Jordi Esteve <jesteve@zikzakmedia.com> All Rights Reserved.
+        #       Jordi Esteve [jesteve@zikzakmedia.com] All Rights Reserved.
         #    Copyright (C) 2009 SYLEAM (http://syleam.fr)
-        #       Christophe Chauvet <christophe.chauvet@syleam.fr> All Rights Reserved.
+        #       Christophe Chauvet [christophe.chauvet@syleam.fr] All Rights Reserved.
         #
         #    This file is a part of network_extension
         #
@@ -22,56 +23,48 @@
         #    GNU General Public License for more details.
         #
         #    You should have received a copy of the GNU General Public License
-        #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+        #    along with this program.  If not, see [http://www.gnu.org/licenses/].
         #
         ##############################################################################
-                <record id="network_protocol_ssh0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;ssh&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_ftp0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;ftp&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_http0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;http&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_https0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;https&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_xmlrpc0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;xml-rpc&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_netrpc0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;net-rpc&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_pyro0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;pyro&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_smtp0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;smtp&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_pop0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;pop3&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
-        <data>
-                <record id="network_protocol_imap0" model="network.protocol">
-                        <field eval="&quot;&quot;&quot;imap&quot;&quot;&quot;" name="name"/>
-                </record>
-        </data>
+
+        <record id="network_protocol_ssh0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;ssh&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_ftp0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;ftp&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_http0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;http&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_https0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;https&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_xmlrpc0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;xml-rpc&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_netrpc0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;net-rpc&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_pyro0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;pyro&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_smtp0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;smtp&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_pop0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;pop3&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="network_protocol_imap0" model="network.protocol">
+            <field eval="&quot;&quot;&quot;imap&quot;&quot;&quot;" name="name"/>
+        </record>
+    </data>
 </openerp>
