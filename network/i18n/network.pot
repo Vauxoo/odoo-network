@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 5.0.1\n"
+"Project-Id-Version: OpenERP Server 5.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2009-08-06 18:35:18+0000\n"
-"PO-Revision-Date: 2009-08-06 18:35:18+0000\n"
+"POT-Creation-Date: 2009-09-13 12:56:48+0000\n"
+"PO-Revision-Date: 2009-09-13 12:56:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -144,8 +144,8 @@ msgid "Network changes"
 msgstr ""
 
 #. module: network
-#: field:network.software,version:0
-msgid "Software version"
+#: model:network.hardware.type,name:network.demo_hard_type3
+msgid "Screen"
 msgstr ""
 
 #. module: network
@@ -153,6 +153,11 @@ msgstr ""
 #: model:ir.model,name:network.model_network_material
 #: field:network.software,material_id:0
 msgid "Material"
+msgstr ""
+
+#. module: network
+#: model:network.hardware.type,name:network.demo_hard_type4
+msgid "Network Printer"
 msgstr ""
 
 #. module: network
@@ -219,6 +224,11 @@ msgid "All Network Material"
 msgstr ""
 
 #. module: network
+#: model:network.hardware.type,name:network.demo_hard_type1
+msgid "Hub"
+msgstr ""
+
+#. module: network
 #: field:network.material,name:0
 msgid "Device Name"
 msgstr ""
@@ -226,6 +236,11 @@ msgstr ""
 #. module: network
 #: field:network.network,material_ids:0
 msgid "Members"
+msgstr ""
+
+#. module: network
+#: model:network.software.type,name:network.demo_soft_type1
+msgid "Database"
 msgstr ""
 
 #. module: network
@@ -266,6 +281,11 @@ msgstr ""
 #: model:ir.ui.menu,name:network.menu_software
 #: field:network.software.logpass,software_id:0
 msgid "Software"
+msgstr ""
+
+#. module: network
+#: model:network.software.type,name:network.demo_soft_type2
+msgid "DNS Server"
 msgstr ""
 
 #. module: network
@@ -348,6 +368,11 @@ msgid "Parent Material"
 msgstr ""
 
 #. module: network
+#: model:network.hardware.type,name:network.demo_hard_type2
+msgid "Switch"
+msgstr ""
+
+#. module: network
 #: model:ir.ui.menu,name:network.menu_add_new_network
 msgid "Networks"
 msgstr ""
@@ -360,6 +385,21 @@ msgstr ""
 #. module: network
 #: field:network.material,ip_addr:0
 msgid "IP Address"
+msgstr ""
+
+#. module: network
+#: model:network.hardware.type,name:network.demo_hard_type0
+msgid "Computer"
+msgstr ""
+
+#. module: network
+#: field:network.software,version:0
+msgid "Software version"
+msgstr ""
+
+#. module: network
+#: model:network.software.type,name:network.demo_soft_type0
+msgid "LDAP"
 msgstr ""
 
 #. module: network
