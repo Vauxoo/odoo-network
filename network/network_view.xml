@@ -2,7 +2,7 @@
 <openerp>
 	<data>
 		<menuitem name="Tools" id="menu_tools" icon="STOCK_PREFERENCES"/>
-		<menuitem name="Network" parent="menu_tools" groups="network.group_network_manager" id="menu_network"/>
+		<menuitem name="Network" parent="menu_tools" groups="network.group_network_user" id="menu_network"/>
                 <menuitem name="Configuration" parent="menu_network" id="menu_network_definition" groups="network.group_network_manager" sequence="1"/>
 
 		<record model="ir.ui.view" id="edit_network">
@@ -12,10 +12,10 @@
 			<field name="priority" eval="1"/>
 			<field name="arch" type="xml">
 				<form string="Network Material">
+					<field name="name" select="1"/>
 					<notebook>
 					<page string="Material Info">
 						<separator string="Informations" colspan="4"/>
-						<field name="name" colspan="4" select="1"/>
 						<field name="type" select="1"/>
 						<field name="supplier" select="1" />
 						<field name="date" select="1"/>
@@ -224,7 +224,7 @@
 			<field name="view_type">tree</field>
 		</record>
 		<menuitem name="Network List" parent="menu_network"
-			id="menu_add_view_network" action="add_view_network" groups="network.group_network_manager"/>
+			id="menu_add_view_network" action="add_view_network" groups="network.group_network_user"/>
 
 		<record model="ir.ui.view" id="add_network_view">
 			<field name="name">network.network.form</field>
@@ -268,14 +268,14 @@
 			<field name="res_model">network.network</field>
 			<field name="view_type">form</field>
 		</record>
-		<menuitem name="Networks" parent="menu_network" id="menu_add_new_network" action="add_new_network" groups="network.group_network_manager"/>
+		<menuitem name="Networks" parent="menu_network" id="menu_add_new_network" action="add_new_network" groups="network.group_network_user"/>
 
 		<record model="ir.actions.act_window" id="action_material_tree">
 			<field name="name">All Materials</field>
 			<field name="res_model">network.material</field>
 			<field name="view_type">form</field>
 		</record>
-		<menuitem name="All Materials" parent="menu_network" id="menu_action_material_tree" action="action_material_tree" groups="network.group_network_manager"/>
+		<menuitem name="All Materials" parent="menu_network" id="menu_action_material_tree" action="action_material_tree" groups="network.group_network_user"/>
 
 		<record model="ir.actions.act_window" id="action_top_material_tree">
 			<field name="name">Top Materials</field>
@@ -283,7 +283,7 @@
 			<field name="view_type">form</field>
 			<field name="domain">[('parent_id','=',False)]</field>
 		</record>
-		<menuitem name="Top Materials" parent="menu_network" id="menu_action_top_material_tree" action="action_top_material_tree" groups="network.group_network_manager"/>
+		<menuitem name="Top Materials" parent="menu_network" id="menu_action_top_material_tree" action="action_top_material_tree" groups="network.group_network_user"/>
 
 		<record model="ir.actions.act_window" id="add_view_material">
 			<field name="name">Material List</field>
@@ -292,7 +292,7 @@
 			<field name="domain">[('parent_id','=',False)]</field>
 		</record>
 		<menuitem name="Material List" parent="menu_network"
-			id="menu_add_view_material" action="add_view_material" groups="network.group_network_manager"/>
+			id="menu_add_view_material" action="add_view_material" groups="network.group_network_user"/>
 
 		<record model="ir.ui.view" id="add_diary_entry_form">
 			<field name="name">network.changes.form</field>
