@@ -336,9 +336,13 @@
             <field name="name">network.protocol.tree</field>
             <field name="model">network.protocol</field>
             <field name="type">tree</field>
+            <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <tree string="Protocol">
                     <field name="name"/>
+                    <field name="port"/>
+                    <field name="protocol"/>
+                    <field name="description"/>
                 </tree>
             </field>
         </record>
@@ -347,9 +351,13 @@
             <field name="name">network.protocol.form</field>
             <field name="model">network.protocol</field>
             <field name="type">form</field>
+            <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Protocol">
                     <field name="name" select="1"/>
+                    <field name="port" select="1"/>
+                    <field name="description" select="2"/>
+                    <field name="protocol" select="1"/>
                 </form>
             </field>
         </record>

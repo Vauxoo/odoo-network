@@ -160,7 +160,10 @@ class network_protocol(osv.osv):
     _description = "Protocol"
 
     _columns = {
-        'name': fields.char('Name', size=64, select=1),
+        'name': fields.char('Name', size=64, required=True, select=1),
+        'description': fields.char('Description', size=256, translate=True),
+        'port': fields.integer('Port', help='Default port defined see(http://www.iana.org/assignments/port-numbers)', required=True),
+        'protocol': fields.selection([('tcp', 'TCP'),('udp', 'UDP'), ('both', 'Both'), ('other', 'Other')], 'Protocol', required=True),
     }
 
 network_protocol()

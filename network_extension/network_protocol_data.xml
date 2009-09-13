@@ -28,43 +28,74 @@
         ##############################################################################
 
         <record id="network_protocol_ssh0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;ssh&quot;&quot;&quot;" name="name"/>
+            <field name="name">ssh</field>
+            <field name="port" eval="22"/>
+            <field name="protocol">tcp</field>
+            <field name="description">The Secure Shell (SSH)</field>
         </record>
 
         <record id="network_protocol_ftp0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;ftp&quot;&quot;&quot;" name="name"/>
+            <field name="name">ftp</field>
+            <field name="port" eval="21"/>
+            <field name="protocol">tcp</field>
+            <field name="description">File Transfer [Control]</field>
         </record>
 
         <record id="network_protocol_http0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;http&quot;&quot;&quot;" name="name"/>
+            <field name="name">http</field>
+            <field name="port" eval="80"/>
+            <field name="protocol">tcp</field>
+            <field name="description">World Wide Web HTTP</field>
         </record>
 
         <record id="network_protocol_https0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;https&quot;&quot;&quot;" name="name"/>
+            <field name="name">https</field>
+            <field name="port" eval="443"/>
+            <field name="protocol">tcp</field>
+            <field name="description">http protocol over TLS/SSL</field>
         </record>
 
         <record id="network_protocol_xmlrpc0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;xml-rpc&quot;&quot;&quot;" name="name"/>
+            <field name="name">xml-rpc</field>
+            <field name="port" eval="8069"/>
+            <field name="protocol">tcp</field>
+            <field name="description">Open ERP XML-RPC</field>
         </record>
 
         <record id="network_protocol_netrpc0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;net-rpc&quot;&quot;&quot;" name="name"/>
+            <field name="name">net-rpc</field>
+            <field name="port" eval="8070"/>
+            <field name="protocol">tcp</field>
+            <field name="description">Open ERP NET-RPC</field>
         </record>
 
         <record id="network_protocol_pyro0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;pyro&quot;&quot;&quot;" name="name"/>
+            <field name="name">pyro</field>
+            <field name="port" eval="0"/>
+            <field name="protocol">tcp</field>
+            <field name="description"></field>
         </record>
 
         <record id="network_protocol_smtp0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;smtp&quot;&quot;&quot;" name="name"/>
+            <field name="name">smtp</field>
+            <field name="port" eval="25"/>
+            <field name="protocol">tcp</field>
+            <field name="description">Simple Mail Transfer</field>
         </record>
 
         <record id="network_protocol_pop0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;pop3&quot;&quot;&quot;" name="name"/>
+            <field name="name">pop3</field>
+            <field name="port" eval="110"/>
+            <field name="protocol">tcp</field>
+            <field name="description">Post Office Protocol - Version 3</field>
         </record>
 
         <record id="network_protocol_imap0" model="network.protocol">
-            <field eval="&quot;&quot;&quot;imap&quot;&quot;&quot;" name="name"/>
+            <field name="name">imap</field>
+            <field name="port" eval="143"/>
+            <field name="protocol">tcp</field>
+            <field name="description">Internet Message Access Protocol</field>
         </record>
+
     </data>
 </openerp>

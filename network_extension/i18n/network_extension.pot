@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2009-09-13 12:43:43+0000\n"
-"PO-Revision-Date: 2009-09-13 12:43:43+0000\n"
+"POT-Creation-Date: 2009-09-13 13:41:03+0000\n"
+"PO-Revision-Date: 2009-09-13 13:41:03+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,11 @@ msgstr ""
 #: model:ir.actions.act_window,name:network_extension.action_network_encrypt_password
 #: view:network.encrypt.password:0
 msgid "En/Decrypt password"
+msgstr ""
+
+#. module: network_extension
+#: help:network.protocol,port:0
+msgid "Default port defined see(http://www.iana.org/assignments/port-numbers)"
 msgstr ""
 
 #. module: network_extension
@@ -43,6 +48,11 @@ msgid "Sometimes public and private ports are different."
 msgstr ""
 
 #. module: network_extension
+#: model:network.protocol,description:network_extension.network_protocol_pop0
+msgid "Post Office Protocol - Version 3"
+msgstr ""
+
+#. module: network_extension
 #: view:network.service:0
 #: view:network.software:0
 msgid "Compute URL"
@@ -53,6 +63,16 @@ msgstr ""
 #: view:network.software.logpass:0
 #: field:network.software.logpass,note:0
 msgid "Note"
+msgstr ""
+
+#. module: network_extension
+#: selection:network.protocol,protocol:0
+msgid "Other"
+msgstr ""
+
+#. module: network_extension
+#: selection:network.protocol,protocol:0
+msgid "TCP"
 msgstr ""
 
 #. module: network_extension
@@ -71,6 +91,11 @@ msgid "The Object name must start with x_ and not contain any special character 
 msgstr ""
 
 #. module: network_extension
+#: model:network.protocol,description:network_extension.network_protocol_http0
+msgid "World Wide Web HTTP"
+msgstr ""
+
+#. module: network_extension
 #: field:network.service,public_port:0
 msgid "Public port"
 msgstr ""
@@ -78,6 +103,11 @@ msgstr ""
 #. module: network_extension
 #: field:network.network,public_domain:0
 msgid "Public domain"
+msgstr ""
+
+#. module: network_extension
+#: field:network.protocol,description:0
+msgid "Description"
 msgstr ""
 
 #. module: network_extension
@@ -100,13 +130,28 @@ msgid "List of DNS servers, separated by commas"
 msgstr ""
 
 #. module: network_extension
-#: model:ir.module.module,shortdesc:network_extension.module_meta_information
-msgid "Network Management Extension"
+#: model:network.protocol,description:network_extension.network_protocol_xmlrpc0
+msgid "Open ERP XML-RPC"
+msgstr ""
+
+#. module: network_extension
+#: model:network.protocol,description:network_extension.network_protocol_imap0
+msgid "Internet Message Access Protocol"
 msgstr ""
 
 #. module: network_extension
 #: field:network.service,path:0
 msgid "Path"
+msgstr ""
+
+#. module: network_extension
+#: model:network.protocol,description:network_extension.network_protocol_smtp0
+msgid "Simple Mail Transfer"
+msgstr ""
+
+#. module: network_extension
+#: selection:network.protocol,protocol:0
+msgid "Both"
 msgstr ""
 
 #. module: network_extension
@@ -122,13 +167,35 @@ msgid "Name"
 msgstr ""
 
 #. module: network_extension
-#: model:ir.ui.menu,name:network_extension.menu_action_service_tree
-msgid "Services"
+#: model:network.protocol,description:network_extension.network_protocol_ssh0
+msgid "The Secure Shell (SSH)"
+msgstr ""
+
+#. module: network_extension
+#: model:network.protocol,description:network_extension.network_protocol_netrpc0
+msgid "Open ERP NET-RPC"
+msgstr ""
+
+#. module: network_extension
+#: model:ir.module.module,shortdesc:network_extension.module_meta_information
+msgid "Network Management Extension"
+msgstr ""
+
+#. module: network_extension
+#: model:ir.actions.act_window,name:network_extension.action_network_software
+#: model:ir.ui.menu,name:network_extension.menu_action_software_tree
+#: field:network.service,software_id:0
+msgid "Software"
 msgstr ""
 
 #. module: network_extension
 #: field:network.network,dns:0
 msgid "DNS"
+msgstr ""
+
+#. module: network_extension
+#: model:network.protocol,description:network_extension.network_protocol_https0
+msgid "http protocol over TLS/SSL"
 msgstr ""
 
 #. module: network_extension
@@ -142,10 +209,13 @@ msgid "Private URL"
 msgstr ""
 
 #. module: network_extension
-#: model:ir.actions.act_window,name:network_extension.action_network_software
-#: model:ir.ui.menu,name:network_extension.menu_action_software_tree
-#: field:network.service,software_id:0
-msgid "Software"
+#: model:network.protocol,description:network_extension.network_protocol_ftp0
+msgid "File Transfer [Control]"
+msgstr ""
+
+#. module: network_extension
+#: selection:network.protocol,protocol:0
+msgid "UDP"
 msgstr ""
 
 #. module: network_extension
@@ -158,6 +228,7 @@ msgstr ""
 #: model:ir.model,name:network_extension.model_network_protocol
 #: model:ir.ui.menu,name:network_extension.menu_action_protocol_tree
 #: view:network.protocol:0
+#: field:network.protocol,protocol:0
 #: field:network.service,protocol_id:0
 msgid "Protocol"
 msgstr ""
@@ -200,8 +271,9 @@ msgid "\n"
 msgstr ""
 
 #. module: network_extension
-#: field:network.network,gateway:0
-msgid "Gateway"
+#: field:network.protocol,port:0
+#: field:network.service,port:0
+msgid "Port"
 msgstr ""
 
 #. module: network_extension
@@ -210,7 +282,12 @@ msgid "Logins/Passwords"
 msgstr ""
 
 #. module: network_extension
-#: field:network.service,port:0
-msgid "Port"
+#: model:ir.ui.menu,name:network_extension.menu_action_service_tree
+msgid "Services"
+msgstr ""
+
+#. module: network_extension
+#: field:network.network,gateway:0
+msgid "Gateway"
 msgstr ""
 
