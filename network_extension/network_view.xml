@@ -126,6 +126,7 @@
             <field name="arch" type="xml">
                 <field name="network_id" position="after">
                     <field name="ip_addr"/>
+                    <field name="mac_addr"/>
                 </field>
             </field>
         </record>

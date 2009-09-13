@@ -221,9 +221,21 @@ class network_service(osv.osv):
     def onchange_port(self, cr, uid, ids, port, context={}):
         if not port:
             return {}
-        return {'value':{'public_port': port}}
+        return {'value': {'public_port': port}}
 
 network_service()
+
+class network_material(osv.osv):
+    _inherit = 'network.material'
+
+    _columns = {
+        'mac_addr': fields.char('MAC addresss', size=17),
+    }
+
+    # TODO: Add On Changeon the mac adress, to check if it correct
+    #       regexp: /^([0-9a-f]{2}([:-]|$)){6}$/i
+
+network_material()
 
 
 class network_encrypt_password(osv.osv_memory):
@@ -243,5 +255,7 @@ class network_encrypt_password(osv.osv_memory):
         return super(osv.osv_memory, self).create(cr, uid, vals, context=context)
 
 network_encrypt_password()
+
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
