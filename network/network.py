@@ -98,17 +98,24 @@ network_material()
 class network_changes(osv.osv):
     _name = 'network.changes'
     _description = 'Network changes'
+
     _columns = {
         'name': fields.char('Short Description', size=64,
                              required=True),
         'description': fields.text('Long Description'),
-        'date': fields.date('Change date'),
+        'date': fields.datetime('Change date'),
         'machine_id': fields.many2one('network.material',
                                        'Machine'),
+        'user_id': fields.many2one('res.users', 'User', required=True),
     }
+
     _defaults = {
-        'date': lambda *a: time.strftime('%Y-%m-%d'),
+        'date': lambda *a: time.strftime('%Y-%m-%d %H:%M:%S'),
+        'user_id': lambda self,cr,uid,ctx : uid,
     }
+
+    _order = 'date desc'
+
 network_changes()
 
 #----------------------------------------------------------
