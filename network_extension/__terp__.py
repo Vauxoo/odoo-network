@@ -26,7 +26,7 @@
 
 {
     "name" : "Network Management Extension",
-    "version" : "1.0",
+    "version" : "1.0.1",
     "author" : "Zikzakmedia SL",
     "category" : "Enterprise Specific Modules/Information Technology",
     "website": "www.zikzakmedia.com",
