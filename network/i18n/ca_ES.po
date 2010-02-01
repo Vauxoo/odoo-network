@@ -5,16 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.1\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2009-09-13 16:12+0000\n"
-"PO-Revision-Date: 2010-09-24 16:07+0000\n"
-"Last-Translator: Jordi Esteve (www.zikzakmedia.com) "
-"<jesteve@zikzakmedia.com>\n"
+"POT-Creation-Date: 2009-09-13 16:12:15+0000\n"
+"PO-Revision-Date: 2009-08-06 20:39+0100\n"
+"Last-Translator: Jordi Esteve (Zikzakmedia) <jesteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-25 09:23+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Generator: Translate Toolkit 1.1.1\n"
 
 #. module: network
 #: field:network.hardware.type,networkable:0
@@ -23,8 +21,7 @@ msgstr "Maquinari en xarxa"
 
 #. module: network
 #: model:ir.module.module,description:network.module_meta_information
-msgid ""
-"\n"
+msgid "\n"
 "    A simple module to encode your networks and materials:\n"
 "    - networks and connections between networks\n"
 "    - hardwares and softwares with:\n"
@@ -42,8 +39,7 @@ msgstr ""
 
 #. module: network
 #: constraint:ir.model:0
-msgid ""
-"The Object name must start with x_ and not contain any special character !"
+msgid "The Object name must start with x_ and not contain any special character !"
 msgstr ""
 "El nom de l'objecte ha de començar amb x_ i sense cap caràcter especial!"
 
@@ -147,7 +143,7 @@ msgstr "Afegir contrasenya"
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type1
 msgid "Hub"
-msgstr "Hub"
+msgstr ""
 
 #. module: network
 #: view:network.material:0
@@ -163,7 +159,7 @@ msgstr "Canvis de xarxes"
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type3
 msgid "Screen"
-msgstr "Pantalla"
+msgstr ""
 
 #. module: network
 #: model:ir.actions.act_window,name:network.edit_material_2click
@@ -175,7 +171,7 @@ msgstr "Maquinari"
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type4
 msgid "Network Printer"
-msgstr "Impressora de xarxa"
+msgstr ""
 
 #. module: network
 #: model:ir.model,name:network.model_network_software_type
@@ -258,7 +254,7 @@ msgstr "Membres"
 #. module: network
 #: model:network.software.type,name:network.demo_soft_type1
 msgid "Database"
-msgstr "Base de dades"
+msgstr ""
 
 #. module: network
 #: view:network.software:0
@@ -303,7 +299,7 @@ msgstr "Programari"
 #. module: network
 #: model:network.software.type,name:network.demo_soft_type2
 msgid "DNS Server"
-msgstr "Servidor de DNS"
+msgstr ""
 
 #. module: network
 #: field:network.hardware.type,name:0
@@ -329,7 +325,7 @@ msgstr "Tipus de maquinari"
 #. module: network
 #: view:network.changes:0
 msgid "Description"
-msgstr "Descripció"
+msgstr ""
 
 #. module: network
 #: view:network.material:0
@@ -386,7 +382,7 @@ msgstr "Maquinari pare"
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type2
 msgid "Switch"
-msgstr "Switch"
+msgstr ""
 
 #. module: network
 #: model:ir.model,name:network.model_network_hardware_type
@@ -407,7 +403,7 @@ msgstr "Adreça IP"
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type0
 msgid "Computer"
-msgstr "Ordinador"
+msgstr ""
 
 #. module: network
 #: field:network.software,version:0
@@ -417,12 +413,12 @@ msgstr "Versió del programari"
 #. module: network
 #: model:network.software.type,name:network.demo_soft_type0
 msgid "LDAP"
-msgstr "LDAP"
+msgstr ""
 
 #. module: network
 #: field:network.changes,user_id:0
 msgid "User"
-msgstr "Usuari"
+msgstr ""
 
 #. module: network
 #: field:network.network,contact_id:0
