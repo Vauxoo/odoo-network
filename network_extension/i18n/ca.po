@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.1\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2010-02-01 12:11+0000\n"
-"PO-Revision-Date: 2010-08-31 08:23+0000\n"
-"Last-Translator: Jordi Esteve (www.zikzakmedia.com) "
+"PO-Revision-Date: 2010-02-01 21:41+0000\n"
+"Last-Translator: Jordi Esteve - http://www.zikzakmedia.com "
 "<jesteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-16 05:23+0000\n"
-"X-Generator: Launchpad (build 12735)\n"
+"X-Launchpad-Export-Date: 2010-02-02 04:52+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_encrypt_password
@@ -35,7 +35,6 @@ msgid "Encrypt"
 msgstr "Xifra"
 
 #. module: network_extension
-#: model:ir.model,name:network_extension.model_network_network
 #: field:network.software,network_id:0
 msgid "Network"
 msgstr "Xarxa"
@@ -135,8 +134,6 @@ msgid "Service"
 msgstr "Servei"
 
 #. module: network_extension
-#: model:ir.model,name:network_extension.model_network_material
-#: view:network.service:0
 #: field:network.service,material:0
 #: field:network.software.logpass,material:0
 msgid "Material"
@@ -206,7 +203,6 @@ msgstr "Extensió del gestor de xarxes"
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_software
-#: model:ir.model,name:network_extension.model_network_software
 #: model:ir.ui.menu,name:network_extension.menu_action_software_tree
 #: field:network.service,software_id:0
 msgid "Software"
@@ -258,7 +254,6 @@ msgstr "IP pública"
 #: model:ir.ui.menu,name:network_extension.menu_action_protocol_tree
 #: view:network.protocol:0
 #: field:network.protocol,protocol:0
-#: view:network.service:0
 #: field:network.service,protocol_id:0
 msgid "Protocol"
 msgstr "Protocol"
