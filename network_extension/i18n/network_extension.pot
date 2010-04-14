@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 5.0.3\n"
+"Project-Id-Version: OpenERP Server 5.0.7\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2009-09-13 16:12:42+0000\n"
-"PO-Revision-Date: 2009-09-13 16:12:42+0000\n"
+"POT-Creation-Date: 2010-02-01 12:11:51+0000\n"
+"PO-Revision-Date: 2010-02-01 12:11:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,13 +33,18 @@ msgid "Encrypt"
 msgstr ""
 
 #. module: network_extension
+#: field:network.software,network_id:0
+msgid "Network"
+msgstr ""
+
+#. module: network_extension
 #: field:network.service,public_url:0
 msgid "Public URL"
 msgstr ""
 
 #. module: network_extension
 #: model:ir.model,name:network_extension.model_network_encrypt_password
-msgid "network.encrypt.password"
+msgid "Password encryption"
 msgstr ""
 
 #. module: network_extension
@@ -88,6 +93,12 @@ msgstr ""
 #. module: network_extension
 #: constraint:ir.model:0
 msgid "The Object name must start with x_ and not contain any special character !"
+msgstr ""
+
+#. module: network_extension
+#: field:network.protocol,port:0
+#: field:network.service,port:0
+msgid "Port"
 msgstr ""
 
 #. module: network_extension
@@ -150,6 +161,11 @@ msgid "Simple Mail Transfer"
 msgstr ""
 
 #. module: network_extension
+#: model:ir.actions.act_window,name:network_extension.act_partner_2_softwares
+msgid "Softwares"
+msgstr ""
+
+#. module: network_extension
 #: selection:network.protocol,protocol:0
 msgid "Both"
 msgstr ""
@@ -186,6 +202,11 @@ msgstr ""
 #: model:ir.ui.menu,name:network_extension.menu_action_software_tree
 #: field:network.service,software_id:0
 msgid "Software"
+msgstr ""
+
+#. module: network_extension
+#: model:ir.actions.act_window,name:network_extension.act_partner_2_materials
+msgid "Materials"
 msgstr ""
 
 #. module: network_extension
@@ -271,9 +292,8 @@ msgid "\n"
 msgstr ""
 
 #. module: network_extension
-#: field:network.protocol,port:0
-#: field:network.service,port:0
-msgid "Port"
+#: model:ir.actions.act_window,name:network_extension.act_partner_2_networks
+msgid "Networks"
 msgstr ""
 
 #. module: network_extension
@@ -284,6 +304,12 @@ msgstr ""
 #. module: network_extension
 #: model:ir.ui.menu,name:network_extension.menu_action_service_tree
 msgid "Services"
+msgstr ""
+
+#. module: network_extension
+#: field:network.material,partner_id:0
+#: field:network.software,partner_id:0
+msgid "Partner"
 msgstr ""
 
 #. module: network_extension

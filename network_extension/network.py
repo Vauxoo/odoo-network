@@ -48,6 +48,22 @@ class network_network(osv.osv):
 
 network_network()
 
+
+#----------------------------------------------------------
+# Materials; computer, printer, switch, ...
+#----------------------------------------------------------
+class network_material(osv.osv):
+    _inherit = "network.material"
+    _columns = {
+        'mac_addr': fields.char('MAC addresss', size=17),
+        'partner_id': fields.related('network_id', 'contact_id', type='many2one', relation='res.partner', string='Partner', readonly=True),
+    }
+    # TODO: Add On Changeon the mac adress, to check if it correct
+    #       regexp: /^([0-9a-f]{2}([:-]|$)){6}$/i
+
+network_material()
+
+
 #----------------------------------------------------------
 # A software installed on a material
 #----------------------------------------------------------
@@ -60,6 +76,8 @@ class network_software(osv.osv):
         'type': fields.many2one('network.software.type',
                                 'Software Type', required=True, select=1),
         'service_ids': fields.one2many('network.service', 'software_id', string='Service'),
+        'network_id': fields.related('material_id', 'network_id', type='many2one', relation='network.network', string='Network', readonly=True),
+        'partner_id': fields.related('material_id', 'partner_id', type='many2one', relation='res.partner', string='Partner', readonly=True),
     }
 
     def _default_material(self, cursor, user, context=None):
@@ -227,18 +245,6 @@ class network_service(osv.osv):
         return {'value': {'public_port': port}}
 
 network_service()
-
-class network_material(osv.osv):
-    _inherit = 'network.material'
-
-    _columns = {
-        'mac_addr': fields.char('MAC addresss', size=17),
-    }
-
-    # TODO: Add On Changeon the mac adress, to check if it correct
-    #       regexp: /^([0-9a-f]{2}([:-]|$)){6}$/i
-
-network_material()
 
 
 class network_encrypt_password(osv.osv_memory):

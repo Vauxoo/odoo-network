@@ -102,7 +102,8 @@
             <field name="model">network.material</field>
             <field name="inherit_id" ref="network.material_view"/>
             <field name="arch" type="xml">
-                <field name="type" position="after">
+                <field name="name" position="before">
+                    <field name="partner_id" select="2"/>
                     <field name="network_id" select="2"/>
                 </field>
             </field>
@@ -124,7 +125,10 @@
             <field name="model">network.material</field>
             <field name="inherit_id" ref="network.edit_network"/>
             <field name="arch" type="xml">
-                <field name="network_id" position="after">
+                <field name="network_id" position="replace">
+                    <newline/>
+                    <field name="partner_id"/>
+                    <field name="network_id"/>
                     <field name="ip_addr"/>
                     <field name="mac_addr"/>
                 </field>
@@ -133,12 +137,14 @@
 
         <!-- SOFTWARE -->
         <record model="ir.ui.view" id="view_software_tree_ext1">
-            <field name="name">network.view.software.form.ext1</field>
+            <field name="name">network.view.software.tree.ext1</field>
             <field name="model">network.software</field>
             <field name="inherit_id" ref="network.view_software_tree"/>
             <field name="arch" type="xml">
-                <field name="type" position="after">
-                    <field name="material_id" select="1"/>
+                <field name="name" position="before">
+                    <field name="partner_id" select="2"/>
+                    <field name="network_id" select="2"/>
+                    <field name="material_id" select="2"/>
                 </field>
             </field>
         </record>
@@ -198,6 +204,8 @@
             <field name="inherit_id" ref="network.software_form"/>
             <field name="arch" type="xml">
                 <field name="type" position="after">
+                    <field name="partner_id"/>
+                    <field name="network_id"/>
                     <field name="material_id" required="True"/>
                 </field>
             </field>
@@ -410,6 +418,27 @@
             parent="network.menu_network_definition"
             action="action_network_encrypt_password"
             groups="network.group_network_manager"/>
+
+
+        <!-- Shortcuts -->
+        <act_window name="Networks"
+                    domain="[('contact_id', '=', active_id)]"
+                    context="{'contact_id': active_id}"
+                    res_model="network.network"
+                    src_model="res.partner"
+                    id="act_partner_2_networks"/>
+        <act_window name="Materials"
+                    domain="[('partner_id', '=', active_id)]"
+                    context="{'partner_id': active_id}"
+                    res_model="network.material"
+                    src_model="res.partner"
+                    id="act_partner_2_materials"/>
+        <act_window name="Softwares"
+                    domain="[('partner_id', '=', active_id)]"
+                    context="{'partner_id': active_id}"
+                    res_model="network.software"
+                    src_model="res.partner"
+                    id="act_partner_2_softwares"/>
 
     </data>
 </openerp>
