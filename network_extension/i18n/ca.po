@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.1\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2010-02-01 12:11+0000\n"
-"PO-Revision-Date: 2010-06-09 21:52+0000\n"
+"PO-Revision-Date: 2010-07-19 04:32+0000\n"
 "Last-Translator: Jordi Esteve (www.zikzakmedia.com) "
 "<jesteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-21 03:47+0000\n"
+"X-Launchpad-Export-Date: 2010-07-20 03:54+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. module: network_extension
@@ -85,7 +85,7 @@ msgstr "TCP"
 #. module: network_extension
 #: constraint:ir.actions.act_window:0
 msgid "Invalid model name in the action definition."
-msgstr "Nom de model no vàlid a la definició de l'acció."
+msgstr "Nom del model no vàlid a la definició de l'acció."
 
 #. module: network_extension
 #: field:network.material,mac_addr:0
@@ -100,7 +100,6 @@ msgstr ""
 "El nom del objecte ha de començar amb x_ i sense caràcters especials!"
 
 #. module: network_extension
-#: field:network.protocol,port:0
 #: field:network.service,port:0
 msgid "Port"
 msgstr "Port"
@@ -253,7 +252,6 @@ msgstr "IP pública"
 #: model:ir.model,name:network_extension.model_network_protocol
 #: model:ir.ui.menu,name:network_extension.menu_action_protocol_tree
 #: view:network.protocol:0
-#: field:network.protocol,protocol:0
 #: field:network.service,protocol_id:0
 msgid "Protocol"
 msgstr "Protocol"
