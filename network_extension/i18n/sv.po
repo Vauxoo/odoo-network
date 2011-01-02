@@ -1,15 +1,16 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-# 	* network_extension
+# Swedish translation for openobject-addons
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 5.0.1\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-02-01 12:11+0000\n"
-"PO-Revision-Date: 2010-08-19 15:07+0000\n"
-"Last-Translator: Jordi Esteve (www.zikzakmedia.com) "
-"<jesteve@zikzakmedia.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2010-11-22 19:44+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,111 +21,109 @@ msgstr ""
 #: model:ir.actions.act_window,name:network_extension.action_network_encrypt_password
 #: view:network.encrypt.password:0
 msgid "En/Decrypt password"
-msgstr "Contraseña cifrar/descifrar"
+msgstr ""
 
 #. module: network_extension
 #: help:network.protocol,port:0
 msgid ""
 "Default port defined see(http://www.iana.org/assignments/port-numbers)"
-msgstr "Puerto por defecto, ver http://www.iana.org/assignments/port-numbers"
+msgstr ""
 
 #. module: network_extension
 #: view:network.software:0
 #: view:network.software.logpass:0
 msgid "Encrypt"
-msgstr "Cifrar"
+msgstr ""
 
 #. module: network_extension
 #: field:network.software,network_id:0
 msgid "Network"
-msgstr "Redes"
+msgstr ""
 
 #. module: network_extension
 #: field:network.service,public_url:0
 msgid "Public URL"
-msgstr "URL pública"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.model,name:network_extension.model_network_encrypt_password
 msgid "Password encryption"
-msgstr "Cifrado de contraseñas"
+msgstr ""
 
 #. module: network_extension
 #: help:network.service,public_port:0
 msgid "Sometimes public and private ports are different."
-msgstr "Algunas veces los puertos públicos y privados son diferentes."
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_pop0
 msgid "Post Office Protocol - Version 3"
-msgstr "Post Office Protocol - Versión 3"
+msgstr ""
 
 #. module: network_extension
 #: view:network.service:0
 #: view:network.software:0
 msgid "Compute URL"
-msgstr "Calcula URL"
+msgstr ""
 
 #. module: network_extension
 #: view:network.software:0
 #: view:network.software.logpass:0
 #: field:network.software.logpass,note:0
 msgid "Note"
-msgstr "Nota"
+msgstr ""
 
 #. module: network_extension
 #: selection:network.protocol,protocol:0
 msgid "Other"
-msgstr "Otro"
+msgstr ""
 
 #. module: network_extension
 #: selection:network.protocol,protocol:0
 msgid "TCP"
-msgstr "TCP"
+msgstr ""
 
 #. module: network_extension
 #: constraint:ir.actions.act_window:0
 msgid "Invalid model name in the action definition."
-msgstr "Nombre de modelo no válido en la definición de la acción."
+msgstr ""
 
 #. module: network_extension
 #: field:network.material,mac_addr:0
 msgid "MAC addresss"
-msgstr "Dirección MAC"
+msgstr ""
 
 #. module: network_extension
 #: constraint:ir.model:0
 msgid ""
 "The Object name must start with x_ and not contain any special character !"
 msgstr ""
-"¡El nombre del objeto debe empezar con x_ y no contener ningún carácter "
-"especial!"
 
 #. module: network_extension
 #: field:network.protocol,port:0
 #: field:network.service,port:0
 msgid "Port"
-msgstr "Puerto"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_http0
 msgid "World Wide Web HTTP"
-msgstr "World Wide Web HTTP"
+msgstr ""
 
 #. module: network_extension
 #: field:network.service,public_port:0
 msgid "Public port"
-msgstr "Puerto público"
+msgstr ""
 
 #. module: network_extension
 #: field:network.network,public_domain:0
 msgid "Public domain"
-msgstr "Dominio"
+msgstr ""
 
 #. module: network_extension
 #: field:network.protocol,description:0
 msgid "Description"
-msgstr "Descripción"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_service
@@ -132,122 +131,122 @@ msgstr "Descripción"
 #: view:network.software:0
 #: field:network.software,service_ids:0
 msgid "Service"
-msgstr "Servicios"
+msgstr ""
 
 #. module: network_extension
 #: field:network.service,material:0
 #: field:network.software.logpass,material:0
 msgid "Material"
-msgstr "Hardware"
+msgstr ""
 
 #. module: network_extension
 #: help:network.network,dns:0
 msgid "List of DNS servers, separated by commas"
-msgstr "Lista de servidores DNS, separados por comas"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_xmlrpc0
 msgid "Open ERP XML-RPC"
-msgstr "OpenERP XML-RPC"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_imap0
 msgid "Internet Message Access Protocol"
-msgstr "Internet Message Access Protocol"
+msgstr ""
 
 #. module: network_extension
 #: field:network.service,path:0
 msgid "Path"
-msgstr "Ruta"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_smtp0
 msgid "Simple Mail Transfer"
-msgstr "Simple Mail Transfer"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.act_partner_2_softwares
 msgid "Softwares"
-msgstr "Softwares"
+msgstr ""
 
 #. module: network_extension
 #: selection:network.protocol,protocol:0
 msgid "Both"
-msgstr "Ambos"
+msgstr ""
 
 #. module: network_extension
 #: constraint:ir.ui.view:0
 msgid "Invalid XML for View Architecture!"
-msgstr "¡XML inválido en la estructura de la vista!"
+msgstr ""
 
 #. module: network_extension
 #: field:network.protocol,name:0
 #: field:network.service,name:0
 #: field:network.software.logpass,name:0
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_ssh0
 msgid "The Secure Shell (SSH)"
-msgstr "Secure Shell (SSH)"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_netrpc0
 msgid "Open ERP NET-RPC"
-msgstr "OpenERP NET-RPC"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.module.module,shortdesc:network_extension.module_meta_information
 msgid "Network Management Extension"
-msgstr "Extensión del gestor de redes"
+msgstr "Network Management Extension"
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_software
 #: model:ir.ui.menu,name:network_extension.menu_action_software_tree
 #: field:network.service,software_id:0
 msgid "Software"
-msgstr "Software"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.act_partner_2_materials
 msgid "Materials"
-msgstr "Hardwares"
+msgstr ""
 
 #. module: network_extension
 #: field:network.network,dns:0
 msgid "DNS"
-msgstr "DNS"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_https0
 msgid "http protocol over TLS/SSL"
-msgstr "Protocolo http sobre TLS/SSL"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.model,name:network_extension.model_network_service
 msgid "Service Network"
-msgstr "Servicios de red"
+msgstr ""
 
 #. module: network_extension
 #: field:network.service,private_url:0
 msgid "Private URL"
-msgstr "URL privada"
+msgstr ""
 
 #. module: network_extension
 #: model:network.protocol,description:network_extension.network_protocol_ftp0
 msgid "File Transfer [Control]"
-msgstr "File Transfer [Control]"
+msgstr ""
 
 #. module: network_extension
 #: selection:network.protocol,protocol:0
 msgid "UDP"
-msgstr "UDP"
+msgstr ""
 
 #. module: network_extension
 #: field:network.network,public_ip_address:0
 msgid "Public IP address"
-msgstr "IP pública"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_protocol
@@ -257,30 +256,30 @@ msgstr "IP pública"
 #: field:network.protocol,protocol:0
 #: field:network.service,protocol_id:0
 msgid "Protocol"
-msgstr "Protocolo"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_logpass
 #: view:network.software:0
 msgid "Login/Password"
-msgstr "Usuario/Contraseña"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.ui.menu,name:network_extension.menu_action_encrypt_password_tree
 #: field:network.encrypt.password,name:0
 msgid "Encrypt/Decrypt password"
-msgstr "Contraseña para cifrar/descifrar"
+msgstr ""
 
 #. module: network_extension
 #: field:network.software.logpass,encrypted:0
 msgid "Encrypted"
-msgstr "Cifrado"
+msgstr ""
 
 #. module: network_extension
 #: view:network.software:0
 #: view:network.software.logpass:0
 msgid "Decrypt"
-msgstr "Descifrar"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.module.module,description:network_extension.module_meta_information
@@ -296,39 +295,29 @@ msgid ""
 "\n"
 "System dependency: package python-crypto required."
 msgstr ""
-"\n"
-"Organiza su software y configuraciones.\n"
-"    - Información adicional de la red: IP, dominios, DNS, gateway\n"
-"    - Protocolos\n"
-"    - Servicios\n"
-"    - Puertos\n"
-"    - URL públicas y privadas\n"
-"    - Cifrado de contraseñas\n"
-"\n"
-"Dependencia de sistema: Es necesario el paquete python-crypto."
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.act_partner_2_networks
 msgid "Networks"
-msgstr "Redes"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.ui.menu,name:network_extension.menu_action_logpass_tree
 msgid "Logins/Passwords"
-msgstr "Usuarios/Contraseñas"
+msgstr ""
 
 #. module: network_extension
 #: model:ir.ui.menu,name:network_extension.menu_action_service_tree
 msgid "Services"
-msgstr "Servicios"
+msgstr ""
 
 #. module: network_extension
 #: field:network.material,partner_id:0
 #: field:network.software,partner_id:0
 msgid "Partner"
-msgstr "Empresa"
+msgstr ""
 
 #. module: network_extension
 #: field:network.network,gateway:0
 msgid "Gateway"
-msgstr "Pasarela"
+msgstr ""

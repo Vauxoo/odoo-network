@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="network_material_invoicing_form">
+            <field name="name">network.material.form.invoicing</field>
+            <field name="model">network.material</field>
+            <field name="inherit_id" ref="network.edit_network"/>
+            <field name="arch" type="xml">
+                <field name="network_id" position="after">
+                    <field name="agreement_id" select="2" />
+                    <field name="agreement_state" select="2" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="network_network_invoicing_form">
+            <field name="name">network.network.form.invoicing</field>
+            <field name="model">network.network</field>
+            <field name="inherit_id" ref="network.add_network_view"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="agreement_id" select="2" />
+                    <field name="agreement_state" select="2" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="network_software_invoicing_form">
+            <field name="name">network.software.form.invoicing</field>
+            <field name="model">network.software</field>
+            <field name="inherit_id" ref="network.software_form"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="agreement_id" select="2" />
+                    <field name="agreement_state" select="2" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
