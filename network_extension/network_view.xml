@@ -164,6 +164,7 @@
                             <field name="name"/>
                             <newline/>
                             <field name="login"/>
+                            <field name="superuser"/>
                             <newline/>
                             <field name="password" on_change="onchange_password(encrypted)"/>
                             <button name="_encrypt_password" type="object" string="Encrypt"/>
@@ -260,6 +261,7 @@
                     <field name="name"/>
                     <newline/>
                     <field name="login"/>
+                    <field name="superuser"/>
                     <newline/>
                     <field name="password" on_change="onchange_password(encrypted)"/>
                     <button name="_encrypt_password" type="object" string="Encrypt"/>
