@@ -106,6 +106,7 @@ class network_software_logpass(osv.osv):
         'note': fields.text('Note'),
         'material': fields.related('software_id', 'material_id', type='many2one', relation='network.material', string='Material', readonly=True),
         'encrypted': fields.boolean('Encrypted'),
+        'superuser': fields.boolean('Super User'),
     }
 
     _defaults = {
