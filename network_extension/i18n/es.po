@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-25 04:52+0000\n"
-"X-Generator: Launchpad (build 12351)\n"
+"X-Launchpad-Export-Date: 2011-04-16 05:23+0000\n"
+"X-Generator: Launchpad (build 12735)\n"
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_encrypt_password
@@ -35,6 +35,7 @@ msgid "Encrypt"
 msgstr "Cifrar"
 
 #. module: network_extension
+#: model:ir.model,name:network_extension.model_network_network
 #: field:network.software,network_id:0
 msgid "Network"
 msgstr "Redes"
@@ -135,6 +136,8 @@ msgid "Service"
 msgstr "Servicios"
 
 #. module: network_extension
+#: model:ir.model,name:network_extension.model_network_material
+#: view:network.service:0
 #: field:network.service,material:0
 #: field:network.software.logpass,material:0
 msgid "Material"
@@ -204,6 +207,7 @@ msgstr "Extensión del gestor de redes"
 
 #. module: network_extension
 #: model:ir.actions.act_window,name:network_extension.action_network_software
+#: model:ir.model,name:network_extension.model_network_software
 #: model:ir.ui.menu,name:network_extension.menu_action_software_tree
 #: field:network.service,software_id:0
 msgid "Software"
@@ -255,6 +259,7 @@ msgstr "IP pública"
 #: model:ir.ui.menu,name:network_extension.menu_action_protocol_tree
 #: view:network.protocol:0
 #: field:network.protocol,protocol:0
+#: view:network.service:0
 #: field:network.service,protocol_id:0
 msgid "Protocol"
 msgstr "Protocolo"
