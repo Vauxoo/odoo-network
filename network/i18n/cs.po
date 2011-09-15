@@ -14,13 +14,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-04 04:48+0000\n"
-"X-Generator: Launchpad (build 13830)\n"
+"X-Launchpad-Export-Date: 2011-09-15 05:03+0000\n"
+"X-Generator: Launchpad (build 13921)\n"
 
 #. module: network
 #: field:network.hardware.type,networkable:0
 msgid "Networkable hardware"
-msgstr ""
+msgstr "Síťový hardware"
 
 #. module: network
 #: model:ir.module.module,description:network.module_meta_information
@@ -33,85 +33,93 @@ msgid ""
 "\n"
 "    You can print interventions form for technical people."
 msgstr ""
+"\n"
+"    Jednoduchý modul pro uchování vašich sítí a materiálů:\n"
+"    - sítě a spojení mezi sítěmi\n"
+"    - hardware a software s:\n"
+"        - verzemi, přístupovými právy, zárukami\n"
+"\n"
+"    Můžete tisknout formulář zásahů pro techniky."
 
 #. module: network
 #: constraint:ir.model:0
 msgid ""
 "The Object name must start with x_ and not contain any special character !"
 msgstr ""
+"Jméno objektu musí začínat znakem x_ a nesmí obsahovat žádný speciální znak!"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.tree_by_network
 msgid "Material in this network"
-msgstr ""
+msgstr "Materiál v síti"
 
 #. module: network
 #: view:network.software:0
 msgid "General Informations"
-msgstr ""
+msgstr "Obecné informace"
 
 #. module: network
 #: field:network.material,child_id:0
 msgid "Childs Materials"
-msgstr ""
+msgstr "Podřízený materiál"
 
 #. module: network
 #: constraint:ir.ui.view:0
 msgid "Invalid XML for View Architecture!"
-msgstr ""
+msgstr "Neplatné XML pro zobrazení architektury!"
 
 #. module: network
 #: field:network.changes,date:0
 msgid "Change date"
-msgstr ""
+msgstr "Datum změny"
 
 #. module: network
 #: field:network.changes,machine_id:0
 msgid "Machine"
-msgstr ""
+msgstr "Stroj"
 
 #. module: network
 #: model:ir.module.module,shortdesc:network.module_meta_information
 msgid "Network Management"
-msgstr ""
+msgstr "Správa sítě"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.action_top_material_tree
 #: model:ir.ui.menu,name:network.menu_action_top_material_tree
 msgid "Top Materials"
-msgstr ""
+msgstr "Horní materiály"
 
 #. module: network
 #: field:network.material,warranty:0
 msgid "Warranty deadline"
-msgstr ""
+msgstr "Vypršení záruky"
 
 #. module: network
 #: constraint:ir.actions.act_window:0
 msgid "Invalid model name in the action definition."
-msgstr ""
+msgstr "Neplatné jméno modulu v definici akce."
 
 #. module: network
 #: view:network.material:0
 #: view:network.network:0
 msgid "Network Material"
-msgstr ""
+msgstr "Síťový materiál"
 
 #. module: network
 #: field:network.material,supplier:0
 msgid "Supplier"
-msgstr ""
+msgstr "Dodavatel"
 
 #. module: network
 #: field:network.software,logpass:0
 msgid "Login / Password"
-msgstr ""
+msgstr "Přihlášení / Heslo"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.add_view_material
 #: model:ir.ui.menu,name:network.menu_add_view_material
 msgid "Material List"
-msgstr ""
+msgstr "Seznam materiálu"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.add_new_network
@@ -120,143 +128,143 @@ msgstr ""
 #: model:ir.ui.menu,name:network.menu_tools_configuration_network
 #: field:network.material,network_id:0
 msgid "Network"
-msgstr ""
+msgstr "Síť"
 
 #. module: network
 #: model:ir.model,name:network.model_network_software_logpass
 msgid "Software login"
-msgstr ""
+msgstr "Přihlášení software"
 
 #. module: network
 #: view:network.software.logpass:0
 msgid "Passwords"
-msgstr ""
+msgstr "Hesla"
 
 #. module: network
 #: view:network.software.logpass:0
 msgid "Add a password"
-msgstr ""
+msgstr "Přidat heslo"
 
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type1
 msgid "Hub"
-msgstr ""
+msgstr "Rozbočovač"
 
 #. module: network
 #: view:network.material:0
 #: view:network.network:0
 msgid "Material Info"
-msgstr ""
+msgstr "Informace materiálu"
 
 #. module: network
 #: model:ir.model,name:network.model_network_changes
 msgid "Network changes"
-msgstr ""
+msgstr "Změny sítě"
 
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type3
 msgid "Screen"
-msgstr ""
+msgstr "Obrazovka"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.edit_material_2click
 #: model:ir.model,name:network.model_network_material
 #: field:network.software,material_id:0
 msgid "Material"
-msgstr ""
+msgstr "Materiál"
 
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type4
 msgid "Network Printer"
-msgstr ""
+msgstr "Síťová tiskárna"
 
 #. module: network
 #: model:ir.model,name:network.model_network_software_type
 msgid "Software type"
-msgstr ""
+msgstr "Typ software"
 
 #. module: network
 #: view:network.network:0
 msgid "Network Definition"
-msgstr ""
+msgstr "Definice sítě"
 
 #. module: network
 #: view:network.material:0
 #: view:network.network:0
 msgid "Updates"
-msgstr ""
+msgstr "Aktualitzace"
 
 #. module: network
 #: view:network.material:0
 msgid "Material in this Network"
-msgstr ""
+msgstr "Materiál v této síti"
 
 #. module: network
 #: field:network.changes,name:0
 msgid "Short Description"
-msgstr ""
+msgstr "Krátký popis"
 
 #. module: network
 #: view:network.changes:0
 msgid "Enter a diary entry"
-msgstr ""
+msgstr "Vložte položku deníku"
 
 #. module: network
 #: model:ir.ui.menu,name:network.menu_tools_configuration
 msgid "Configuration"
-msgstr ""
+msgstr "Nastavení"
 
 #. module: network
 #: model:ir.ui.menu,name:network.menu_add_new_network
 msgid "Networks"
-msgstr ""
+msgstr "Sítě"
 
 #. module: network
 #: field:network.network,user_id:0
 msgid "Onsite Contact person"
-msgstr ""
+msgstr "Místní kontaktní osoba"
 
 #. module: network
 #: model:ir.ui.menu,name:network.menu_action_hard_type
 #: model:ir.ui.menu,name:network.menu_action_software_type
 msgid "Types"
-msgstr ""
+msgstr "Typy"
 
 #. module: network
 #: field:network.material,software_id:0
 msgid "Installed Software"
-msgstr ""
+msgstr "Instalovaný software"
 
 #. module: network
 #: field:network.software,name:0
 #: field:network.software.type,name:0
 msgid "Composant Name"
-msgstr ""
+msgstr "Jméno součásti"
 
 #. module: network
 #: view:network.material:0
 msgid "All Network Material"
-msgstr ""
+msgstr "Všechen síťový materiál"
 
 #. module: network
 #: field:network.material,name:0
 msgid "Device Name"
-msgstr ""
+msgstr "Jméno zařízení"
 
 #. module: network
 #: field:network.network,material_ids:0
 msgid "Members"
-msgstr ""
+msgstr "Členové"
 
 #. module: network
 #: model:network.software.type,name:network.demo_soft_type1
 msgid "Database"
-msgstr ""
+msgstr "Databáze"
 
 #. module: network
 #: view:network.software:0
 msgid "Network Softwares"
-msgstr ""
+msgstr "Síťový software"
 
 #. module: network
 #: view:network.material:0
@@ -266,13 +274,13 @@ msgstr ""
 #: field:network.software,note:0
 #: field:network.software.type,note:0
 msgid "Notes"
-msgstr ""
+msgstr "Poznámky"
 
 #. module: network
 #: field:network.material,date:0
 #: field:network.software,date:0
 msgid "Installation Date"
-msgstr ""
+msgstr "Datum instalace"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.action_software_type
@@ -280,172 +288,172 @@ msgstr ""
 #: field:network.software,type:0
 #: view:network.software.type:0
 msgid "Software Type"
-msgstr ""
+msgstr "Typ software"
 
 #. module: network
 #: view:network.network:0
 msgid "Network Element"
-msgstr ""
+msgstr "Prvek sítě"
 
 #. module: network
 #: model:ir.model,name:network.model_network_software
 #: field:network.software.logpass,software_id:0
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #. module: network
 #: model:network.software.type,name:network.demo_soft_type2
 msgid "DNS Server"
-msgstr ""
+msgstr "Server DNS"
 
 #. module: network
 #: field:network.hardware.type,name:0
 msgid "Type of material"
-msgstr ""
+msgstr "Typ materiálu"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.add_view_network
 msgid "Netwok List"
-msgstr ""
+msgstr "Seznam sítí"
 
 #. module: network
 #: field:network.software.logpass,login:0
 msgid "Login"
-msgstr ""
+msgstr "Přihlášení"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.action_hard_type
 #: model:ir.ui.menu,name:network.menu_action_hard_type
 #: view:network.hardware.type:0
 msgid "Hardware Type"
-msgstr ""
+msgstr "Typ hardware"
 
 #. module: network
 #: view:network.changes:0
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #. module: network
 #: view:network.material:0
 #: view:network.network:0
 msgid "Informations"
-msgstr ""
+msgstr "Informace"
 
 #. module: network
 #: field:network.software.logpass,password:0
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #. module: network
 #: field:network.changes,description:0
 msgid "Long Description"
-msgstr ""
+msgstr "Dlouhý popis"
 
 #. module: network
 #: view:network.changes:0
 msgid "Diary entry"
-msgstr ""
+msgstr "Položka deníku"
 
 #. module: network
 #: view:network.network:0
 msgid "All Networks"
-msgstr ""
+msgstr "Všechny sítě"
 
 #. module: network
 #: view:network.changes:0
 msgid "Interventions"
-msgstr ""
+msgstr "Zásahy"
 
 #. module: network
 #: field:network.software,email:0
 msgid "Contact Email"
-msgstr ""
+msgstr "Kontaktní email"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.action_material_tree
 #: model:ir.ui.menu,name:network.menu_action_material_tree
 msgid "All Materials"
-msgstr ""
+msgstr "Všechen materiál"
 
 #. module: network
 #: model:ir.actions.act_window,name:network.add_view_network
 #: model:ir.ui.menu,name:network.menu_add_view_network
 msgid "Network List"
-msgstr ""
+msgstr "Seznam sítí"
 
 #. module: network
 #: field:network.material,parent_id:0
 msgid "Parent Material"
-msgstr ""
+msgstr "Nadřazený materiál"
 
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type2
 msgid "Switch"
-msgstr ""
+msgstr "Přepínač"
 
 #. module: network
 #: model:ir.model,name:network.model_network_hardware_type
 #: field:network.material,type:0
 msgid "Hardware type"
-msgstr ""
+msgstr "Typ hardware"
 
 #. module: network
 #: model:ir.ui.menu,name:network.menu_hardware
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #. module: network
 #: field:network.material,ip_addr:0
 msgid "IP Address"
-msgstr ""
+msgstr "Adresa IP"
 
 #. module: network
 #: model:network.hardware.type,name:network.demo_hard_type0
 msgid "Computer"
-msgstr ""
+msgstr "Počítač"
 
 #. module: network
 #: field:network.software,version:0
 msgid "Software version"
-msgstr ""
+msgstr "Verze software"
 
 #. module: network
 #: model:network.software.type,name:network.demo_soft_type0
 msgid "LDAP"
-msgstr ""
+msgstr "LDAP"
 
 #. module: network
 #: field:network.changes,user_id:0
 msgid "User"
-msgstr ""
+msgstr "Uživatel"
 
 #. module: network
 #: field:network.network,contact_id:0
 msgid "Partner"
-msgstr ""
+msgstr "Společník"
 
 #. module: network
 #: field:network.material,change_id:0
 msgid "Changes on this machine"
-msgstr ""
+msgstr "Změny na tomto stroji"
 
 #. module: network
 #: view:network.material:0
 #: view:network.network:0
 msgid "Softwares"
-msgstr ""
+msgstr "Software"
 
 #. module: network
 #: model:ir.ui.menu,name:network.menu_tools
 msgid "Tools"
-msgstr ""
+msgstr "Nástroje"
 
 #. module: network
 #: field:network.network,range:0
 msgid "Address range"
-msgstr ""
+msgstr "Rozsah adres"
 
 #. module: network
 #: field:network.network,name:0
 msgid "Network name"
-msgstr ""
+msgstr "Síťový název"
