@@ -21,7 +21,8 @@
 ##############################################################################
 
 import time
-from osv import fields, osv
+from openerp.osv import fields, osv
+from openerp.tools.translate import _
 
 #---------------------------------------------------------
 # Type of hardware: Printers, Screens, HD, ....
@@ -41,12 +42,10 @@ class network_hardware_type(osv.osv):
     _defaults = {
         'networkable': lambda *a: False,
     }
-network_hardware_type()
 
 #--------------------------------------------------------------
 # A network is composed of all kind of networkable materials
 #--------------------------------------------------------------
-
 
 class network_network(osv.osv):
     _name = 'network.network'
@@ -61,9 +60,6 @@ class network_network(osv.osv):
                                         'Members'),
     }
 
-network_network()
-
-
 def _calc_warranty(*args):
     now = list(time.localtime())
     now[0] += 1
@@ -72,7 +68,6 @@ def _calc_warranty(*args):
 #----------------------------------------------------------
 # Materials; computer, printer, switch, ...
 #----------------------------------------------------------
-
 
 class network_material(osv.osv):
     _name = "network.material"
@@ -102,12 +97,10 @@ class network_material(osv.osv):
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'warranty': _calc_warranty,
     }
-network_material()
 
 #----------------------------------------------------------
 # Changes on this machine
 #----------------------------------------------------------
-
 
 class network_changes(osv.osv):
     _name = 'network.changes'
@@ -130,8 +123,6 @@ class network_changes(osv.osv):
 
     _order = 'date desc'
 
-network_changes()
-
 #----------------------------------------------------------
 # Type of Software; LDAP, Tiny ERP, Postfix
 #----------------------------------------------------------
@@ -147,12 +138,10 @@ class network_soft_type(osv.osv):
                             required=True),
         'note': fields.text('Notes'),
     }
-network_soft_type()
 
 #----------------------------------------------------------
 # A software installed on a material
 #----------------------------------------------------------
-
 
 class network_software(osv.osv):
     _name = "network.software"
@@ -169,12 +158,10 @@ class network_software(osv.osv):
         'date': fields.date('Installation Date', size=32),
         'note': fields.text('Notes'),
     }
-network_software()
 
 #------------------------------------------------------------
 # Couples of login/password
 #------------------------------------------------------------
-
 
 class network_software_logpass(osv.osv):
     _name = "network.software.logpass"
@@ -186,5 +173,4 @@ class network_software_logpass(osv.osv):
         'software_id': fields.many2one('network.software',
                                        'Software', required=True),
     }
-network_software_logpass()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
