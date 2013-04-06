@@ -10,8 +10,8 @@
 			<field name="model">network.material</field>
 			<field name="arch" type="xml">
 				<form string="Network Material">
-					<field name="name" select="1"/>
-					<notebook>
+					<field name="name" select="1" colspan="6"/>
+					<notebook colspan="6">
 					<page string="Material Info">
 						<separator string="Informations" colspan="4"/>
 						<field name="type" select="1"/>
@@ -169,6 +169,7 @@
 				</tree>
 			</field>
         </record>
+        <!--         Network Network -->
 		<record model="ir.ui.view" id="add_network_view">
 			<field name="name">network.network.form</field>
 			<field name="model">network.network</field>
@@ -217,16 +218,15 @@
 				</tree>
 			</field>
 		</record>
-		<record model="ir.actions.act_window" id="add_view_network">
+		<record model="ir.actions.act_window" id="view_add_view_network">
 			<field name="name">Netwok List</field>
 			<field name="res_model">network.network</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
 		</record>
 		<menuitem name="Network List" parent="menu_network"
-            id="menu_add_view_network" action="add_view_network" 
+            id="menu_add_view_network" action="view_add_view_network" 
             groups="network.group_network_user"/>
-
 		<record model="ir.actions.act_window" id="add_new_network">
 			<field name="name">Network</field>
 			<field name="res_model">network.network</field>
@@ -286,6 +286,6 @@
 					<field name="name"/>
 				</tree>
 			</field>
-		</record>
+        </record>
 	</data>
 </openerp>
