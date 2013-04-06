@@ -4,7 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2008 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    $Id$
-#
+#    code migrated to v7.0 by : nhomar@vauxoo.com
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -21,8 +21,8 @@
 ##############################################################################
 {
     "name": "Network Management",
-    "version": "1.0.1",
-    "author": "Tiny",
+    "version": "1.0.6",
+    "author": "Tiny & Vauxoo",
     "category": "Enterprise Specific Modules/Information Technology",
     "depends": ["base"],
     "init_xml": [],
