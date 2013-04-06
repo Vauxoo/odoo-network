@@ -25,16 +25,16 @@
 ##############################################################################
 
 {
-    "name" : "Network Management Extension",
-    "version" : "1.0.1",
-    "author" : "Zikzakmedia SL",
-    "category" : "Enterprise Specific Modules/Information Technology",
+    "name": "Network Management Extension",
+    "version": "1.0.1",
+    "author": "Zikzakmedia SL",
+    "category": "Enterprise Specific Modules/Information Technology",
     "website": "www.zikzakmedia.com",
-    "license" : "GPL-3",
-    "depends" : ["network"],
+    "license": "GPL-3",
+    "depends": ["network"],
     'init_xml': ['network_protocol_data.xml'],
-    "demo_xml" : [],
-    "update_xml" : [
+    "demo_xml": [],
+    "update_xml": [
         'security/ir.model.access.csv',
         "network_view.xml",
     ],
@@ -48,7 +48,7 @@ Organize your software and configurations.
     - Password encryption
 
 System dependency: package python-crypto required.""",
-    "active" : False,
+    "active": False,
     "installable": True
 }
 

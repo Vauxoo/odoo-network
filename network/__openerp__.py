@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution	
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2008 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    $Id$
 #
@@ -20,12 +20,12 @@
 #
 ##############################################################################
 {
-    "name" : "Network Management",
-    "version" : "1.0.1",
-    "author" : "Tiny",
-    "category" : "Enterprise Specific Modules/Information Technology",
-    "depends" : ["base"],
-    "init_xml" : [],
+    "name": "Network Management",
+    "version": "1.0.1",
+    "author": "Tiny",
+    "category": "Enterprise Specific Modules/Information Technology",
+    "depends": ["base"],
+    "init_xml": [],
     "description": """
     A simple module to encode your networks and materials:
     - networks and connections between networks
@@ -33,15 +33,14 @@
         - versions, access rights, waranties
 
     You can print interventions form for technical people.""",
-    "demo_xml" : ["network_demo.xml"],
-    "update_xml" : [
+    "demo_xml": ["network_demo.xml"],
+    "update_xml": [
         "security/network_security.xml",
         "security/ir.model.access.csv",
-        "network_view.xml", 
+        "network_view.xml",
         "network_report.xml"
     ],
-    "active" : False,
+    "active": False,
     "installable": True
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

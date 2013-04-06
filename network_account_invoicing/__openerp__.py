@@ -25,16 +25,16 @@
 ##############################################################################
 
 {
-    "name" : "Network Account Invoicing",
-    "version" : "1.0",
-    "author" : "Zikzakmedia SL",
-    "category" : "Enterprise Specific Modules/Information Technology",
+    "name": "Network Account Invoicing",
+    "version": "1.0",
+    "author": "Zikzakmedia SL",
+    "category": "Enterprise Specific Modules/Information Technology",
     "website": "www.zikzakmedia.com",
-    "license" : "GPL-3",
-    "depends" : ["network","account_invoicing"],
+    "license": "GPL-3",
+    "depends": ["network", "account_invoicing"],
     'init_xml': [],
-    "demo_xml" : [],
-    "update_xml" : [
+    "demo_xml": [],
+    "update_xml": [
         "network_account_invoicing_view.xml",
     ],
     "description": """
@@ -42,6 +42,6 @@
         Relation Materials with Invoicing.
         Relation Software with Invoicing.
     """,
-    "active" : False,
+    "active": False,
     "installable": True
 }
