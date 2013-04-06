@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
 <openerp>
 	<data>
-		<menuitem name="Tools" id="menu_tools" icon="STOCK_PREFERENCES"/>
+		<menuitem name="Network" id="menu_tools" icon="STOCK_PREFERENCES"/>
 		<menuitem name="Network" parent="menu_tools" groups="network.group_network_user" id="menu_network"/>
                 <menuitem name="Configuration" parent="menu_network" id="menu_network_definition" groups="network.group_network_manager" sequence="1"/>
 
 		<record model="ir.ui.view" id="edit_network">
 			<field name="name">network.material.form</field>
 			<field name="model">network.material</field>
-			<field name="type">form</field>
 			<field name="priority" eval="1"/>
 			<field name="arch" type="xml">
 				<form string="Network Material">
@@ -39,7 +38,6 @@
 		<record model="ir.ui.view" id="material_view">
 			<field name="name">network.material.tree</field>
 			<field name="model">network.material</field>
-			<field name="type">tree</field>
 			<field name="field_parent">child_id</field>
 			<field name="arch" type="xml">
 				<tree string="All Network Material">
@@ -55,7 +53,6 @@
 		<record model="ir.ui.view" id="material_view_by_network">
 			<field name="name">network.material.tree</field>
 			<field name="model">network.material</field>
-			<field name="type">tree</field>
 			<field name="field_parent">child_id</field>
 			<field name="arch" type="xml">
 				<tree string="Material in this Network">
@@ -113,7 +110,6 @@
 		<record model="ir.ui.view" id="view_software_type_form">
 			<field name="name">network.software.type.form</field>
 			<field name="model">network.software.type</field>
-			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Software Type">
 					<field name="name" colspan="4" select="1"/>
@@ -133,7 +129,6 @@
 		<record model="ir.ui.view" id="view_hardware_type_form">
 			<field name="name">network.hardware.type.form</field>
 			<field name="model">network.hardware.type</field>
-			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Hardware Type">
 					<field name="name"/>
@@ -154,7 +149,6 @@
 		<record model="ir.ui.view" id="password_form">
 			<field name="name">network.software.logpass.form</field>
 			<field name="model">network.software.logpass</field>
-			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Add a password">
 					<field name="login" colspan="4"/>
@@ -165,7 +159,6 @@
 		<record model="ir.ui.view" id="password_tree">
 			<field name="name">network.software.logpass.tree</field>
 			<field name="model">network.software.logpass</field>
-			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="Passwords">
 					<field name="login"/>
@@ -177,7 +170,6 @@
 		<record model="ir.ui.view" id="software_form">
 			<field name="name">network.software.form</field>
 			<field name="model">network.software</field>
-			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Network Softwares">
 					<separator string="General Informations" colspan="4"/>
@@ -195,7 +187,6 @@
 		<record model="ir.ui.view" id="view_software_tree">
 			<field name="name">network.software.tree</field>
 			<field name="model">network.software</field>
-			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="Network Softwares">
 					<field name="name"/>
@@ -209,7 +200,6 @@
 		<record model="ir.ui.view" id="view_network">
 			<field name="name">network.network.tree</field>
 			<field name="model">network.network</field>
-			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="All Networks">
 					<field name="name" />
@@ -229,7 +219,6 @@
 		<record model="ir.ui.view" id="add_network_view">
 			<field name="name">network.network.form</field>
 			<field name="model">network.network</field>
-			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Network Element">
 					<separator string="Network Definition" colspan="4"/>
@@ -297,7 +286,6 @@
 		<record model="ir.ui.view" id="add_diary_entry_form">
 			<field name="name">network.changes.form</field>
 			<field name="model">network.changes</field>
-			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Enter a diary entry">
 					<separator string="Diary entry" colspan="4" />
@@ -313,11 +301,10 @@
 		<record model="ir.ui.view" id="add_diary_entry_tree">
 			<field name="name">network.changes.tree</field>
 			<field name="model">network.changes</field>
-			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="Interventions">
 					<field name="date"/>
-                                        <field name="user_id"/>
+                    <field name="user_id"/>
 					<field name="name"/>
 				</tree>
 			</field>
