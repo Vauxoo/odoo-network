@@ -27,12 +27,12 @@
     "depends": ["base"],
     "init_xml": [],
     "description": """
-    A simple module to encode your networks and materials:
+A simple module to encode your networks and materials:
+
     - networks and connections between networks
     - hardwares and softwares with:
         - versions, access rights, waranties
-
-    You can print interventions form for technical people.""",
+You can print interventions form for technical people.""",
     "demo_xml": ["network_demo.xml"],
     "update_xml": [
         "security/network_security.xml",
