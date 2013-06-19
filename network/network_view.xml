@@ -80,10 +80,12 @@
       <field name="name">network.software.type.form</field>
       <field name="model">network.software.type</field>
       <field name="arch" type="xml">
-        <form string="Software Type" version="7.0">
-          <field name="name" colspan="4" select="1" />
-          <field name="note" colspan="4" />
-        </form>
+          <form string="Software Type" version="7.0">
+            <group>
+                <field name="name" colspan="4" select="1" />
+                <field name="note" colspan="4" />
+            </group>
+          </form>
       </field>
     </record>
     <record model="ir.actions.act_window" id="action_software_type">
@@ -99,8 +101,10 @@
       <field name="model">network.hardware.type</field>
       <field name="arch" type="xml">
         <form string="Hardware Type" version="7.0">
-          <field name="name" />
-          <field name="networkable" />
+            <group>
+                <field name="name" />
+                <field name="networkable" />
+            </group>
         </form>
       </field>
     </record>
