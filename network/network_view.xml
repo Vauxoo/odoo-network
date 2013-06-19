@@ -213,12 +213,6 @@
       <field name="view_mode">tree,form</field>
     </record>
     <menuitem name="Network List" parent="menu_network" id="menu_add_view_network" action="view_add_view_network" groups="network.group_network_user" />
-    <record model="ir.actions.act_window" id="add_new_network">
-      <field name="name">Network</field>
-      <field name="res_model">network.network</field>
-      <field name="view_type">form</field>
-    </record>
-    <menuitem name="Networks" parent="menu_network" id="menu_add_new_network" action="add_new_network" groups="network.group_network_user" />
     <record model="ir.actions.act_window" id="action_material_tree">
       <field name="name">All Materials</field>
       <field name="res_model">network.material</field>
