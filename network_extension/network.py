@@ -24,9 +24,9 @@
 #
 ##############################################################################
 
-from osv import osv
-from osv import fields
-from tools.translate import _
+from openerp.osv import fields, osv
+from openerp.tools.translate import _
+
 
 import base64
 import time
@@ -34,7 +34,7 @@ import time
 #--------------------------------------------------------------
 # A network is composed of all kind of networkable materials
 #--------------------------------------------------------------
-class network_network(osv.osv):
+class network_network(osv.Model):
     """
     A network is composed of all kind of networkable materials
     """
@@ -46,13 +46,12 @@ class network_network(osv.osv):
         'public_domain': fields.char('Public domain', size=100),
     }
 
-network_network()
 
 
 #----------------------------------------------------------
 # Materials; computer, printer, switch, ...
 #----------------------------------------------------------
-class network_material(osv.osv):
+class network_material(osv.Model):
     _inherit = "network.material"
     _columns = {
         'mac_addr': fields.char('MAC addresss', size=17),
@@ -61,13 +60,12 @@ class network_material(osv.osv):
     # TODO: Add On Changeon the mac adress, to check if it correct
     #       regexp: /^([0-9a-f]{2}([:-]|$)){6}$/i
 
-network_material()
 
 
 #----------------------------------------------------------
 # A software installed on a material
 #----------------------------------------------------------
-class network_software(osv.osv):
+class network_software(osv.Model):
     """
     A software installed on a material
     """
@@ -90,13 +88,12 @@ class network_software(osv.osv):
         'material_id': lambda obj, cursor, user, context: obj._default_material(cursor, user, context=context),
     }
 
-network_software()
 
 
 #------------------------------------------------------------
 # Couples of login/password
 #------------------------------------------------------------
-class network_software_logpass(osv.osv):
+class network_software_logpass(osv.Model):
     """
     Couples of login/password
     """
@@ -165,13 +162,12 @@ class network_software_logpass(osv.osv):
                     raise osv.except_osv(_('Error !'), _('Not encrypt/decrypt password has given.'))
         return True
 
-network_software_logpass()
 
 
 #----------------------------------------------------------
 # Protocol (ssh, http, smtp, ...)
 #----------------------------------------------------------
-class network_protocol(osv.osv):
+class network_protocol(osv.Model):
     """
     Protocol (ssh, http, smtp, ...)
     """
@@ -185,13 +181,12 @@ class network_protocol(osv.osv):
         'protocol': fields.selection([('tcp', 'TCP'),('udp', 'UDP'), ('both', 'Both'), ('other', 'Other')], 'Protocol', required=True),
     }
 
-network_protocol()
 
 
 #----------------------------------------------------------
 # Services
 #----------------------------------------------------------
-class network_service(osv.osv):
+class network_service(osv.Model):
     """
     Services
     """
@@ -245,10 +240,9 @@ class network_service(osv.osv):
             return {}
         return {'value': {'public_port': port}}
 
-network_service()
 
 
-class network_encrypt_password(osv.osv_memory):
+class network_encrypt_password(osv.TransientModel):
     """
     Password encryption
     """
@@ -264,7 +258,6 @@ class network_encrypt_password(osv.osv_memory):
         self.unlink(cr, uid, encrypt_password_ids, context=context)
         return super(osv.osv_memory, self).create(cr, uid, vals, context=context)
 
-network_encrypt_password()
 
 
 
