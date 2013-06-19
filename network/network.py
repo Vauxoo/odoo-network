@@ -29,7 +29,7 @@ from openerp.tools.translate import _
 #---------------------------------------------------------
 
 
-class network_hardware_type(osv.osv):
+class network_hardware_type(osv.Model):
     _name = "network.hardware.type"
     _description = "Hardware type"
     _columns = {
@@ -47,7 +47,7 @@ class network_hardware_type(osv.osv):
 # A network is composed of all kind of networkable materials
 #--------------------------------------------------------------
 
-class network_network(osv.osv):
+class network_network(osv.Model):
     _name = 'network.network'
     _description = 'Network'
     _columns = {
@@ -69,7 +69,7 @@ def _calc_warranty(*args):
 # Materials; computer, printer, switch, ...
 #----------------------------------------------------------
 
-class network_material(osv.osv):
+class network_material(osv.Model):
     _name = "network.material"
     _description = "Material"
     _columns = {
@@ -102,7 +102,7 @@ class network_material(osv.osv):
 # Changes on this machine
 #----------------------------------------------------------
 
-class network_changes(osv.osv):
+class network_changes(osv.Model):
     _name = 'network.changes'
     _description = 'Network changes'
 
@@ -128,7 +128,7 @@ class network_changes(osv.osv):
 #----------------------------------------------------------
 
 
-class network_soft_type(osv.osv):
+class network_soft_type(osv.Model):
     _name = "network.software.type"
     _description = "Software type"
     _columns = {
@@ -143,7 +143,7 @@ class network_soft_type(osv.osv):
 # A software installed on a material
 #----------------------------------------------------------
 
-class network_software(osv.osv):
+class network_software(osv.Model):
     _name = "network.software"
     _description = "Software"
     _columns = {
@@ -163,7 +163,7 @@ class network_software(osv.osv):
 # Couples of login/password
 #------------------------------------------------------------
 
-class network_software_logpass(osv.osv):
+class network_software_logpass(osv.Model):
     _name = "network.software.logpass"
     _description = "Software login"
     _rec_name = 'login'
