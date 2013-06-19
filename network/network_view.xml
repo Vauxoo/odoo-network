@@ -8,17 +8,20 @@
       <field name="name">network.material.form</field>
       <field name="model">network.material</field>
       <field name="arch" type="xml">
-        <form string="Network Material" version="7.0">
+          <form string="Network Material" version="7.0">
+              <label for="name"/>
           <field name="name" select="1" colspan="6" />
           <notebook colspan="6">
             <page string="Material Info">
-              <separator string="Informations" colspan="4" />
-              <field name="type" select="1" />
-              <field name="supplier" select="1" />
-              <field name="date" select="1" />
-              <field name="warranty" />
-              <field name="parent_id" />
-              <field name="network_id" />
+                <separator string="Informations" colspan="4" />
+                <group>
+                    <field name="type" select="1" />
+                    <field name="supplier" select="1" />
+                    <field name="date" select="1" />
+                    <field name="warranty" />
+                    <field name="parent_id" />
+                    <field name="network_id" />
+                </group>
               <separator string="Softwares" colspan="4" />
               <field name="software_id" nolabel="1" colspan="4" />
             </page>
@@ -173,15 +176,18 @@
             </group>
             <field name="material_ids" nolabel="1" colspan="4">
             <form string="Network Material" version="7.0">
+              <label for="name"/>
               <field name="name" select="1" />
               <notebook>
                 <page string="Material Info">
-                  <separator string="Informations" colspan="4" />
-                  <field name="type" select="1" />
-                  <field name="supplier" select="1" />
-                  <field name="date" select="1" />
-                  <field name="warranty" />
-                  <field name="parent_id" />
+                    <separator string="Informations" colspan="4" />
+                    <group>  
+                        <field name="type" select="1" />
+                        <field name="supplier" select="1" />
+                        <field name="date" select="1" />
+                        <field name="warranty" />
+                        <field name="parent_id" />
+                    </group>
                   <separator string="Softwares" colspan="4" />
                   <field name="software_id" nolabel="1" colspan="4" />
                 </page>
