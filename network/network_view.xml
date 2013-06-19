@@ -165,11 +165,13 @@
       <field name="arch" type="xml">
         <form string="Network Element" version="7.0">
             <separator string="Network Definition" colspan="4" />
-          <field name="name"/>
-          <field name="range" />
-          <field name="user_id" />
-          <field name="contact_id" />
-          <field name="material_ids" nolabel="1" colspan="4">
+            <group>
+                <field name="name"/>
+                <field name="range" />
+                <field name="user_id" />
+                <field name="contact_id" />
+            </group>
+            <field name="material_ids" nolabel="1" colspan="4">
             <form string="Network Material" version="7.0">
               <field name="name" select="1" />
               <notebook>
