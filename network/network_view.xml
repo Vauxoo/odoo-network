@@ -141,15 +141,17 @@
       <field name="model">network.software</field>
       <field name="arch" type="xml">
         <form string="Network Softwares" version="7.0">
-          <separator string="General Informations" colspan="4" />
-          <field name="name" colspan="4"  />
-          <field name="type" />
-          <field name="date"  />
-          <field name="email"  />
-          <separator string="Login / Password" colspan="4" />
-          <field name="logpass" colspan="4" nolabel="1" />
-          <separator string="Notes" colspan="4" />
-          <field name="note" colspan="4" nolabel="1" />
+            <separator string="General Informations" colspan="4" />
+            <group>
+                <field name="name" />
+                <field name="type" />
+                <field name="date"  />
+                <field name="email"  />
+            </group>
+            <separator string="Login / Password" colspan="4" />
+            <field name="logpass" colspan="4" nolabel="1" />
+            <separator string="Notes" colspan="4" />
+            <field name="note" colspan="4" nolabel="1" />
         </form>
       </field>
     </record>
@@ -250,10 +252,12 @@
       <field name="model">network.changes</field>
       <field name="arch" type="xml">
         <form string="Enter a diary entry" version="7.0">
-          <separator string="Diary entry" colspan="4" />
-          <field name="name" colspan="4"  />
-          <field name="date"  />
-          <field name="user_id"  />
+            <separator string="Diary entry" colspan="4" />
+            <group>
+                <field name="name"  />
+                <field name="date"  />
+                <field name="user_id"  />
+            </group>
           <separator string="Description" colspan="4" />
           <field name="description" colspan="4" nolabel="1" />
         </form>
