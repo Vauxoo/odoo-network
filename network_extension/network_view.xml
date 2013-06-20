@@ -278,11 +278,11 @@
                 <field name="port" on_change="onchange_port(port)" />
                 <field name="public_port" />
                 <field name="path" />
-                <field name="public_url" colspan="4" widget="url" />
-                <field name="private_url" colspan="4" widget="url" />
+                <field name="public_url" widget="url" />
+                <field name="private_url" widget="url" />
                 <label string="" />
                 <button name="_compute_public_url" type="object" 
-                    string="Compute URL" colspan="3" />
+                    string="Compute URL" />
             </group>
       </form>
     </field>
