@@ -10,8 +10,8 @@
       <field name="arch" type="xml">
           <form string="Network Material" version="7.0">
               <label for="name"/>
-          <field name="name"  colspan="6" />
-          <notebook colspan="6">
+          <field name="name" />
+          <notebook>
             <page string="Material Info">
                 <separator string="Informations" colspan="4" />
                 <group>
@@ -22,14 +22,14 @@
                     <field name="parent_id" />
                     <field name="network_id" />
                 </group>
-              <separator string="Softwares" colspan="4" />
-              <field name="software_id" nolabel="1" colspan="4" />
+                <separator string="Softwares" />
+                <field name="software_id" nolabel="1" />
             </page>
             <page string="Updates">
-              <field name="change_id" nolabel="1" colspan="4" />
+              <field name="change_id" nolabel="1" />
             </page>
             <page string="Notes">
-              <field name="note" nolabel="1" colspan="4" />
+              <field name="note" nolabel="1" />
             </page>
           </notebook>
         </form>
