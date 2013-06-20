@@ -53,7 +53,8 @@
     <field name="inherit_id" ref="network.add_network_view" />
     <field name="arch" type="xml">
       <field name="software_id" position="replace">
-        <field name="software_id"  nolabel="1" colspan="4" widget="one2many_list" />
+          <field name="software_id"  nolabel="1" colspan="4" 
+              widget="one2many_list" />
       </field>
     </field>
   </record>
@@ -75,7 +76,8 @@
     <field name="inherit_id" ref="network.edit_network" />
     <field name="arch" type="xml">
       <field name="software_id" position="replace">
-        <field name="software_id"  nolabel="1" colspan="4" widget="one2many_list" />
+          <field name="software_id"  nolabel="1" colspan="4" 
+              widget="one2many_list" />
       </field>
     </field>
   </record>
@@ -131,7 +133,8 @@
             <field name="encrypted" invisible="True" />
           </form>
         </field>
-        <field name="service_ids" nolabel="1" colspan="4" widget="one2many_list">
+        <field name="service_ids" nolabel="1" colspan="4" 
+            widget="one2many_list">
           <tree string="Service">
             <field name="name" />
             <field name="protocol_id" />
@@ -149,7 +152,8 @@
             <field name="public_url" colspan="4" widget="url" />
             <field name="private_url" colspan="4" widget="url" />
             <label string="" />
-            <button name="_compute_public_url" type="object" string="Compute URL" colspan="3" />
+            <button name="_compute_public_url" type="object" 
+                string="Compute URL" colspan="3" />
           </form>
         </field>
       </field>
@@ -172,7 +176,9 @@
     <field name="res_model">network.software</field>
     <field name="view_mode">tree,form</field>
   </record>
-  <menuitem name="Software" parent="network.menu_network" id="menu_action_software_tree" action="action_network_software" groups="network.group_network_manager" />
+  <menuitem name="Software" parent="network.menu_network" 
+      id="menu_action_software_tree" action="action_network_software" 
+      groups="network.group_network_manager" />
   <!-- LOGIN/PASSWORD -->
   <record model="ir.ui.view" id="password_tree_ext1">
     <field name="name">network.password.tree.ext1</field>
@@ -213,7 +219,9 @@
     <field name="res_model">network.software.logpass</field>
     <field name="view_mode">tree,form</field>
   </record>
-  <menuitem id="menu_action_logpass_tree" name="Logins/Passwords" parent="network.menu_network" action="action_network_logpass" groups="network.group_network_manager" />
+  <menuitem id="menu_action_logpass_tree" name="Logins/Passwords" 
+      parent="network.menu_network" action="action_network_logpass" 
+      groups="network.group_network_manager" />
   <!-- SERVICE -->
   <record model="ir.ui.view" id="service_tree">
     <field name="name">network.service.tree</field>
@@ -235,18 +243,21 @@
     <field name="name">network.service.form</field>
     <field name="model">network.service</field>
     <field name="arch" type="xml">
-      <form string="Service" version="7.0">
-        <field name="material" />
-        <field name="software_id" />
-        <field name="name" />
-        <field name="protocol_id" />
-        <field name="port" on_change="onchange_port(port)" />
-        <field name="public_port" />
-        <field name="path" />
-        <field name="public_url" colspan="4" widget="url" />
-        <field name="private_url" colspan="4" widget="url" />
-        <label string="" />
-        <button name="_compute_public_url" type="object" string="Compute URL" colspan="3" />
+        <form string="Service" version="7.0">A
+            <group>
+                <field name="material" />
+                <field name="software_id" />
+                <field name="name" />
+                <field name="protocol_id" />
+                <field name="port" on_change="onchange_port(port)" />
+                <field name="public_port" />
+                <field name="path" />
+                <field name="public_url" colspan="4" widget="url" />
+                <field name="private_url" colspan="4" widget="url" />
+                <label string="" />
+                <button name="_compute_public_url" type="object" 
+                    string="Compute URL" colspan="3" />
+            </group>
       </form>
     </field>
   </record>
@@ -255,7 +266,9 @@
     <field name="res_model">network.service</field>
     <field name="view_mode">tree,form</field>
   </record>
-  <menuitem id="menu_action_service_tree" name="Services" parent="network.menu_network" action="action_network_service" groups="network.group_network_manager" />
+  <menuitem id="menu_action_service_tree" name="Services"
+      parent="network.menu_network" action="action_network_service"
+      groups="network.group_network_manager" />
   <!-- PROTOCOL -->
   <record model="ir.ui.view" id="protocol_tree">
     <field name="name">network.protocol.tree</field>
@@ -288,7 +301,9 @@
     <field name="res_model">network.protocol</field>
     <field name="view_mode">tree,form</field>
   </record>
-  <menuitem id="menu_action_protocol_tree" name="Protocol" parent="network.menu_network_definition" action="action_network_protocol" groups="network.group_network_manager" />
+  <menuitem id="menu_action_protocol_tree" name="Protocol"
+      parent="network.menu_network_definition" action="action_network_protocol"
+      groups="network.group_network_manager" />
   <!-- ENCRYPT_PASSWORD -->
   <record model="ir.ui.view" id="encrypt_password_tree">
     <field name="name">network.encrypt.password.tree</field>
@@ -313,9 +328,15 @@
     <field name="res_model">network.encrypt.password</field>
     <field name="view_mode">form</field>
   </record>
-  <menuitem id="menu_action_encrypt_password_tree" name="Encrypt/Decrypt password" parent="network.menu_network_definition" action="action_network_encrypt_password" groups="network.group_network_manager" />
+  <menuitem id="menu_action_encrypt_password_tree" 
+      name="Encrypt/Decrypt password" parent="network.menu_network_definition" 
+      action="action_network_encrypt_password" 
+      groups="network.group_network_manager" />
   <!-- Shortcuts -->
-  <act_window name="Networks" res_model="network.network" src_model="res.partner" id="act_partner_2_networks" />
-  <act_window name="Materials" res_model="network.material" src_model="res.partner" id="act_partner_2_materials" />
-  <act_window name="Softwares" res_model="network.software" src_model="res.partner" id="act_partner_2_softwares" /></data>
+  <act_window name="Networks" res_model="network.network"
+      src_model="res.partner" id="act_partner_2_networks" />
+  <act_window name="Materials" res_model="network.material"
+      src_model="res.partner" id="act_partner_2_materials" />
+  <act_window name="Softwares" res_model="network.software"
+      src_model="res.partner" id="act_partner_2_softwares" /></data>
 </openerp>
