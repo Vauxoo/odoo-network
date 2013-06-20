@@ -13,6 +13,14 @@
       </field>
     </field>
   </record>
+  <record model="ir.ui.view" id="password_tree_ext2">                              
+    <field name="name">network.password.tree.ext2</field>                          
+    <field name="model">network.software.logpass</field>                        
+    <field name="inherit_id" ref="network.password_tree" />                     
+    <field name="arch" type="xml">                                              
+    <field name="password" position="replace" />                              
+    </field>                                                                    
+  </record>
   <record model="ir.ui.view" id="add_network_view_form_ext1">
     <field name="name">network.network.form.ext1</field>
     <field name="model">network.network</field>
@@ -25,6 +33,14 @@
         <field name="public_domain" />
       </field>
     </field>
+  </record>
+  <record model="ir.ui.view" id="add_network_view_form_ext2">
+    <field name="name">network.network.form.ext2</field> 
+    <field name="model">network.network</field>                                 
+    <field name="inherit_id" ref="network.add_network_view" />                  
+    <field name="arch" type="xml">                                              
+    <field name="user_id" position="replace" />                               
+    </field>                                                                    
   </record>
   <record model="ir.ui.view" id="add_network_view_form_ext3">
     <field name="name">network.network.form.ext3</field>
@@ -114,26 +130,28 @@
     <field name="inherit_id" ref="network.software_form" />
     <field name="arch" type="xml">
       <field name="logpass" position="replace">
-        <field name="logpass" nolabel="1" colspan="4" widget="one2many_list">
+        <field name="logpass" nolabel="1" widget="one2many_list">
           <tree string="Login/Password">
             <field name="name" />
             <field name="login" />
           </tree>
           <form string="Login/Password" version="7.0">
-            <field name="name" />
-            <newline />
-            <field name="login" />
-            <field name="superuser" />
-            <newline />
-            <field name="password" on_change="onchange_password(encrypted)" />
-            <button name="_encrypt_password" type="object" string="Encrypt" />
-            <button name="_decrypt_password" type="object" string="Decrypt" />
-            <separator string="Note" colspan="4" />
-            <field name="note" colspan="4" nolabel="1" />
-            <field name="encrypted" invisible="True" />
+            <group>
+                <field name="name" />
+                <newline />
+                <field name="login" />
+                <field name="superuser" />
+                <newline />
+                <field name="password" on_change="onchange_password(encrypted)" />
+                <button name="_encrypt_password" type="object" string="Encrypt" />
+                <button name="_decrypt_password" type="object" string="Decrypt" />
+                <separator string="Note" />
+                <field name="note" nolabel="1" />
+                <field name="encrypted" invisible="True" />
+            </group>
           </form>
         </field>
-        <field name="service_ids" nolabel="1" colspan="4" 
+        <field name="service_ids" nolabel="1"  
             widget="one2many_list">
           <tree string="Service">
             <field name="name" />
@@ -149,11 +167,11 @@
             <field name="port" on_change="onchange_port(port)" />
             <field name="public_port" />
             <field name="path" />
-            <field name="public_url" colspan="4" widget="url" />
-            <field name="private_url" colspan="4" widget="url" />
+            <field name="public_url" widget="url" />
+            <field name="private_url" widget="url" />
             <label string="" />
             <button name="_compute_public_url" type="object" 
-                string="Compute URL" colspan="3" />
+                string="Compute URL" />
           </form>
         </field>
       </field>
@@ -191,6 +209,14 @@
         <field name="name"  />
       </field>
     </field>
+  </record>
+  <record model="ir.ui.view" id="password_form_ext1">
+    <field name="name">network.password.form.ext1</field>                       
+    <field name="model">network.software.logpass</field>                        
+    <field name="inherit_id" ref="network.password_form" />                     
+    <field name="arch" type="xml">                                              
+    <field name="login" position="replace" />                                 
+    </field>                                                                    
   </record>
   <record model="ir.ui.view" id="password_form_ext2">
     <field name="name">network.password.form.ext2</field>
