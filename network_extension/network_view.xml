@@ -315,10 +315,12 @@
     <field name="priority" eval="8" />
     <field name="arch" type="xml">
       <form string="Protocol" version="7.0">
-        <field name="name"  />
-        <field name="port"  />
-        <field name="description"  />
-        <field name="protocol"  />
+        <group>
+            <field name="name"  />
+            <field name="port"  />
+            <field name="description"  />
+            <field name="protocol"  />
+        </group>
       </form>
     </field>
   </record>
@@ -344,8 +346,10 @@
     <field name="name">network.encrypt.password.form</field>
     <field name="model">network.encrypt.password</field>
     <field name="arch" type="xml">
-      <form string="En/Decrypt password" version="7.0">
-        <field name="name"  />
+        <form string="En/Decrypt password" version="7.0">
+            <group>
+                <field name="name"  />
+            </group>
       </form>
     </field>
   </record>
