@@ -151,8 +151,7 @@
             </group>
           </form>
         </field>
-        <field name="service_ids" nolabel="1"  
-            widget="one2many_list">
+        <field name="service_ids" nolabel="1" widget="one2many_list">
           <tree string="Service">
             <field name="name" />
             <field name="protocol_id" />
@@ -162,16 +161,18 @@
             <field name="public_url" />
           </tree>
           <form string="Service" version="7.0">
-            <field name="name" />
-            <field name="protocol_id" />
-            <field name="port" on_change="onchange_port(port)" />
-            <field name="public_port" />
-            <field name="path" />
-            <field name="public_url" widget="url" />
-            <field name="private_url" widget="url" />
-            <label string="" />
-            <button name="_compute_public_url" type="object" 
-                string="Compute URL" />
+                <group>
+                    <field name="name" />
+                    <field name="protocol_id" />
+                    <field name="port" on_change="onchange_port(port)" />
+                    <field name="public_port" />
+                    <field name="path" />
+                    <field name="public_url" widget="url" />
+                    <field name="private_url" widget="url" />
+                    <label string="" />
+                    <button name="_compute_public_url" type="object" 
+                        string="Compute URL" />
+                </group>
           </form>
         </field>
       </field>

@@ -149,7 +149,7 @@
                 <field name="type" />
                 <field name="date"  />
                 <field name="email"  />
-                <separator string="Login / Password" />
+                <separator string="Login / Password" colspan="4" />
                 <field name="logpass" nolabel="1" />
                 <separator string="Notes" />
                 <field name="note" nolabel="1" />
