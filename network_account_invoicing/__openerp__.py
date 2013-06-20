@@ -31,7 +31,7 @@
     "category": "Enterprise Specific Modules/Information Technology",
     "website": "www.zikzakmedia.com",
     "license": "GPL-3",
-    "depends": ["network", "account_invoicing"],
+    "depends": ["network", "account_analytic_analysis"],
     'init_xml': [],
     "demo_xml": [],
     "update_xml": [

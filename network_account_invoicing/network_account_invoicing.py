@@ -22,33 +22,30 @@
 #
 ##############################################################################
 
-from osv import osv
-from osv import fields
-from tools.translate import _
+from openerp.osv import fields, osv
+from openerp.tools.translate import _
 
-class network_material(osv.osv):
+
+class network_material(osv.Model):
     _inherit = "network.material"
     _columns = {
-        'agreement_id': fields.many2one('inv.agreement','Agreement'),
+        'agreement_id': fields.many2one('account.analytic.account','Agreement'),
         'agreement_state': fields.related('agreement_id', 'state', type='char', size="64", string='State', readonly=True),
     }
 
-network_material()
 
-class network_network(osv.osv):
+class network_network(osv.Model):
     _inherit = "network.network"
     _columns = {
-        'agreement_id': fields.many2one('inv.agreement','Agreement'),
+        'agreement_id': fields.many2one('account.analytic.account','Agreement'),
         'agreement_state': fields.related('agreement_id', 'state', type='char', size="64", string='State', readonly=True),
     }
 
-network_network()
 
-class network_software(osv.osv):
+class network_software(osv.Model):
     _inherit = "network.software"
     _columns = {
-        'agreement_id': fields.many2one('inv.agreement','Agreement'),
+        'agreement_id': fields.many2one('account.analytic.account','Agreement'),
         'agreement_state': fields.related('agreement_id', 'state', type='char', size="64", string='State', readonly=True),
     }
 
-network_software()
