@@ -23,7 +23,7 @@
     <record model="network.network" id="net1">
       <field name="name">Production network</field>
       <field name="range">192.168.1.0/24</field>
-      <field name="contact_id" search="[('name', 'ilike', 'Tiny')]" model="res.partner" />
+      <field name="contact_id" search="[('name', 'ilike', 'Vauxoo')]" model="res.partner" />
     </record>
     <record model="network.material" id="pc1">
       <field name="name">PC1</field>

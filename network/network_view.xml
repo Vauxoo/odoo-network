@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <menuitem name="Network" id="menu_tools" icon="STOCK_PREFERENCES" />
-    <menuitem name="Network" parent="menu_tools" groups="network.group_network_user" id="menu_network" />
+    <menuitem name="Network" parent="menu_tools" groups="network.group_network_user,network.group_network_manager" id="menu_network" />
     <menuitem name="Configuration" parent="menu_network" id="menu_network_definition" groups="network.group_network_manager" sequence="100" />
     <record model="ir.ui.view" id="edit_network">
       <field name="name">network.material.form</field>
@@ -234,21 +234,21 @@
       <field name="res_model">network.material</field>
       <field name="view_type">form</field>
     </record>
-    <menuitem name="All Materials" parent="menu_network" id="menu_action_material_tree" action="action_material_tree" groups="network.group_network_user" />
+    <menuitem name="All Materials" parent="menu_network" id="menu_action_material_tree" action="action_material_tree" groups="network.group_network_manager,network.group_network_user" />
     <record model="ir.actions.act_window" id="action_top_material_tree">
       <field name="name">Top Materials</field>
       <field name="res_model">network.material</field>
       <field name="view_mode">tree,form</field>
       <field name="view_type">form</field>
     </record>
-    <menuitem name="Top Materials" parent="menu_network" id="menu_action_top_material_tree" action="action_top_material_tree" groups="network.group_network_user" />
+    <menuitem name="Top Materials" parent="menu_network" id="menu_action_top_material_tree" action="action_top_material_tree" groups="network.group_network_manager,network.group_network_user" />
     <record model="ir.actions.act_window" id="add_view_material">
       <field name="name">Material List</field>
       <field name="res_model">network.material</field>
       <field name="view_mode">tree,form</field>
       <field name="view_type">form</field>
     </record>
-    <menuitem name="Material List" parent="menu_network" id="menu_add_view_material" action="add_view_material" groups="network.group_network_user" />
+    <menuitem name="Material List" parent="menu_network" id="menu_add_view_material" action="add_view_material" groups="network.group_network_manager,network.group_network_user" />
     <record model="ir.ui.view" id="add_diary_entry_form">
       <field name="name">network.changes.form</field>
       <field name="model">network.changes</field>
