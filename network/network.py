@@ -114,6 +114,11 @@ class network_changes(osv.Model):
         'machine_id': fields.many2one('network.material',
                                       'Machine'),
         'user_id': fields.many2one('res.users', 'User', required=True),
+        'task_id': fields.many2one('project.task', 'Task asociated to this change - Update.',
+            required=False,
+            help="""May be the task must be delegated from a bigger project and
+            set of changes, be sure link correctly the task itself to
+            understand the features / reasons why this update was done"""),
     }
 
     _defaults = {

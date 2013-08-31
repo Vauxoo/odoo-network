@@ -259,6 +259,7 @@
                 <field name="name"  />
                 <field name="date"  />
                 <field name="user_id"  />
+                <field name="task_id" required="True"  />
             </group>
           <separator string="Description"  />
           <field name="description"  nolabel="1" />
@@ -273,6 +274,7 @@
           <field name="date" />
           <field name="user_id" />
           <field name="name" />
+          <field name="task_id" />
         </tree>
       </field>
     </record>

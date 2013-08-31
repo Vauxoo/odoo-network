@@ -24,7 +24,10 @@
     "version": "1.0.6",
     "author": "Tiny & Vauxoo",
     "category": "Enterprise Specific Modules/Information Technology",
-    "depends": ["base"],
+    "depends": [
+                "base",
+                "project", #Because a change in hardware or update MUST be a task.
+                ],
     "init_xml": [],
     "description": """
 A simple module to encode your networks and materials:
