@@ -149,9 +149,13 @@
                 <field name="type" />
                 <field name="date"  />
                 <field name="email"  />
-                <separator string="Login / Password" colspan="4" />
+            </group>
+            <separator string="Login / Password" />
+            <group>
                 <field name="logpass" nolabel="1" />
-                <separator string="Notes" />
+            </group>
+            <separator string="Notes" />
+            <group>
                 <field name="note" nolabel="1" />
             </group>
         </form>
