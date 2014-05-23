@@ -49,6 +49,7 @@
       <field name="arch" type="xml">
         <tree string="All Network Material">
           <field name="name" />
+          <field name="user_id" />
           <field name="type" />
           <field name="supplier_id" />
           <field name="date" />
