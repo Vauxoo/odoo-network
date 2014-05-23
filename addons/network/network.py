@@ -119,6 +119,7 @@ class network_material(osv.Model):
     _defaults = {
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'warranty': _calc_warranty,
+        'user_id': lambda s, c, u, i, ctx=None: u,
     }
 
 #----------------------------------------------------------

@@ -42,6 +42,26 @@
         </form>
       </field>
     </record>
+
+    <record id="view_network_material_filter" model="ir.ui.view">
+        <field name="name">network.material.select</field>
+        <field name="model">network.material</field>
+        <field name="arch" type="xml">
+            <search string="Search Invoice">
+                <field name="supplier_id" operator="child_of"/>
+                <field name="user_id" string="Responsible"/>
+                <separator/>
+                <filter domain="[('user_id','=',uid)]" help="My Materials"/>
+                <group expand="0" string="Group By...">
+                    <filter name="group_by_supplier_id" string="Supplier" domain="[]" context="{'group_by':'supplier_id'}"/>
+                    <filter string="Responsible" domain="[]"  context="{'group_by':'user_id'}"/>
+                    <filter string="Invoice Month" domain="[]"  context="{'group_by':'warranty'}"/>
+                    <filter string="Due Month" domain="[]"  context="{'group_by':'date'}"/>
+                </group>
+           </search>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="material_view">
       <field name="name">network.material.tree</field>
       <field name="model">network.material</field>
@@ -245,6 +265,8 @@
       <field name="name">All Materials</field>
       <field name="res_model">network.material</field>
       <field name="view_type">form</field>
+      <field name="context">{'default_search_user_id': 1}</field>
+      <field name="search_view_id" ref="network.view_network_material_filter"/>
     </record>
     <menuitem name="All Materials" parent="menu_network" id="menu_action_material_tree" action="action_material_tree" groups="network.group_network_manager,network.group_network_user" />
     <record model="ir.actions.act_window" id="action_top_material_tree">
