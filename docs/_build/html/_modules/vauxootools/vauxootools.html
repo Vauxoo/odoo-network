@@ -1,0 +1,314 @@
+
+  
+  
+ 
+  
+ 
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>vauxootools.vauxootools &mdash; Vauxoo Tools 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//nhomar.github.io/bootswatch/vauxoo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Vauxoo Tools 0.1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="robots" content="noindex" />
+
+  </head>
+  <body>
+
+  <div id="navbar" class="bs3 navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">Vauxoo Tools</a>
+      </div>
+
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              
+              
+            
+            
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="divider-vertical"></li>
+            
+              
+            
+          </ul>
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+    </div>
+  </div>
+
+<div class="bs3 bs3-form-bg">
+<div class="bgvauxoo bg-fixed">
+</div>
+<div style="background:transparent;">
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar" class="nav bs-sidenav">
+          
+          <li>
+<h4 class="h4-padleft">Table of Content</h4>
+  <ul class="localtoc"></ul>
+<h4 class="h4-padleft">This Page</h4>
+ <ul class="localtoc">
+    <ul class="nav">
+     <li></li>
+</ul>
+</ul>
+</li>
+        </div>
+      </div>
+    
+    <div class="col-md-9">
+      
+  <h1>Source code for vauxootools.vauxootools</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&#39;&#39;&#39;Base lib of VauxooTools</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">configglue</span> <span class="kn">import</span> <span class="n">glue</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">parser</span>
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+
+<div class="viewcode-block" id="VxConfig"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VxConfig">[docs]</a><span class="k">class</span> <span class="nc">VxConfig</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">Schema</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This class is to instanciate the `configglue`_ options to manage the</span>
+<span class="sd">    configuration file and optparsers toghether. You will be able to load the</span>
+<span class="sd">    configuration option from the command line and some of this 3 paths.::</span>
+
+<span class="sd">        /etc/xdg/vauxootools/vauxootools.cfg</span>
+<span class="sd">        /home/&lt;user&gt;/.config/vauxootools/vauxootools.cfg</span>
+<span class="sd">        ./local.cfg</span>
+
+<span class="sd">    The objective of this class is give a generic way to create all the config</span>
+<span class="sd">    options you need almost always to interact openerp with.</span>
+
+<span class="sd">    So as this is a normal python class you can always inherit it from your own</span>
+<span class="sd">    script/tool and extend what you need.</span>
+
+<span class="sd">    See vauxootools --help to read the configuration options available, you can</span>
+<span class="sd">    create this files as any normal text file with the ini syntax.</span>
+
+<span class="sd">    You can see below some options.</span>
+
+<span class="sd">    .. _configglue: http://pythonhosted.org/configglue/</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">hostname</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">StringOption</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;H&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Hostname of your OpenERP server.&#39;</span><span class="p">)</span>
+    <span class="n">dbname</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">StringOption</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;development&#39;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Data base name where OpenERP has the information you need.&#39;</span><span class="p">)</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">StringOption</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;demo&#39;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;User name to connect to the database&#39;</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">StringOption</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;demo&#39;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Password of the username provided.&#39;</span><span class="p">)</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">IntOption</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;P&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8069</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Port where your openerp is serving the web-service.&#39;</span><span class="p">)</span>
+    <span class="n">logfile</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">StringOption</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;%prog&#39;</span><span class="o">+</span><span class="s">&#39;.log&#39;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Where do you want the log of this configuration.&#39;</span><span class="p">)</span>
+    <span class="n">loglevel</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">StringOption</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;L&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Where do you want the log of this configuration.&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VauxooTools"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VauxooTools">[docs]</a><span class="k">class</span> <span class="nc">VauxooTools</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Vauxoo tools is the base class to manage the common features necesary to</span>
+<span class="sd">    work with this library.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s">&#39;Vauxoo Tools&#39;</span><span class="p">,</span>
+            <span class="n">usage_message</span><span class="o">=</span><span class="s">&#39;Generated by VauxooTools&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;VauxooTools&#39;</span><span class="p">)</span>
+        <span class="n">vxparser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">(</span><span class="n">usage</span><span class="o">=</span><span class="n">usage_message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">VxConfig</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appconfig</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">App</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">vxparser</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">app_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scp</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">SchemaConfigParser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_options</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">log</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;logfile&#39;</span><span class="p">,</span> <span class="s">&#39;default.log&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loglevel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;loglevel&#39;</span><span class="p">,</span> <span class="s">&#39;DEBUG&#39;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logfile</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">loglevel</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+
+<div class="viewcode-block" id="VauxooTools.get_options"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VauxooTools.get_options">[docs]</a>    <span class="k">def</span> <span class="nf">get_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;With this method we will be pre-parsing options for our program,</span>
+<span class="sd">        basically it is a parser to re-use configglue in the vauxoo&#39;s way, with</span>
+<span class="sd">        the minimal configuration for our scripts, une time you instance the</span>
+<span class="sd">        VauxooTools class in your script you will have available the minimal</span>
+<span class="sd">        config parameter to be used against any openerp instance avoiding the</span>
+<span class="sd">        need to re-implement the wheel any time you write a xml-rpc script with</span>
+<span class="sd">        any of the tools availables.</span>
+
+<span class="sd">        Instanciate the config in your application.</span>
+
+<span class="sd">        &gt;&gt;&gt; configuration = VauxooTools(app_name=&#39;TestApi&#39;, options=[&#39;hostname&#39;, &#39;port&#39;])</span>
+<span class="sd">        </span>
+<span class="sd">        Ask for options.</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; result = configuration.get_options()</span>
+<span class="sd">        &gt;&gt;&gt; print result</span>
+<span class="sd">        {&#39;hostname&#39;: &#39;localhost&#39;, &#39;port&#39;: 8069, &#39;args&#39;: []}</span>
+
+<span class="sd">        Where args will be the parameter passed to your script use it to</span>
+<span class="sd">        receive parameters from the console.</span>
+
+<span class="sd">        If you don&#39;t pass options you will receive an empty dict, with only the</span>
+<span class="sd">        args key, you will need to valid both in your code to ensure it is</span>
+<span class="sd">        empty if you need it.</span>
+
+<span class="sd">        &gt;&gt;&gt; configuration = VauxooTools(app_name=&#39;TestApi&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; result = configuration.get_options()</span>
+<span class="sd">        &gt;&gt;&gt; print result</span>
+<span class="sd">        {&#39;args&#39;: []}</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">appconfig</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get_config_files</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">appconfig</span><span class="p">))</span>
+        <span class="n">opt</span><span class="p">,</span> <span class="n">opts</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">glue</span><span class="o">.</span><span class="n">schemaconfigglue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+        <span class="n">is_valid</span><span class="p">,</span> <span class="n">reasons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scp</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">report</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">:</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">reasons</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scp</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s">&#39;__main__&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">options</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">:</span>
+                <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;logfile&#39;</span><span class="p">)</span>
+                <span class="n">options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;loglevel&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">option</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">option</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">result</span><span class="p">[</span><span class="s">&#39;args&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="k">return</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="VauxooTools.get_hostname"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VauxooTools.get_hostname">[docs]</a>    <span class="k">def</span> <span class="nf">get_hostname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Helper to get the normal parameters with less code, in this case</span>
+<span class="sd">        openerp hostname.</span>
+
+<span class="sd">        &gt;&gt;&gt; configuration = VauxooTools(app_name=&#39;TestApi&#39;, options=[&#39;hostname&#39;, &#39;port&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; result = configuration.get_hostname()</span>
+<span class="sd">        &gt;&gt;&gt; print result</span>
+<span class="sd">        localhost</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;hostname&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VauxooTools.get_port"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VauxooTools.get_port">[docs]</a>    <span class="k">def</span> <span class="nf">get_port</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;openerp hostname what we will connect to.</span>
+
+<span class="sd">        &gt;&gt;&gt; configuration = VauxooTools(app_name=&#39;TestApi&#39;, options=[&#39;hostname&#39;, &#39;port&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; result = configuration.get_port()</span>
+<span class="sd">        &gt;&gt;&gt; print result</span>
+<span class="sd">        8069</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;port&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VauxooTools.get_db"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VauxooTools.get_db">[docs]</a>    <span class="k">def</span> <span class="nf">get_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;openerp data base what we will conect to.</span>
+
+<span class="sd">        &gt;&gt;&gt; configuration = VauxooTools(app_name=&#39;TestApi&#39;, options=[&#39;hostname&#39;, &#39;dbname&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; result = configuration.get_db()</span>
+<span class="sd">        &gt;&gt;&gt; print result</span>
+<span class="sd">        development</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;dbname&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VauxooTools.get_user"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VauxooTools.get_user">[docs]</a>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;openerp data base what we will conect to.</span>
+
+<span class="sd">        &gt;&gt;&gt; configuration = VauxooTools(app_name=&#39;TestApi&#39;, options=[&#39;username&#39;, &#39;password&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; result = configuration.get_user()</span>
+<span class="sd">        &gt;&gt;&gt; print result</span>
+<span class="sd">        demo</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VauxooTools.get_pwd"><a class="viewcode-back" href="../../vauxootools.html#vauxootools.vauxootools.VauxooTools.get_pwd">[docs]</a>    <span class="k">def</span> <span class="nf">get_pwd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;openerp data base what we will conect to.</span>
+
+<span class="sd">        &gt;&gt;&gt; configuration = VauxooTools(app_name=&#39;TestApi&#39;, options=[&#39;username&#39;, &#39;password&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; result = configuration.get_pwd()</span>
+<span class="sd">        &gt;&gt;&gt; print result</span>
+<span class="sd">        demo</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;password&#39;</span><span class="p">)</span>
+</div></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+</div>
+</div>
+<footer class="footer">
+  <div class="bs3">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#" id="gototop">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Vauxoo.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.<br/>
+    </p>
+  </div>
+  </div>
+</footer>
+  </body>
+</html>
