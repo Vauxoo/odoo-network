@@ -9,14 +9,17 @@
       <field name="model">network.material</field>
       <field name="arch" type="xml">
           <form string="Network Material" version="7.0">
-              <label for="name"/>
-          <field name="name" />
+              <h1>
+                  <label for="name"/>
+                  <field name="name" />
+              </h1>
           <notebook>
             <page string="Material Info">
                 <separator string="Informations" />
                 <group>
+                    <field name="user_id" />
                     <field name="type"  />
-                    <field name="supplier"  />
+                    <field name="supplier_id"  />
                     <field name="date"  />
                     <field name="warranty" />
                     <field name="parent_id" />
@@ -26,12 +29,16 @@
                 <field name="software_id" nolabel="1" />
             </page>
             <page string="Updates">
-              <field name="change_id" nolabel="1" />
+              <field name="change_ids" nolabel="1" />
             </page>
             <page string="Notes">
               <field name="note" nolabel="1" />
             </page>
           </notebook>
+          <div class="oe_chatter">
+              <field name="message_follower_ids" widget="mail_followers"/>
+              <field name="message_ids" widget="mail_thread"/>
+          </div>
         </form>
       </field>
     </record>
@@ -43,7 +50,7 @@
         <tree string="All Network Material">
           <field name="name" />
           <field name="type" />
-          <field name="supplier" />
+          <field name="supplier_id" />
           <field name="date" />
           <field name="warranty" />
         </tree>
@@ -195,7 +202,7 @@
                     <separator string="Informations"  />
                     <group>  
                         <field name="type"  />
-                        <field name="supplier"  />
+                        <field name="supplier_id"/>
                         <field name="date"  />
                         <field name="warranty" />
                         <field name="parent_id" />
@@ -204,7 +211,7 @@
                   <field name="software_id" nolabel="1"  />
                 </page>
                 <page string="Updates">
-                  <field name="change_id" nolabel="1"  />
+                  <field name="change_ids" nolabel="1"  />
                 </page>
                 <page string="Notes">
                   <field name="note" nolabel="1"  />

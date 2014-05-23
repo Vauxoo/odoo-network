@@ -70,13 +70,33 @@ def _calc_warranty(*args):
 #----------------------------------------------------------
 
 class network_material(osv.Model):
-    _name = "network.material"
-    _description = "Material"
+    _name = 'network.material'
+    _description = 'Material'
+    _inherit = [
+            'mail.thread',
+            'ir.needaction_mixin',
+            ]
+    _track = {
+        'name': {
+            'network.mt_material_new': lambda self, cr, uid, obj, ctx=None:
+            obj.name,
+        },
+        'user_id': {
+            'network.mt_material_assigned': lambda self, cr, uid, obj, ctx=None: obj.user_id and obj.user_id.id,
+        },
+    }
     _columns = {
-        'name': fields.char('Device Name', size=64, required=True),
-        'ip_addr': fields.char('IP Address', size=16),
-        'network_id': fields.many2one('network.network', 'Network'),
-        'supplier': fields.many2one('res.partner', 'Supplier'),
+        'name': fields.char('Device Name', required=True,
+            help="Unique identicator to have as reference.",
+            track_visibility='onchange'),
+        'ip_addr': fields.char('IP Address', size=16,
+            help="Ip address for this hardware"),
+        'network_id': fields.many2one('network.network', 'Network',
+            help="Network where this hardware is linked to: i.e. DigitalOcean"
+            " joe@vauxoo.com"),
+        'supplier_id': fields.many2one('res.partner', 'Supplier',
+            help="Partner with services running on this device: Be careful it "
+            " is only for invoicing purpose."),
         'date': fields.date('Installation Date'),
         'warranty': fields.date('Warranty deadline'),
         'type': fields.many2one('network.hardware.type',
@@ -89,9 +109,12 @@ class network_material(osv.Model):
         'software_id': fields.one2many('network.software',
                                        'material_id',
                                        'Installed Software'),
-        'change_id': fields.one2many('network.changes',
+        'change_ids': fields.one2many('network.changes',
                                      'machine_id',
                                      'Changes on this machine'),
+        'user_id': fields.many2one('res.users',
+                                   'Assigned To',
+                                   track_visibility='onchange'),
     }
     _defaults = {
         'date': lambda *a: time.strftime('%Y-%m-%d'),
