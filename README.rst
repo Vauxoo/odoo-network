@@ -1,6 +1,6 @@
-============
-Vauxoo Tools
-============
+=======================
+Odoo Network Management
+=======================
 
 odoo-network is an app to administer your servers inside Odoo.
 

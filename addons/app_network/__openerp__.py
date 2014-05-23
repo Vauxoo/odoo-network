@@ -1,9 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2008 Tiny SPRL (<http://tiny.be>). All Rights Reserved
-#    $Id$
+#    Odoo 
 #    code migrated to v7.0 by : nhomar@vauxoo.com
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -21,30 +19,23 @@
 ##############################################################################
 {
     "name": "Network Management",
-    "version": "1.0.6",
-    "author": "Tiny & Vauxoo",
+    "version": "0.5",
+    "author": "Vauxoo",
+    "summary": "Manage your hardware efficiently",
     "category": "Enterprise Specific Modules/Information Technology",
     "depends": [
-        "base",
-        "project", #Because a change in hardware or update MUST be a task.
-        ],
+        "network_account_invoicing",
+        "network_extension",
+                ],
     "description": """
-A simple module to encode your networks and materials:
-
-    - networks and connections between networks
-    - hardwares and softwares with:
-        - versions, access rights, waranties
-You can print interventions form for technical people.""",
+    Enable all network management features.
+    """,
     "demo": [
-        "network_demo.xml"
-        ],
+    ],
     "data": [
-        "security/network_security.xml",
-        "security/ir.model.access.csv",
-        "network_view.xml",
-        "network_report.xml"
-        ],
+    ],
     "active": False,
+    "application": True,
     "installable": True
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
