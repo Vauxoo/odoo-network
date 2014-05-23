@@ -9,22 +9,31 @@
       <field name="model">network.material</field>
       <field name="arch" type="xml">
           <form string="Network Material" version="7.0">
-              <h1>
+              <h2>
                   <label for="name"/>
+              </h2>
+              <h1>
                   <field name="name" />
               </h1>
           <notebook>
             <page string="Material Info">
                 <separator string="Informations" />
-                <group>
-                    <field name="user_id" />
-                    <field name="type"  />
-                    <field name="supplier_id"  />
-                    <field name="date"  />
-                    <field name="warranty" />
-                    <field name="parent_id" />
-                    <field name="network_id" />
-                </group>
+                <div class="col-md-6">
+                    <group>
+                        <field name="parent_id" />
+                        <field name="supplier_id"  />
+                        <field name="date"  />
+                        <field name="warranty" />
+                    </group>
+                </div>
+                <div class="col-md-6">
+                    <group>
+                        <field name="network_id" />
+                        <field name="color"/>
+                        <field name="user_id"/>
+                        <field name="type"  />
+                    </group>
+                </div>
                 <separator string="Softwares" />
                 <field name="software_id" nolabel="1" />
             </page>

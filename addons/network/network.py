@@ -95,8 +95,8 @@ class network_material(osv.Model):
             help="Network where this hardware is linked to: i.e. DigitalOcean"
             " joe@vauxoo.com"),
         'supplier_id': fields.many2one('res.partner', 'Supplier',
-            help="Partner with services running on this device: Be careful it "
-            " is only for invoicing purpose."),
+            help="Partner to who we are buying services running on this "
+            " device: Be careful it is only for invoicing purpose."),
         'date': fields.date('Installation Date'),
         'warranty': fields.date('Warranty deadline'),
         'type': fields.many2one('network.hardware.type',
@@ -115,6 +115,9 @@ class network_material(osv.Model):
         'user_id': fields.many2one('res.users',
                                    'Assigned To',
                                    track_visibility='onchange'),
+        'color': fields.integer('Color Index', select=True,
+            help="Green: On Line, Red: OffLine, Orange: Under controlled"
+            " mantainance")
     }
     _defaults = {
         'date': lambda *a: time.strftime('%Y-%m-%d'),
