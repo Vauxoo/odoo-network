@@ -32,12 +32,13 @@
     "website": "www.zikzakmedia.com",
     "license": "GPL-3",
     "depends": ["network"],
-    'init_xml': ['network_protocol_data.xml'],
-    "demo_xml": [],
-    "update_xml": [
+    'data': [
+        'network_protocol_data.xml',
         'security/ir.model.access.csv',
         "network_view.xml",
-    ],
+        ],
+    "demo": [
+        ],
     "description": """
 Organize your software and configurations.
     - Additional network information: IP, domain, DNS, gateway

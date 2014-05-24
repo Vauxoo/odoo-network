@@ -36,14 +36,14 @@ A simple module to encode your networks and materials:
         - versions, access rights, waranties
 You can print interventions form for technical people.""",
     "demo": [
-        "network_demo.xml"
+        "demo/network_demo.xml"
         ],
     "data": [
         "security/network_security.xml",
         "security/ir.model.access.csv",
-        "network_view.xml",
-        "network_report.xml",
-        "network_data.xml",
+        "view/network_view.xml",
+        "report/network_report.xml",
+        "data/network_data.xml",
         ],
     "active": False,
     "installable": True

@@ -32,11 +32,10 @@
     "website": "www.zikzakmedia.com",
     "license": "GPL-3",
     "depends": ["network", "account_analytic_analysis"],
-    'init_xml': [],
-    "demo_xml": [],
-    "update_xml": [
+    'data': [
         "network_account_invoicing_view.xml",
-    ],
+        ],
+    "demo": [],
     "description": """
         Relation Network with Invoicing.
         Relation Materials with Invoicing.

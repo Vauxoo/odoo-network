@@ -13,3 +13,5 @@
 "access_network_software_type","network.software.type","model_network_software_type","group_network_manager",1,1,1,1
 "access_network_software","network.software","model_network_software","group_network_manager",1,1,1,1
 "access_network_software_logpass","network.software.logpass","model_network_software_logpass","group_network_manager",1,1,1,1
+"access_network_information","network.information","model_network_information","group_network_user",1,1,1,0
+"access_network_information_logpass","network.information","model_network_information","group_network_manager",1,1,1,1
