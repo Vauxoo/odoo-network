@@ -29,6 +29,7 @@
       <field name="name">PC1</field>
       <field name="type" ref="demo_hard_type0" />
       <field name="network_id" ref="net1" />
+      <field name="user_id" ref="base.user_demo" />
     </record>
     <record model="network.material" id="pc2">
       <field name="name">PC2</field>
