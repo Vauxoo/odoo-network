@@ -2,7 +2,8 @@
 Odoo Network Management
 =======================
 
-odoo-network is an app to administer your servers inside Odoo.
+odoo-network is an app to administer your servers inside Odoo, about how to
+install odoo you can go to http://www.odoo.com.
 
 * Free software: BSD license
 * Documentation: http://apps.vauxoo.com/odoo-network.
