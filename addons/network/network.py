@@ -89,8 +89,9 @@ class network_material(osv.Model):
         'name': fields.char('Device Name', required=True,
             help="Unique identicator to have as reference.",
             track_visibility='onchange'),
-        'ip_addr': fields.char('IP Address', size=16,
-            help="Ip address for this hardware"),
+        'ip_addr': fields.char('IP Address', required=False,
+            help="Unique identicator to have as reference.",
+            track_visibility='onchange'),
         'network_id': fields.many2one('network.network', 'Network',
             help="Network where this hardware is linked to: i.e. DigitalOcean"
             " joe@vauxoo.com"),
@@ -112,6 +113,9 @@ class network_material(osv.Model):
         'change_ids': fields.one2many('network.changes',
                                      'machine_id',
                                      'Changes on this machine'),
+        'network_information_ids': fields.one2many('network.information',
+                                     'hardware_id',
+                                     'IP Hostname Information'),
         'user_id': fields.many2one('res.users',
                                    'Assigned To',
                                    track_visibility='onchange'),
@@ -123,6 +127,19 @@ class network_material(osv.Model):
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'warranty': _calc_warranty,
         'user_id': lambda s, c, u, i, ctx=None: u,
+    }
+
+class network_information(osv.Model):
+    _name = 'network.information'
+    _description = 'Network Information'
+    _rec_name="hostname"
+    _order="hostname asc"
+
+    _columns = {
+        'hostname': fields.char('Hostname', required=True),
+        'ip_addr': fields.char('IP', required=True),
+        'hardware_id': fields.many2one('network.material',
+                                      'Machine'),
     }
 
 #----------------------------------------------------------

@@ -9,16 +9,20 @@
       <field name="model">network.material</field>
       <field name="arch" type="xml">
           <form string="Network Material" version="7.0">
-              <h2>
-                  <label for="name"/>
-              </h2>
-              <h1>
-                  <field name="name" />
-              </h1>
+          <sheet>
+              <div class="col-md-6">
+                  <h1>
+                      <separator string="Device Name"/>
+                      <field name="name"/>
+                  </h1>
+              </div>
+              <div class="oe_right oe_button_box" name="buttons">
+                  <button name="get_connection" icon="fa-refresh" string="Populate" class="oe_stat_button"/>
+              </div>
           <notebook>
             <page string="Material Info">
-                <separator string="Informations" />
                 <div class="col-md-6">
+                    <separator string="Commercial Information" />
                     <group>
                         <field name="parent_id" />
                         <field name="supplier_id"  />
@@ -27,6 +31,7 @@
                     </group>
                 </div>
                 <div class="col-md-6">
+                    <separator string="Technical Information" />
                     <group>
                         <field name="network_id" />
                         <field name="color"/>
@@ -40,6 +45,19 @@
             <page string="Updates">
               <field name="change_ids" nolabel="1" />
             </page>
+            <page string="Network Information">
+                <separator string="Hostnames"/>
+                <field name="network_information_ids" nolabel="1">
+                    <tree  editable="bottom">
+                        <field name="hostname"/>
+                        <field name="ip_addr"/>
+                    </tree>
+                    <form>
+                        <field name="hostname"/>
+                        <field name="ip_addr"/>
+                    </form>
+                </field>
+            </page>
             <page string="Notes">
               <field name="note" nolabel="1" />
             </page>
@@ -48,6 +66,7 @@
               <field name="message_follower_ids" widget="mail_followers"/>
               <field name="message_ids" widget="mail_thread"/>
           </div>
+          </sheet>
         </form>
       </field>
     </record>
@@ -59,8 +78,12 @@
             <search string="Search Invoice">
                 <field name="supplier_id" operator="child_of"/>
                 <field name="user_id" string="Responsible"/>
-                <separator/>
+                <separator string="or..."/>
                 <filter domain="[('user_id','=',uid)]" help="My Materials"/>
+                <separator string="or..."/>
+                <filter domain="[('user_id','=',False)]" help="Not Assigned"/>
+                <separator string="or..."/>
+                <filter domain="[('network_id','=',False)]" help="Not Responsible"/>
                 <group expand="0" string="Group By...">
                     <filter name="group_by_supplier_id" string="Supplier" domain="[]" context="{'group_by':'supplier_id'}"/>
                     <filter string="Responsible" domain="[]"  context="{'group_by':'user_id'}"/>
@@ -86,6 +109,66 @@
         </tree>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="view_network_material_kanban">
+        <field name="name">network.material.kanban</field>
+        <field name="model">network.material</field>
+        <field name="arch" type="xml">
+            <kanban version="7.0" class="oe_background_grey">
+                <field name="parent_id"/>
+                <field name="supplier_id"/>
+                <field name="date"/>
+                <field name="warranty"/>
+                <field name="network_id"/>
+                <field name="color"/>
+                <field name="user_id"/>
+                <field name="type"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_project oe_kanban_global_click">
+                            <div class="oe_dropdown_toggle oe_dropdown_kanban" groups="base.group_user">
+                                <span class="oe_e">í</span>
+                                <ul class="oe_dropdown_menu">
+                                    <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Settings</a></li></t>
+                                    <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
+                                    <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                </ul>
+                            </div>
+                            <div class="oe_kanban_content">
+                                <h4><field name="name"/></h4>
+                                <div class="oe_kanban_alias" t-if="record.network_id.raw_value">
+                                    <span class="oe_e oe_e_alias">?</span><small><field name="network_id"/></small>
+                                </div>
+                                <div class="oe_kanban_alias" t-if="! record.network_id.raw_value">
+                                    <span class="oe_e oe_e_alias">?</span><small><b style="color:red;">Set a network, Not sniffed yet</b></small>
+                                </div>
+                                <div class="oe_kanban_alias" t-if="record.user_id.raw_value">
+                                    <span class="oe_e oe_e_alias">%%</span><small><field name="user_id"/></small>
+                                </div>
+                                <div class="oe_kanban_alias" t-if="! record.user_id.raw_value">
+                                    <span class="oe_e oe_e_alias">%%</span><small><b style="color:red;">Set a Responsible</b></small>
+                                </div>
+                                <div class="oe_kanban_footer_left">
+                                    <span groups="project.group_time_work_estimation_tasks">
+                                        <span class="oe_e">R</span>
+                                    </span>
+                                    <span t-if="record.date.raw_value">
+                                        <span class="oe_e">N</span>
+                                        <field name="date"/>
+                                    </span>
+                                    <span t-if="record.warranty.raw_value">
+                                        <span class="oe_e">N</span>
+                                        <field name="date"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="material_view_by_network">
       <field name="name">network.material.tree</field>
       <field name="model">network.material</field>
@@ -274,6 +357,7 @@
       <field name="name">All Materials</field>
       <field name="res_model">network.material</field>
       <field name="view_type">form</field>
+      <field name="view_mode">kanban,tree,form</field>
       <field name="context">{'default_search_user_id': 1}</field>
       <field name="search_view_id" ref="network.view_network_material_filter"/>
     </record>
