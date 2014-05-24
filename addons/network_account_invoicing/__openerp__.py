@@ -28,7 +28,7 @@
     "name": "Network Account Invoicing",
     "version": "1.0",
     "author": "Zikzakmedia SL",
-    "category": "Enterprise Specific Modules/Information Technology",
+    "category": "Hardware Administration",
     "website": "www.zikzakmedia.com",
     "license": "GPL-3",
     "depends": ["network", "account_analytic_analysis"],

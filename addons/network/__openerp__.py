@@ -23,7 +23,7 @@
     "name": "Network Management",
     "version": "1.0.6",
     "author": "Tiny & Vauxoo",
-    "category": "Enterprise Specific Modules/Information Technology",
+    "category": "Hardware Administration",
     "depends": [
         "base",
         "project", #Because a change in hardware or update MUST be a task.
@@ -53,6 +53,7 @@ System dependency: package python-crypto required.
         "demo/network_demo.xml"
         ],
     "data": [
+        "data/module_data.xml",
         "security/network_security.xml",
         "security/ir.model.access.csv",
         "view/network_view.xml",

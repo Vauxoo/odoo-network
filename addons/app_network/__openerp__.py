@@ -22,7 +22,7 @@
     "version": "0.5",
     "author": "Vauxoo",
     "summary": "Manage your hardware efficiently",
-    "category": "Enterprise Specific Modules/Information Technology",
+    "category": "Hardware Administration",
     "depends": [
         "network_account_invoicing",
                 ],

@@ -17,7 +17,33 @@
                   </h1>
               </div>
               <div class="oe_right oe_button_box" name="buttons">
-                  <button name="get_connection" icon="fa-refresh" string="Populate" class="oe_stat_button"/>
+              <button name="get_connection" icon="fa-signal"
+                  string="Populate" class="oe_stat_button"
+                  help="Ping the server and verify we can retreive all information and fill all fields necesaries to work with our servers"/>
+              <button name="get_connection" icon="fa-refresh"
+                  string="Restart" class="oe_stat_button"
+                  help="Restart a server"/>
+              <button name="get_connection" icon="fa-exclamation-circle"
+                  string="Turn Off" class="oe_stat_button"
+                  help="Turn off the server, You will be able to turn on, be careful you can left the network unusable."/>
+              <button name="get_connection" icon="fa-file-text-o"
+                  string="Status" class="oe_stat_button"
+                  help="See logs of all services configured on this server"/>
+              <button name="get_connection" icon="fa-user"
+                  string="Send SSH Key" class="oe_stat_button"
+                  help="Give ssh access to an user, using ssh-key, it copy the ssh key on the .ssh/authorized_keys file on the user you select."/>
+              <button name="get_connection" icon="fa-camera" 
+                  string="Make Image" class="oe_stat_button"
+                  help="We here will turn off the server, make an image and then turn on again the server, usefull to replicate completly a droplet/server (only for digitalocean)"/>
+              <button name="get_connection" icon="fa-database"
+                  string="Backup db" class="oe_stat_button" 
+                  help="Using barman daemon make a temporal backup"/>
+              <button name="get_connection" icon="fa-search"
+                  string="Check Services" class="oe_stat_button"
+                  help="Verify the log of all services on these server"/>
+              <button name="get_connection" icon="fa-desktop"
+                  string="Console Login" class="oe_stat_button"
+                  help="See information necesary to make login on these machine"/>
               </div>
           <notebook>
             <page string="Material Info">
@@ -319,7 +345,6 @@
         </tree>
       </field>
     </record>
-    <menuitem name="Network List" parent="menu_network" id="menu_add_view_network" action="view_add_view_network" groups="network.group_network_user" />
     <record model="ir.actions.act_window" id="action_material_tree">
       <field name="name">All Materials</field>
       <field name="res_model">network.material</field>
