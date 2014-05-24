@@ -15,3 +15,7 @@
 "access_network_software_logpass","network.software.logpass","model_network_software_logpass","group_network_manager",1,1,1,1
 "access_network_information","network.information","model_network_information","group_network_user",1,1,1,0
 "access_network_information_logpass","network.information","model_network_information","group_network_manager",1,1,1,1
+"access_network_protocol_user","network.protocol User","network.model_network_protocol","network.group_network_user",1,0,0,0
+"access_network_service_user","network.service User","network.model_network_service","network.group_network_user",1,1,1,1
+"access_network_service","network.service Manager","model_network_service","network.group_network_manager",1,1,1,1
+"access_network_protocol","network.protocol Manager","model_network_protocol","network.group_network_manager",1,1,1,1

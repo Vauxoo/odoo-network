@@ -31,10 +31,24 @@
     "description": """
 A simple module to encode your networks and materials:
 
-    - networks and connections between networks
-    - hardwares and softwares with:
-        - versions, access rights, waranties
-You can print interventions form for technical people.""",
+- Networks and connections between networks
+- Hardwares and softwares with:
+    - Versions
+    - Access rights
+    - Waranties.
+- You can print interventions form for technical people.
+
+Organize your software and configurations.
+
+    - Additional network information: IP, domain, DNS, gateway
+    - Protocols
+    - Services
+    - Ports
+    - Public and private URLs
+    - Password encryption
+
+System dependency: package python-crypto required.
+    """,
     "demo": [
         "demo/network_demo.xml"
         ],
@@ -42,8 +56,10 @@ You can print interventions form for technical people.""",
         "security/network_security.xml",
         "security/ir.model.access.csv",
         "view/network_view.xml",
+        "view/network_extension_view.xml",
         "report/network_report.xml",
         "data/network_data.xml",
+        'data/network_protocol_data.xml',
         ],
     "active": False,
     "installable": True

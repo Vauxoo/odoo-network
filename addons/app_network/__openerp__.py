@@ -25,7 +25,6 @@
     "category": "Enterprise Specific Modules/Information Technology",
     "depends": [
         "network_account_invoicing",
-        "network_extension",
                 ],
     "description": """
     Enable all network management features.
