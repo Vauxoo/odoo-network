@@ -45,28 +45,30 @@
           <notebook>
             <page string="Material Info">
                 <div class="col-md-6">
-                    <separator string="Commercial Information" />
+                    <separator string="Commercial Information"/>
                     <group>
-                        <field name="parent_id" />
-                        <field name="supplier_id"  />
-                        <field name="date"  />
-                        <field name="warranty" />
+                        <field name="parent_id"/>
+                        <field name="supplier_id"/>
+                        <field name="date"/>
+                        <field name="warranty"/>
+                        <field name="network_id"/>
                     </group>
                 </div>
                 <div class="col-md-6">
-                    <separator string="Technical Information" />
+                    <separator string="Technical Information"/>
                     <group>
-                        <field name="network_id" />
+                        <field name="network_id"/>
                         <field name="color"/>
                         <field name="user_id"/>
-                        <field name="type"  />
+                        <field name="type"/>
+                        <field name="partner_id"/>
                     </group>
                 </div>
-                <separator string="Softwares" />
-                <field name="software_id" nolabel="1" />
+                <separator string="Softwares"/>
+                <field name="software_id" nolabel="1"/>
             </page>
             <page string="Updates">
-              <field name="change_ids" nolabel="1" />
+              <field name="change_ids" nolabel="1"/>
             </page>
             <page string="Network Information">
                 <separator string="Hostnames"/>
@@ -82,7 +84,7 @@
                 </field>
             </page>
             <page string="Notes">
-              <field name="note" nolabel="1" />
+              <field name="note" nolabel="1"/>
             </page>
           </notebook>
           <div class="oe_chatter">

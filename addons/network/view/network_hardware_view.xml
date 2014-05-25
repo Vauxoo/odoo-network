@@ -22,7 +22,6 @@
       <field name="view_mode">tree,form</field>
     </record>
     <!-- menus -->
-    <menuitem name="Hardware" parent="menu_network_definition" id="menu_hardware" />
-    <menuitem name="Types" parent="menu_hardware" id="menu_action_hard_type" action="action_hard_type" groups="network.group_network_manager" />
+    <menuitem name="Hardware Types" parent="menu_network_definition" id="menu_action_hard_type" action="action_hard_type" groups="network.group_network_manager" />
   </data>
 </openerp>

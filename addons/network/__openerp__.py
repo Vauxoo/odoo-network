@@ -58,7 +58,7 @@ System dependency: package python-crypto required.
         'data/network_protocol_data.xml',
         "security/network_security.xml",
         "security/ir.model.access.csv",
-        "view/network_view.xml",
+        "view/network_network_view.xml",
         "view/network_material_view.xml",
         "view/network_software_view.xml",
         "view/network_hardware_view.xml",

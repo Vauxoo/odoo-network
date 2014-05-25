@@ -78,7 +78,6 @@
       </field>
     </record>
     <!-- menus -->
-    <menuitem name="Software" parent="menu_network_definition" id="menu_software" />
-    <menuitem name="Types" parent="menu_software" id="menu_action_software_type" action="action_software_type" groups="network.group_network_manager" />
+    <menuitem name="Software Types" parent="menu_network_definition" id="menu_action_software_type" action="action_software_type" groups="network.group_network_manager" />
   </data>
 </openerp>

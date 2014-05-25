@@ -12,35 +12,40 @@
       <field name="model">network.network</field>
       <field name="arch" type="xml">
         <form string="Network Element" version="7.0">
-            <separator string="Network Definition"  />
+            <separator string="Network Definition"/>
             <group>
                 <field name="name"/>
-                <field name="range" />
-                <field name="user_id" />
-                <field name="contact_id" />
+                <field name="range"/>
+                <field name="user_id"/>
+                <field name="contact_id"/>
+                <field name="gateway"/>
+                <field name="dns"/>
+                <field name="public_ip_address"/>
+                <field name="public_domain"/>
             </group>
-            <field name="material_ids" nolabel="1" >
+            <field name="material_ids" nolabel="1">
             <form string="Network Material" version="7.0">
               <label for="name"/>
-              <field name="name"  />
+              <field name="name"/>
               <notebook>
                 <page string="Material Info">
-                    <separator string="Informations"  />
+                    <separator string="Informations"/>
                     <group>  
-                        <field name="type"  />
+                        <field name="type"/>
                         <field name="supplier_id"/>
-                        <field name="date"  />
-                        <field name="warranty" />
-                        <field name="parent_id" />
+                        <field name="date"/>
+                        <field name="warranty"/>
+                        <field name="parent_id"/>
                     </group>
-                  <separator string="Softwares"  />
-                  <field name="software_id" nolabel="1"  />
+                  <separator string="Softwares"/>
+                  <!-- TODO: change for ids it is a *2many -->
+                  <field name="software_id" nolabel="1"/>
                 </page>
                 <page string="Updates">
-                  <field name="change_ids" nolabel="1"  />
+                  <field name="change_ids" nolabel="1"/>
                 </page>
                 <page string="Notes">
-                  <field name="note" nolabel="1"  />
+                  <field name="note" nolabel="1"/>
                 </page>
               </notebook>
             </form>
