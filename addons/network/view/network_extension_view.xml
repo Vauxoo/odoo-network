@@ -1,40 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <openerp>
     <data>
-  <!-- MATERIAL -->
-  <record model="ir.ui.view" id="edit_network_tree_ext1">
-    <field name="name">network.material.tree.ext1</field>
-    <field name="model">network.material</field>
-    <field name="inherit_id" ref="network.material_view" />
-    <field name="arch" type="xml">
-      <field name="name" position="before">
-      </field>
-    </field>
-  </record>
-  <record model="ir.ui.view" id="edit_network_form_ext1">
-    <field name="name">network.material.form.ext1</field>
-    <field name="model">network.material</field>
-    <field name="inherit_id" ref="network.edit_network" />
-    <field name="arch" type="xml">
-      <field name="software_id" position="replace">
-          <field name="software_id"  nolabel="1" widget="one2many_list" />
-      </field>
-    </field>
-  </record>
-  <record model="ir.ui.view" id="edit_network_form_ext2">
-    <field name="name">network.material.form.ext2</field>
-    <field name="model">network.material</field>
-    <field name="inherit_id" ref="network.edit_network" />
-    <field name="arch" type="xml">
-      <field name="network_id" position="replace">
-        <newline />
-        <field name="partner_id" />
-        <field name="network_id" />
-        <field name="ip_addr" />
-        <field name="mac_addr" />
-      </field>
-    </field>
-  </record>
   <!-- SOFTWARE -->
   <record model="ir.ui.view" id="view_software_tree_ext1">
     <field name="name">network.view.software.tree.ext1</field>
