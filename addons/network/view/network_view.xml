@@ -345,6 +345,16 @@
         </tree>
       </field>
     </record>
+    <!-- Action Networks -->
+    <record model="ir.actions.act_window" id="action_network_tree">
+      <field name="name">Networks</field>
+      <field name="res_model">network.network</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Networks" parent="menu_network" id="menu_action_network" action="action_network_tree" groups="network.group_network_manager"/>
+
+    <!-- Action Materials -->
     <record model="ir.actions.act_window" id="action_material_tree">
       <field name="name">All Materials</field>
       <field name="res_model">network.material</field>
