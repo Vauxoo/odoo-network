@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="view_software_type_form">
+      <field name="name">network.software.type.form</field>
+      <field name="model">network.software.type</field>
+      <field name="arch" type="xml">
+          <form string="Software Type" version="7.0">
+            <group>
+                <field name="name" />
+                <field name="note" />
+            </group>
+          </form>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_software_type">
+      <field name="name">Software Type</field>
+      <field name="res_model">network.software.type</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.ui.view" id="password_form">
+      <field name="name">network.software.logpass.form</field>
+      <field name="model">network.software.logpass</field>
+      <field name="arch" type="xml">
+          <form string="Add a password" version="7.0">
+              <group>    
+                 <field name="login" />
+                 <field name="password" />
+             </group>    
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="password_tree">
+      <field name="name">network.software.logpass.tree</field>
+      <field name="model">network.software.logpass</field>
+      <field name="arch" type="xml">
+        <tree string="Passwords">
+          <field name="login" />
+          <field name="password" />
+        </tree>
+      </field>
+    </record>
+    <!-- Views -->
+    <record model="ir.ui.view" id="software_form">
+      <field name="name">network.software.form</field>
+      <field name="model">network.software</field>
+      <field name="arch" type="xml">
+        <form string="Network Softwares" version="7.0">
+            <separator string="General Informations"/>
+            <group>
+                <field name="name" />
+                <field name="type" />
+                <field name="date"  />
+                <field name="email"  />
+            </group>
+            <separator string="Login / Password" />
+            <group>
+                <field name="logpass" nolabel="1" />
+            </group>
+            <separator string="Notes" />
+            <group>
+                <field name="note" nolabel="1" />
+            </group>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="view_software_tree">
+      <field name="name">network.software.tree</field>
+      <field name="model">network.software</field>
+      <field name="arch" type="xml">
+        <tree string="Network Softwares">
+          <field name="name" />
+          <field name="type" />
+          <field name="email" />
+          <field name="date" />
+        </tree>
+      </field>
+    </record>
+    <!-- menus -->
+    <menuitem name="Software" parent="menu_network_definition" id="menu_software" />
+    <menuitem name="Types" parent="menu_software" id="menu_action_software_type" action="action_software_type" groups="network.group_network_manager" />
+  </data>
+</openerp>

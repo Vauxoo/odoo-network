@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+    <!-- Views -->
+    <record model="ir.ui.view" id="view_hardware_type_form">
+      <field name="name">network.hardware.type.form</field>
+      <field name="model">network.hardware.type</field>
+      <field name="arch" type="xml">
+        <form string="Hardware Type" version="7.0">
+            <group>
+                <field name="name" />
+                <field name="networkable" />
+            </group>
+        </form>
+      </field>
+    </record>
+    <!-- Actions -->
+    <record model="ir.actions.act_window" id="action_hard_type">
+      <field name="name">Hardware Type</field>
+      <field name="res_model">network.hardware.type</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- menus -->
+    <menuitem name="Hardware" parent="menu_network_definition" id="menu_hardware" />
+    <menuitem name="Types" parent="menu_hardware" id="menu_action_hard_type" action="action_hard_type" groups="network.group_network_manager" />
+  </data>
+</openerp>
