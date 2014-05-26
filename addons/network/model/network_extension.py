@@ -114,7 +114,7 @@ class network_software_logpass(osv.Model):
         return {'value':{'encrypted': False}}
 
 
-    def _encrypt_password(self, cr, uid, ids, *args):
+    def encrypt_password(self, cr, uid, ids, context=None):
         for rec in self.browse(cr, uid, ids):
             try:
                 from Crypto.Cipher import ARC4
@@ -138,7 +138,7 @@ class network_software_logpass(osv.Model):
         return True
 
 
-    def _decrypt_password(self, cr, uid, ids, *args):
+    def decrypt_password(self, cr, uid, ids, context=None):
         for rec in self.browse(cr, uid, ids):
             try:
                 from Crypto.Cipher import ARC4
@@ -205,7 +205,7 @@ class network_service(osv.Model):
         'public_url': fields.char('Public URL', size=256),
     }
 
-    def _compute_public_url(self, cr, uid, ids, *args):
+    def _compute_public_url(self, cr, uid, ids, context=None):
         for rec in self.browse(cr, uid, ids):
             if not rec.protocol_id or not rec.software_id:
                 continue

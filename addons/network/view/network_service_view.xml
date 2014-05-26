@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+  <!-- SERVICE -->
+  <record model="ir.ui.view" id="service_tree">
+    <field name="name">network.service.tree</field>
+    <field name="model">network.service</field>
+    <field name="arch" type="xml">
+      <tree string="Service">
+        <field name="material"  />
+        <field name="software_id"  />
+        <field name="name" />
+        <field name="protocol_id" />
+        <field name="port" />
+        <field name="public_port" />
+        <field name="private_url" />
+        <field name="public_url" />
+      </tree>
+    </field>
+  </record>
+  <record model="ir.ui.view" id="service_form">
+    <field name="name">network.service.form</field>
+    <field name="model">network.service</field>
+    <field name="arch" type="xml">
+        <form string="Service" version="7.0">
+            <group>
+                <field name="material" />
+                <field name="software_id" />
+                <field name="name" />
+                <field name="protocol_id" />
+                <field name="port" on_change="onchange_port(port)" />
+                <field name="public_port" />
+                <field name="path" />
+                <field name="public_url" widget="url" />
+                <field name="private_url" widget="url" />
+                <label string="" />
+                <button name="_compute_public_url" type="object" 
+                    string="Compute URL" />
+            </group>
+      </form>
+    </field>
+  </record>
+  <record model="ir.actions.act_window" id="action_network_service">
+    <field name="name">Service</field>
+    <field name="res_model">network.service</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem id="menu_action_service_tree" name="Services"
+      parent="network.menu_network" action="action_network_service"
+      groups="network.group_network_manager" />
+  </data>
+</openerp>

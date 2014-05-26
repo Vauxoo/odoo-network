@@ -2,135 +2,13 @@
 <openerp>
     <data>
   <!-- SOFTWARE -->
-  <record model="ir.ui.view" id="view_software_tree_ext1">
-    <field name="name">network.view.software.tree.ext1</field>
-    <field name="model">network.software</field>
-    <field name="inherit_id" ref="network.view_software_tree" />
-    <field name="arch" type="xml">
-      <field name="name" position="before">
-        <field name="partner_id"  />
-        <field name="network_id"  />
-        <field name="material_id"  />
-      </field>
-    </field>
-  </record>
-  <record model="ir.ui.view" id="software_form_ext1">
-    <field name="name">network.software.form.ext1</field>
-    <field name="model">network.software</field>
-    <field name="inherit_id" ref="network.software_form" />
-    <field name="arch" type="xml">
-      <field name="logpass" position="replace">
-        <field name="logpass" nolabel="1" widget="one2many_list">
-          <tree string="Login/Password">
-            <field name="name" />
-            <field name="login" />
-          </tree>
-          <form string="Login/Password" version="7.0">
-            <group>
-                <field name="name" />
-                <newline />
-                <field name="login" />
-                <field name="superuser" />
-                <newline />
-                <field name="password" on_change="onchange_password(encrypted)" />
-                <group>
-                    <button name="_encrypt_password" type="object" string="Encrypt" />
-                    <button name="_decrypt_password" type="object" string="Decrypt" />
-                </group>
-                <separator string="Note" />
-                <field name="note" nolabel="1" />
-                <field name="encrypted" invisible="True" />
-            </group>
-          </form>
-        </field>
-        <field name="service_ids" nolabel="1" widget="one2many_list">
-          <tree string="Service">
-            <field name="name" />
-            <field name="protocol_id" />
-            <field name="port" />
-            <field name="public_port" />
-            <field name="private_url" />
-            <field name="public_url" />
-          </tree>
-          <form string="Service" version="7.0">
-                <group>
-                    <field name="name" />
-                    <field name="protocol_id" />
-                    <field name="port" on_change="onchange_port(port)" />
-                    <field name="public_port" />
-                    <field name="path" />
-                    <field name="public_url" widget="url" />
-                    <field name="private_url" widget="url" />
-                    <label string="" />
-                    <button name="_compute_public_url" type="object" 
-                        string="Compute URL" />
-                </group>
-          </form>
-        </field>
-      </field>
-    </field>
-  </record>
-  <record model="ir.ui.view" id="software_form_ext2">
-    <field name="name">network.software.form.ext2</field>
-    <field name="model">network.software</field>
-    <field name="inherit_id" ref="network.software_form" />
-    <field name="arch" type="xml">
-      <field name="type" position="after">
-        <field name="partner_id" />
-        <field name="network_id" />
-        <field name="material_id" required="True" />
-      </field>
-    </field>
-  </record>
-  <record model="ir.actions.act_window" id="action_network_software">
-    <field name="name">Software</field>
-    <field name="res_model">network.software</field>
-    <field name="view_mode">tree,form</field>
-  </record>
-  <menuitem name="Software" parent="network.menu_network" 
-      id="menu_action_software_tree" action="action_network_software" 
-      groups="network.group_network_manager" />
   <!-- LOGIN/PASSWORD -->
-  <record model="ir.ui.view" id="password_tree_ext1">
-    <field name="name">network.password.tree.ext1</field>
-    <field name="model">network.software.logpass</field>
-    <field name="inherit_id" ref="network.password_tree" />
-    <field name="arch" type="xml">
-      <field name="login" position="replace">
-        <field name="material" />
-        <field name="software_id" />
-        <field name="name" />
-        <field name="login" />
-      </field>
-    </field>
-  </record>
-  <record model="ir.ui.view" id="password_form_ext1">
-    <field name="name">network.password.form.ext1</field>                       
-    <field name="model">network.software.logpass</field>                        
-    <field name="inherit_id" ref="network.password_form" />                     
-    <field name="arch" type="xml">                                              
-    <field name="login" position="replace" />                                 
-    </field>                                                                    
-  </record>
   <record model="ir.ui.view" id="password_form_ext2">
     <field name="name">network.password.form.ext2</field>
     <field name="model">network.software.logpass</field>
     <field name="inherit_id" ref="network.password_form" />
     <field name="arch" type="xml">
       <field name="password" position="replace">
-        <field name="name" />
-        <newline />
-        <field name="login" />
-        <field name="superuser" />
-        <newline />
-        <field name="password" on_change="onchange_password(encrypted)" />
-        <button name="_encrypt_password" type="object" string="Encrypt" />
-        <button name="_decrypt_password" type="object" string="Decrypt" />
-        <field name="material" />
-        <field name="software_id" />
-        <separator string="Note" />
-        <field name="note" nolabel="1" />
-        <field name="encrypted" invisible="True" />
       </field>
     </field>
   </record>
