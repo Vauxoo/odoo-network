@@ -47,6 +47,7 @@ class network_hardware_type(osv.Model):
 # A network is composed of all kind of networkable materials
 #--------------------------------------------------------------
 
+
 class network_network(osv.Model):
     _name = 'network.network'
     _description = 'Network'
@@ -64,6 +65,7 @@ class network_network(osv.Model):
         'public_domain': fields.char('Public domain', size=100),
     }
 
+
 def _calc_warranty(*args):
     now = list(time.localtime())
     now[0] += 1
@@ -73,13 +75,14 @@ def _calc_warranty(*args):
 # Materials; computer, printer, switch, ...
 #----------------------------------------------------------
 
+
 class network_material(osv.Model):
     _name = 'network.material'
     _description = 'Material'
     _inherit = [
-            'mail.thread',
-            'ir.needaction_mixin',
-            ]
+        'mail.thread',
+        'ir.needaction_mixin',
+    ]
     _track = {
         'name': {
             'network.mt_material_new': lambda self, cr, uid, obj, ctx=None:
@@ -91,21 +94,21 @@ class network_material(osv.Model):
     }
     _columns = {
         'name': fields.char('Device Name', required=True,
-            help="Unique identicator to have as reference.",
-            track_visibility='onchange'),
+                            help="Unique identicator to have as reference.",
+                            track_visibility='onchange'),
         'ip_addr': fields.char('IP Address', required=False,
-            help="Unique identicator to have as reference.",
-            track_visibility='onchange'),
+                               help="Unique identicator to have as reference.",
+                               track_visibility='onchange'),
         'mac_addr': fields.char('MAC addresss', size=17),
         'partner_id': fields.related('network_id', 'contact_id',
-            type='many2one', relation='res.partner',
-            string='Partner', readonly=True),
+                                     type='many2one', relation='res.partner',
+                                     string='Partner', readonly=True),
         'network_id': fields.many2one('network.network', 'Network',
-            help="Network where this hardware is linked to: i.e. DigitalOcean"
-            " joe@vauxoo.com"),
+                                      help="Network where this hardware is linked to: i.e. DigitalOcean"
+                                      " joe@vauxoo.com"),
         'supplier_id': fields.many2one('res.partner', 'Supplier',
-            help="Partner to who we are buying services running on this "
-            " device: Be careful it is only for invoicing purpose."),
+                                       help="Partner to who we are buying services running on this "
+                                       " device: Be careful it is only for invoicing purpose."),
         'date': fields.date('Installation Date'),
         'warranty': fields.date('Warranty deadline'),
         'type': fields.many2one('network.hardware.type',
@@ -119,17 +122,17 @@ class network_material(osv.Model):
                                        'material_id',
                                        'Installed Software'),
         'change_ids': fields.one2many('network.changes',
-                                     'machine_id',
-                                     'Changes on this machine'),
+                                      'machine_id',
+                                      'Changes on this machine'),
         'network_information_ids': fields.one2many('network.information',
-                                     'hardware_id',
-                                     'IP Hostname Information'),
+                                                   'hardware_id',
+                                                   'IP Hostname Information'),
         'user_id': fields.many2one('res.users',
                                    'Assigned To',
                                    track_visibility='onchange'),
         'color': fields.integer('Color Index', select=True,
-            help="Green: On Line, Red: OffLine, Orange: Under controlled"
-            " mantainance")
+                                help="Green: On Line, Red: OffLine, Orange: Under controlled"
+                                " mantainance")
     }
     _defaults = {
         'date': lambda *a: time.strftime('%Y-%m-%d'),
@@ -137,22 +140,24 @@ class network_material(osv.Model):
         'user_id': lambda s, c, u, i, ctx=None: u,
     }
 
+
 class network_information(osv.Model):
     _name = 'network.information'
     _description = 'Network Information'
-    _rec_name="hostname"
-    _order="hostname asc"
+    _rec_name = "hostname"
+    _order = "hostname asc"
 
     _columns = {
         'hostname': fields.char('Hostname', required=True),
         'ip_addr': fields.char('IP', required=True),
         'hardware_id': fields.many2one('network.material',
-                                      'Machine'),
+                                       'Machine'),
     }
 
 #----------------------------------------------------------
 # Changes on this machine
 #----------------------------------------------------------
+
 
 class network_changes(osv.Model):
     _name = 'network.changes'
@@ -167,8 +172,8 @@ class network_changes(osv.Model):
                                       'Machine'),
         'user_id': fields.many2one('res.users', 'User', required=True),
         'task_id': fields.many2one('project.task', 'Task asociated to this change - Update.',
-            required=False,
-            help="""May be the task must be delegated from a bigger project and
+                                   required=False,
+                                   help="""May be the task must be delegated from a bigger project and
             set of changes, be sure link correctly the task itself to
             understand the features / reasons why this update was done"""),
     }
@@ -200,6 +205,7 @@ class network_soft_type(osv.Model):
 # A software installed on a material
 #----------------------------------------------------------
 
+
 class network_software(osv.Model):
     _name = "network.software"
     _description = "Software"
@@ -215,13 +221,13 @@ class network_software(osv.Model):
         'date': fields.date('Installation Date', size=32),
         'note': fields.text('Notes'),
         'service_ids': fields.one2many('network.service', 'software_id',
-            string='Service'),
+                                       string='Service'),
         'network_id': fields.related('material_id', 'network_id',
-            type='many2one', relation='network.network', string='Network',
-            readonly=True),
+                                     type='many2one', relation='network.network', string='Network',
+                                     readonly=True),
         'partner_id': fields.related('material_id', 'partner_id',
-            type='many2one', relation='res.partner', string='Partner',
-            readonly=True),
+                                     type='many2one', relation='res.partner', string='Partner',
+                                     readonly=True),
     }
 
     def _default_material(self, cursor, user, context=None):
@@ -237,6 +243,7 @@ class network_software(osv.Model):
 #------------------------------------------------------------
 # Couples of login/password
 #------------------------------------------------------------
+
 
 class network_software_logpass(osv.Model):
     _name = "network.software.logpass"
@@ -259,62 +266,78 @@ class network_software_logpass(osv.Model):
     }
 
     def onchange_password(self, cr, uid, ids, encrypted, context={}):
-        return {'value':{'encrypted': False}}
-
+        return {'value': {'encrypted': False}}
 
     def encrypt_password(self, cr, uid, ids, context=None):
         for rec in self.browse(cr, uid, ids):
             try:
                 from Crypto.Cipher import ARC4
             except ImportError:
-                raise osv.except_osv(_('Error !'), _('Package python-crypto no installed.'))
+                raise osv.except_osv(
+                    _('Error !'), _('Package python-crypto no installed.'))
 
             if not rec.encrypted:
-                obj_encrypt_password = self.pool.get('network.encrypt.password')
+                obj_encrypt_password = self.pool.get(
+                    'network.encrypt.password')
                 encrypt_password_ids = obj_encrypt_password.search(cr, uid,
-                        [('create_uid','=',uid),('write_uid','=',uid)])
-                encrypt_password_id = encrypt_password_ids and encrypt_password_ids[0] or False
+                                                                   [('create_uid', '=', uid), ('write_uid', '=', uid)])
+                encrypt_password_id = encrypt_password_ids and encrypt_password_ids[
+                    0] or False
                 if encrypt_password_id:
-                    passwordkey = obj_encrypt_password.browse(cr, uid, encrypt_password_id).name
+                    passwordkey = obj_encrypt_password.browse(
+                        cr, uid, encrypt_password_id).name
                     enc = ARC4.new(passwordkey)
                     try:
                         encripted = base64.b64encode(enc.encrypt(rec.password))
                     except UnicodeEncodeError:
                         break
-                    self.write(cr, uid, [rec.id], {'password': encripted, 'encrypted': True})
+                    self.write(cr, uid, [rec.id],
+                               {'password': encripted, 'encrypted': True})
                 else:
-                    raise osv.except_osv(_('Error !'), _('Not encrypt/decrypt password has given.'))
+                    raise osv.except_osv(
+                        _('Error !'), _('Not encrypt/decrypt password has given.'))
         return True
-
 
     def decrypt_password(self, cr, uid, ids, context=None):
         for rec in self.browse(cr, uid, ids):
             try:
                 from Crypto.Cipher import ARC4
             except ImportError:
-                raise osv.except_osv(_('Error !'), _('Package python-crypto no installed.'))
+                raise osv.except_osv(
+                    _('Error !'), _('Package python-crypto no installed.'))
 
             if rec.encrypted:
-                obj_encrypt_password = self.pool.get('network.encrypt.password')
-                encrypt_password_ids = obj_encrypt_password.search(cr, uid, [('create_uid','=',uid),('write_uid','=',uid)])
-                encrypt_password_id = encrypt_password_ids and encrypt_password_ids[0] or False
+                obj_encrypt_password = self.pool.get(
+                    'network.encrypt.password')
+                encrypt_password_ids = obj_encrypt_password.search(
+                    cr, uid, [('create_uid', '=', uid), ('write_uid', '=', uid)])
+                encrypt_password_id = encrypt_password_ids and encrypt_password_ids[
+                    0] or False
                 if encrypt_password_id:
-                    passwordkey = obj_encrypt_password.browse(cr, uid, encrypt_password_id).name
+                    passwordkey = obj_encrypt_password.browse(
+                        cr, uid, encrypt_password_id).name
                     dec = ARC4.new(passwordkey)
                     try:
-                        desencripted = dec.decrypt(base64.b64decode(rec.password))
+                        desencripted = dec.decrypt(
+                            base64.b64decode(rec.password))
                         unicode(desencripted, 'ascii')
-                        raise osv.except_osv(rec.login+_(' password:'), desencripted)
+                        raise osv.except_osv(
+                            rec.login + _(' password:'), desencripted)
                     except UnicodeDecodeError:
-                        raise osv.except_osv(_('Error !'), _('Wrong encrypt/decrypt password.'))
+                        raise osv.except_osv(
+                            _('Error !'), _('Wrong encrypt/decrypt password.'))
                 else:
-                    raise osv.except_osv(_('Error !'), _('Not encrypt/decrypt password has given.'))
+                    raise osv.except_osv(
+                        _('Error !'), _('Not encrypt/decrypt password has given.'))
         return True
 
 #----------------------------------------------------------
 # Protocol (ssh, http, smtp, ...)
 #----------------------------------------------------------
+
+
 class network_protocol(osv.Model):
+
     """
     Protocol (ssh, http, smtp, ...)
     """
@@ -325,13 +348,16 @@ class network_protocol(osv.Model):
         'name': fields.char('Name', size=64, required=True, select=1),
         'description': fields.char('Description', size=256, translate=True),
         'port': fields.integer('Port', help='Default port defined see(http://www.iana.org/assignments/port-numbers)', required=True),
-        'protocol': fields.selection([('tcp', 'TCP'),('udp', 'UDP'), ('both', 'Both'), ('other', 'Other')], 'Protocol', required=True),
+        'protocol': fields.selection([('tcp', 'TCP'), ('udp', 'UDP'), ('both', 'Both'), ('other', 'Other')], 'Protocol', required=True),
     }
 
 #----------------------------------------------------------
 # Services
 #----------------------------------------------------------
+
+
 class network_service(osv.Model):
+
     """
     Services
     """
@@ -341,7 +367,7 @@ class network_service(osv.Model):
     _columns = {
         'name': fields.char('Name', size=64, select=1),
         'software_id': fields.many2one('network.software', 'Software', required=True),
-        'material':fields.related('software_id', 'material_id', type='many2one', relation='network.material', string='Material', readonly=True),
+        'material': fields.related('software_id', 'material_id', type='many2one', relation='network.material', string='Material', readonly=True),
         'protocol_id': fields.many2one('network.protocol', 'Protocol', select=1),
         'path': fields.char('Path', size=100),
         'port': fields.integer('Port', required=True, select=2),
@@ -354,16 +380,16 @@ class network_service(osv.Model):
         for rec in self.browse(cr, uid, ids):
             if not rec.protocol_id or not rec.software_id:
                 continue
-            protocol = rec.protocol_id.name+"://"
-            port = rec.port and ":"+str(rec.port) or ""
-            public_port = rec.public_port and ":"+str(rec.public_port) or ""
+            protocol = rec.protocol_id.name + "://"
+            port = rec.port and ":" + str(rec.port) or ""
+            public_port = rec.public_port and ":" + str(rec.public_port) or ""
             path = rec.path and rec.path or ""
 
             # Compute Private URL from Material IP
             ip_address = rec.software_id.material_id.ip_addr
             if ip_address:
-                service2 = protocol+ip_address+port+path
-                self.write(cr, uid, [rec.id], {'private_url' : service2})
+                service2 = protocol + ip_address + port + path
+                self.write(cr, uid, [rec.id], {'private_url': service2})
 
             # Compute Public URL from Network IP
             if not rec.software_id.material_id.network_id:
@@ -371,21 +397,22 @@ class network_service(osv.Model):
             public_ip_address = rec.software_id.material_id.network_id.public_ip_address
             public_domain = rec.software_id.material_id.network_id.public_domain
             if public_domain:
-                service1 = protocol+public_domain+public_port+path
-                self.write(cr, uid, [rec.id], {'public_url' : service1})
+                service1 = protocol + public_domain + public_port + path
+                self.write(cr, uid, [rec.id], {'public_url': service1})
             elif public_ip_address:
-                service1 = protocol+public_ip_address+public_port+path
-                self.write(cr, uid, [rec.id], {'public_url' : service1})
+                service1 = protocol + public_ip_address + public_port + path
+                self.write(cr, uid, [rec.id], {'public_url': service1})
 
         return True
-
 
     def onchange_port(self, cr, uid, ids, port, context={}):
         if not port:
             return {}
         return {'value': {'public_port': port}}
 
+
 class network_encrypt_password(osv.TransientModel):
+
     """
     Password encryption
     """
@@ -397,7 +424,8 @@ class network_encrypt_password(osv.TransientModel):
     }
 
     def create(self, cr, uid, vals, context=None):
-        encrypt_password_ids = self.search(cr, uid, [('create_uid','=',uid),('write_uid','=',uid)], context=context)
+        encrypt_password_ids = self.search(
+            cr, uid, [('create_uid', '=', uid), ('write_uid', '=', uid)], context=context)
         self.unlink(cr, uid, encrypt_password_ids, context=context)
         return super(osv.osv_memory, self).create(cr, uid, vals, context=context)
 
