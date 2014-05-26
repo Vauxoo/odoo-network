@@ -13,7 +13,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/nhomar/vauxootools/issues.
+Report bugs at https://github.com/vauxoo/odoo-network.
 
 If you are reporting a bug, please include:
 
@@ -43,7 +43,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/vauxoo/vauxootools/issues.
+The best way to send feedback is to file an issue at https://github.com/vauxoo/odoo-network/issues.
 
 If you are proposing a feature:
 
@@ -55,15 +55,16 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `vauxootools` for local development.
+Ready to contribute? Here's how to set up `odoo-network` for local development.
 
-1. Fork the `vauxootools` repo on GitHub.
+1. Fork the `odoo-network` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/vauxootools.git
+    $ git clone git@github.com:vauxoo/odoo-network.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
+   TODO: This installation method is not available yet
     $ mkvirtualenv vauxootools
     $ cd vauxootools/
     $ python setup.py develop
