@@ -15,13 +15,14 @@
             <separator string="Network Definition"/>
             <group>
                 <field name="name"/>
-                <field name="range"/>
+                <field name="type"/>
+                <field name="range" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="user_id"/>
                 <field name="contact_id"/>
-                <field name="gateway"/>
-                <field name="dns"/>
-                <field name="public_ip_address"/>
-                <field name="public_domain"/>
+                <field name="gateway" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="dns" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="public_ip_address" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="public_domain" attrs="{'invisible': [('type','=','dedicated')]}"/>
             </group>
             <field name="material_ids" nolabel="1">
             <form string="Network Material" version="7.0">

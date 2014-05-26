@@ -5,6 +5,10 @@
       <field name="name">Computer</field>
       <field name="networkable">True</field>
     </record>
+    <record model="network.hardware.type" id="demo_hard_dedicated">
+      <field name="name">Decicated Server</field>
+      <field name="networkable">True</field>
+    </record>
     <record model="network.hardware.type" id="demo_hard_type1">
       <field name="name">Hub</field>
       <field name="networkable">True</field>
@@ -24,6 +28,28 @@
       <field name="name">Production network</field>
       <field name="range">192.168.1.0/24</field>
       <field name="contact_id" search="[('name', 'ilike', 'Vauxoo')]" model="res.partner" />
+    </record>
+    <record model="network.network" id="net2">
+      <field name="name">DigitalOcean</field>
+      <field name="type">dedicated</field>
+      <field name="contact_id" search="[('name', 'ilike', 'Vauxoo')]" model="res.partner" />
+    </record>
+    <record model="network.network" id="net3">
+      <field name="name">Amazon</field>
+      <field name="type">dedicated</field>
+      <field name="contact_id" search="[('name', 'ilike', 'Vauxoo')]" model="res.partner" />
+    </record>
+    <record model="network.material" id="server1">
+      <field name="name">client1.vauxoo.org</field>
+      <field name="type" ref="demo_hard_dedicated" />
+      <field name="network_id" ref="net2" />
+      <field name="user_id" ref="base.user_demo" />
+    </record>
+    <record model="network.material" id="server2">
+      <field name="name">client2.vauxoo.org</field>
+      <field name="type" ref="demo_hard_dedicated" />
+      <field name="network_id" ref="net3" />
+      <field name="user_id" ref="base.user_demo" />
     </record>
     <record model="network.material" id="pc1">
       <field name="name">PC1</field>

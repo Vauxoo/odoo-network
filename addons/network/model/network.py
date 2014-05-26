@@ -52,18 +52,27 @@ class network_network(osv.Model):
     _name = 'network.network'
     _description = 'Network'
     _columns = {
+        'type': fields.selection([('intranet', 'Intranet'),
+                                ('dedicated', 'Dedicated')],
+                                'Type of network', required=True,
+                                help='Intranet: Internal network'
+                                'Dedicated: digitalocean, amazon, iweb, etc'),
         'name': fields.char('Network name', size=64, required=True),
         'range': fields.char('Address range', size=128),
         'user_id': fields.many2one('res.users', 'Onsite Contact person'),
-        'contact_id': fields.many2one('res.partner', 'Partner', required=True),
-        'material_ids': fields.one2many('network.material',
-                                        'network_id',
-                                        'Members'),
+        'contact_id': fields.many2one('res.partner', 'Partner'),
         'gateway': fields.char('Gateway', size=100),
         'dns': fields.char('DNS', size=100,
                            help="List of DNS servers, separated by commas"),
         'public_ip_address': fields.char('Public IP address', size=100),
         'public_domain': fields.char('Public domain', size=100),
+        'material_ids': fields.one2many('network.material',
+                                        'network_id',
+                                        'Members'),
+    }
+
+    _defaults = {
+            'type': 'intranet'
     }
 
 
