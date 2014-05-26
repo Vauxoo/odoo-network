@@ -30,4 +30,5 @@
           name="Encrypt/Decrypt password" parent="network.menu_network_definition" 
           action="action_network_encrypt_password" 
           groups="network.group_network_manager" />
+  </data>
 </openerp>

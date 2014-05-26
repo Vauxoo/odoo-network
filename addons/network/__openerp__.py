@@ -22,7 +22,7 @@
 {
     "name": "Network Management",
     "version": "1.0.6",
-    "author": "Tiny & Vauxoo",
+    "author": "Vauxoo",
     "category": "Hardware Administration",
     "depends": [
         "base",
@@ -48,6 +48,12 @@ Organize your software and configurations.
     - Password encryption
 
 System dependency: package python-crypto required.
+
+Credits:
+--------
+
+Special thanks to Odoo SA for give the first models of this modules for V5.0.
+and to Zikzakmedia.
     """,
     "demo": [
         "demo/network_demo.xml"
