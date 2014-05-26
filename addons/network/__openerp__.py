@@ -64,6 +64,7 @@ System dependency: package python-crypto required.
         "view/network_service_view.xml",
         "view/network_hardware_view.xml",
         "view/network_protocol_view.xml",
+        "view/network_encrypt_view.xml",
         "report/network_report.xml",
         ],
     "active": False,
