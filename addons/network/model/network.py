@@ -60,7 +60,8 @@ class network_network(osv.Model):
                                         'network_id',
                                         'Members'),
         'gateway': fields.char('Gateway', size=100),
-        'dns': fields.char('DNS', size=100, help="List of DNS servers, separated by commas"),
+        'dns': fields.char('DNS', size=100,
+                           help="List of DNS servers, separated by commas"),
         'public_ip_address': fields.char('Public IP address', size=100),
         'public_domain': fields.char('Public domain', size=100),
     }
@@ -104,11 +105,14 @@ class network_material(osv.Model):
                                      type='many2one', relation='res.partner',
                                      string='Partner', readonly=True),
         'network_id': fields.many2one('network.network', 'Network',
-                                      help="Network where this hardware is linked to: i.e. DigitalOcean"
+                                      help="Network where this hardware is "
+                                      "linked to: i.e. DigitalOcean"
                                       " joe@vauxoo.com"),
         'supplier_id': fields.many2one('res.partner', 'Supplier',
-                                       help="Partner to who we are buying services running on this "
-                                       " device: Be careful it is only for invoicing purpose."),
+                                       help="Partner to who we are buying "
+                                       "services running on this "
+                                       " device: Be careful it is only for "
+                                       "invoicing purpose."),
         'date': fields.date('Installation Date'),
         'warranty': fields.date('Warranty deadline'),
         'type': fields.many2one('network.hardware.type',
@@ -131,7 +135,8 @@ class network_material(osv.Model):
                                    'Assigned To',
                                    track_visibility='onchange'),
         'color': fields.integer('Color Index', select=True,
-                                help="Green: On Line, Red: OffLine, Orange: Under controlled"
+                                help="Green: On Line, Red: OffLine, Orange: "
+                                "Under controlled"
                                 " mantainance")
     }
     _defaults = {
@@ -171,9 +176,10 @@ class network_changes(osv.Model):
         'machine_id': fields.many2one('network.material',
                                       'Machine'),
         'user_id': fields.many2one('res.users', 'User', required=True),
-        'task_id': fields.many2one('project.task', 'Task asociated to this change - Update.',
+        'task_id': fields.many2one('project.task', 'Task',
                                    required=False,
-                                   help="""May be the task must be delegated from a bigger project and
+                                   help="""May be the task must be delegated
+                                   from a bigger project and
             set of changes, be sure link correctly the task itself to
             understand the features / reasons why this update was done"""),
     }
@@ -223,10 +229,14 @@ class network_software(osv.Model):
         'service_ids': fields.one2many('network.service', 'software_id',
                                        string='Service'),
         'network_id': fields.related('material_id', 'network_id',
-                                     type='many2one', relation='network.network', string='Network',
+                                     type='many2one',
+                                     relation='network.network',
+                                     string='Network',
                                      readonly=True),
         'partner_id': fields.related('material_id', 'partner_id',
-                                     type='many2one', relation='res.partner', string='Partner',
+                                     type='many2one',
+                                     relation='res.partner',
+                                     string='Partner',
                                      readonly=True),
     }
 
@@ -256,7 +266,11 @@ class network_software_logpass(osv.Model):
                                        'Software', required=True),
         'name': fields.char('Name', size=100),
         'note': fields.text('Note'),
-        'material': fields.related('software_id', 'material_id', type='many2one', relation='network.material', string='Material', readonly=True),
+        'material': fields.related('software_id', 'material_id',
+                                   type='many2one',
+                                   relation='network.material',
+                                   string='Material',
+                                   readonly=True),
         'encrypted': fields.boolean('Encrypted'),
         'superuser': fields.boolean('Super User'),
     }
@@ -277,14 +291,14 @@ class network_software_logpass(osv.Model):
                     _('Error !'), _('Package python-crypto no installed.'))
 
             if not rec.encrypted:
-                obj_encrypt_password = self.pool.get(
+                obj_enc_password = self.pool.get(
                     'network.encrypt.password')
-                encrypt_password_ids = obj_encrypt_password.search(cr, uid,
-                                                                   [('create_uid', '=', uid), ('write_uid', '=', uid)])
-                encrypt_password_id = encrypt_password_ids and encrypt_password_ids[
+                dom = [('create_uid', '=', uid), ('write_uid', '=', uid)]
+                enc_password_ids = obj_enc_password.search(cr, uid, dom)
+                encrypt_password_id = enc_password_ids and enc_password_ids[
                     0] or False
                 if encrypt_password_id:
-                    passwordkey = obj_encrypt_password.browse(
+                    passwordkey = obj_enc_password.browse(
                         cr, uid, encrypt_password_id).name
                     enc = ARC4.new(passwordkey)
                     try:
@@ -295,7 +309,8 @@ class network_software_logpass(osv.Model):
                                {'password': encripted, 'encrypted': True})
                 else:
                     raise osv.except_osv(
-                        _('Error !'), _('Not encrypt/decrypt password has given.'))
+                        _('Error !'), _('Not encrypt/decrypt password'
+                                        ' has given.'))
         return True
 
     def decrypt_password(self, cr, uid, ids, context=None):
@@ -309,9 +324,10 @@ class network_software_logpass(osv.Model):
             if rec.encrypted:
                 obj_encrypt_password = self.pool.get(
                     'network.encrypt.password')
-                encrypt_password_ids = obj_encrypt_password.search(
-                    cr, uid, [('create_uid', '=', uid), ('write_uid', '=', uid)])
-                encrypt_password_id = encrypt_password_ids and encrypt_password_ids[
+                enc_password_ids = obj_encrypt_password.search(
+                    cr, uid, [('create_uid', '=', uid),
+                              ('write_uid', '=', uid)])
+                encrypt_password_id = enc_password_ids and enc_password_ids[
                     0] or False
                 if encrypt_password_id:
                     passwordkey = obj_encrypt_password.browse(
@@ -328,7 +344,8 @@ class network_software_logpass(osv.Model):
                             _('Error !'), _('Wrong encrypt/decrypt password.'))
                 else:
                     raise osv.except_osv(
-                        _('Error !'), _('Not encrypt/decrypt password has given.'))
+                        _('Error !'), _('Not encrypt/decrypt '
+                                        'password has given.'))
         return True
 
 #----------------------------------------------------------
@@ -347,8 +364,16 @@ class network_protocol(osv.Model):
     _columns = {
         'name': fields.char('Name', size=64, required=True, select=1),
         'description': fields.char('Description', size=256, translate=True),
-        'port': fields.integer('Port', help='Default port defined see(http://www.iana.org/assignments/port-numbers)', required=True),
-        'protocol': fields.selection([('tcp', 'TCP'), ('udp', 'UDP'), ('both', 'Both'), ('other', 'Other')], 'Protocol', required=True),
+        'port': fields.integer('Port',
+                               help='Default port defined '
+                               'see(http://goo.gl/ldwcuY)',
+                               required=True),
+        'protocol': fields.selection([
+                                    ('tcp', 'TCP'),
+                                    ('udp', 'UDP'),
+                                    ('both', 'Both'),
+                                    ('other', 'Other')],
+                                    'Protocol', required=True),
     }
 
 #----------------------------------------------------------
