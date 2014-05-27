@@ -69,11 +69,32 @@ class network_network(osv.Model):
         'material_ids': fields.one2many('network.material',
                                         'network_id',
                                         'Members'),
+        'client_id': fields.char('Client ID', 250,
+                                help='Client Id to connect'),
+        'api_key': fields.char('API Key', 250,
+                                help='Api Key to connect'),
     }
 
     _defaults = {
             'type': 'intranet'
     }
+
+    def test_key(self, cr, uid, ids, context=None):
+        try:
+            import digitalocean
+        except ImportError:
+            raise osv.except_osv(
+                _('Error !'), _('Package python-digitalocean not installed.'))
+        try:
+            manager = digitalocean.Manager(client_id="ABC", api_key="ABC")
+            my_droplets = manager.get_all_droplets()
+            print my_droplets
+        except Exception as inst:
+            print inst
+            print inst.args
+        finally:
+            return True
+        return False
 
 
 def _calc_warranty(*args):

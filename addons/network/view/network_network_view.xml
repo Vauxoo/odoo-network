@@ -23,6 +23,9 @@
                 <field name="dns" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="public_ip_address" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="public_domain" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="client_id" attrs="{'invisible': [('type','!=','dedicated')]}"/>
+                <field name="api_key" attrs="{'invisible': [('type','!=','dedicated')]}"/>
+                <button name="test_key" string="test_api" attrs="{'invisible': [('type','!=','dedicated')]}"/>
             </group>
             <field name="material_ids" nolabel="1">
             <form string="Network Material" version="7.0">
