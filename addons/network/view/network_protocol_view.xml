@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+  <!-- View -->
+  <record model="ir.ui.view" id="protocol_tree">
+    <field name="name">network.protocol.tree</field>
+    <field name="model">network.protocol</field>
+    <field name="priority" eval="8" />
+    <field name="arch" type="xml">
+      <tree string="Protocol">
+        <field name="name" />
+        <field name="port" />
+        <field name="protocol" />
+        <field name="description" />
+      </tree>
+    </field>
+  </record>
+  <record model="ir.ui.view" id="protocol_form">
+    <field name="name">network.protocol.form</field>
+    <field name="model">network.protocol</field>
+    <field name="priority" eval="8" />
+    <field name="arch" type="xml">
+      <form string="Protocol" version="7.0">
+        <group>
+            <field name="name"  />
+            <field name="port"  />
+            <field name="description"  />
+            <field name="protocol"  />
+        </group>
+      </form>
+    </field>
+  </record>
+  <!-- Action -->
+  <record model="ir.actions.act_window" id="action_network_protocol">
+    <field name="name">Protocol</field>
+    <field name="res_model">network.protocol</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <!-- Menu -->
+  <menuitem id="menu_action_protocol_tree" name="Protocol"
+      parent="network.menu_network_definition" action="action_network_protocol"
+      groups="network.group_network_manager" />
+  </data>
+</openerp>

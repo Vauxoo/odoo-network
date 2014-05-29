@@ -1,0 +1,34 @@
+<li>
+<h4 class="h4-padleft">Table of Content</h4>
+  <ul class="localtoc">{{ toc }}</ul>
+{%- if prev %}
+<h4 class="h4-padleft">Previous Topic</h4>
+  <ul class="localtoc">
+    <ul class="nav">
+    <li>
+    <a href="{{ prev.link|e }}"
+         class="reference internal"
+         title="{{ _('Previous Chapter: ') + prev.title|striptags }}">{{ prev.title|striptags|truncate(length=36, killwords=True) }}</a>
+    </li>
+  </ul>
+  </ul>
+{%- endif %}
+{%- if next %}
+<h4 class="h4-padleft">Next Topic</h4>
+  <ul class="localtoc">
+    <ul class="nav">
+    <li>
+    <a href="{{ next.link|e }}"
+         class="reference internal"
+         title="{{ _('Next Chapter: ') + next.title|striptags }}">{{ next.title|striptags|truncate(length=36, killwords=True) }}</a>
+    </li>
+  </ul>
+</ul>
+{%- endif %}
+<h4 class="h4-padleft">This Page</h4>
+ <ul class="localtoc">
+    <ul class="nav">
+     <li>{% include "sourcelink.html" %}</li>
+</ul>
+</ul>
+</li>

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+    <!-- Base Network Menus -->
+    <menuitem name="Network" id="menu_networks" icon="STOCK_PREFERENCES" />
+    <menuitem name="Network" parent="menu_networks" groups="network.group_network_user,network.group_network_manager" id="menu_network" />
+    <menuitem name="Configuration" parent="menu_networks" id="menu_network_definition" groups="network.group_network_manager" sequence="100" />
+
+    <!--         Network Network -->
+    <record model="ir.ui.view" id="add_network_view">
+      <field name="name">network.network.form</field>
+      <field name="model">network.network</field>
+      <field name="arch" type="xml">
+        <form string="Network Element" version="7.0">
+            <separator string="Network Definition"/>
+            <group>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="range" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="user_id"/>
+                <field name="contact_id"/>
+                <field name="gateway" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="dns" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="public_ip_address" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="public_domain" attrs="{'invisible': [('type','=','dedicated')]}"/>
+                <field name="client_id" attrs="{'invisible': [('type','!=','dedicated')]}"/>
+                <field name="api_key" attrs="{'invisible': [('type','!=','dedicated')]}"/>
+                <button name="test_key" string="test_api" attrs="{'invisible': [('type','!=','dedicated')]}"/>
+            </group>
+            <field name="material_ids" nolabel="1">
+            <form string="Network Material" version="7.0">
+              <label for="name"/>
+              <field name="name"/>
+              <notebook>
+                <page string="Material Info">
+                    <separator string="Informations"/>
+                    <group>  
+                        <field name="type"/>
+                        <field name="supplier_id"/>
+                        <field name="date"/>
+                        <field name="warranty"/>
+                        <field name="parent_id"/>
+                    </group>
+                  <separator string="Softwares"/>
+                  <!-- TODO: change for ids it is a *2many -->
+                  <field name="software_id" nolabel="1"/>
+                </page>
+                <page string="Updates">
+                  <field name="change_ids" nolabel="1"/>
+                </page>
+                <page string="Notes">
+                  <field name="note" nolabel="1"/>
+                </page>
+              </notebook>
+            </form>
+          </field>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="view_network_tree">
+      <field name="name">network.network.tree</field>
+      <field name="model">network.network</field>
+      <field name="arch" type="xml">
+        <tree string="All Networks">
+          <field name="name" />
+          <field name="user_id" />
+          <field name="contact_id" />
+        </tree>
+      </field>
+    </record>
+    <!-- Action Networks -->
+    <record model="ir.actions.act_window" id="action_network_tree">
+      <field name="name">Networks</field>
+      <field name="res_model">network.network</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Networks" parent="menu_network" id="menu_action_network" action="action_network_tree" groups="network.group_network_manager"/>
+
+    <record model="ir.ui.view" id="add_diary_entry_form">
+      <field name="name">network.changes.form</field>
+      <field name="model">network.changes</field>
+      <field name="arch" type="xml">
+        <form string="Enter a diary entry" version="7.0">
+            <separator string="Diary entry"  />
+            <group>
+                <field name="name"  />
+                <field name="date"  />
+                <field name="user_id"  />
+                <field name="task_id" required="True"  />
+            </group>
+          <separator string="Description"  />
+          <field name="description"  nolabel="1" />
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="add_diary_entry_tree">
+      <field name="name">network.changes.tree</field>
+      <field name="model">network.changes</field>
+      <field name="arch" type="xml">
+        <tree string="Interventions">
+          <field name="date" />
+          <field name="user_id" />
+          <field name="name" />
+          <field name="task_id" />
+        </tree>
+      </field>
+    </record>
+  </data>
+</openerp>

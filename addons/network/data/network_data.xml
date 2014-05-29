@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+        <!-- Task-related subtypes for messaging / Chatter -->
+        <record id="mt_material_new" model="mail.message.subtype">
+            <field name="name">Material Created</field>
+            <field name="res_model">network.material</field>
+            <field name="default" eval="False"/>
+            <field name="hidden" eval="True"/>
+            <field name="description">A new material has been created</field>
+        </record>
+        <record id="mt_material_assigned" model="mail.message.subtype">
+            <field name="name">Material Assigned</field>
+            <field name="res_model">network.material</field>
+            <field name="default" eval="False"/>
+            <field name="description">Hardware Assigned</field>
+        </record>
+        <!--
+        <record id="mt_task_blocked" model="mail.message.subtype">
+            <field name="name">Task Blocked</field>
+            <field name="res_model">project.task</field>
+            <field name="default" eval="False"/>
+            <field name="description">Task blocked</field>
+        </record>
+        <record id="mt_task_ready" model="mail.message.subtype">
+            <field name="name">Task Ready for Next Stage</field>
+            <field name="res_model">project.task</field>
+            <field name="default" eval="False"/>
+            <field name="description">Task Ready for Next Stage</field>
+        </record>
+        <record id="mt_task_stage" model="mail.message.subtype">
+            <field name="name">Stage Changed</field>
+            <field name="res_model">project.task</field>
+            <field name="default" eval="False"/>
+            <field name="description">Stage changed</field>
+        </record>
+        -->
+  </data>
+</openerp>

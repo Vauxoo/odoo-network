@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+    <data>
+      <record model="ir.ui.view" id="encrypt_password_tree">
+        <field name="name">network.encrypt.password.tree</field>
+        <field name="model">network.encrypt.password</field>
+        <field name="arch" type="xml">
+          <tree string="En/Decrypt password">
+            <field name="name" />
+          </tree>
+        </field>
+      </record>
+      <record model="ir.ui.view" id="encrypt_password_form">
+        <field name="name">network.encrypt.password.form</field>
+        <field name="model">network.encrypt.password</field>
+        <field name="arch" type="xml">
+            <form string="En/Decrypt password" version="7.0">
+                <group>
+                    <field name="name"  />
+                </group>
+          </form>
+        </field>
+      </record>
+      <record model="ir.actions.act_window" id="action_network_encrypt_password">
+        <field name="name">En/Decrypt password</field>
+        <field name="res_model">network.encrypt.password</field>
+        <field name="view_mode">form</field>
+      </record>
+      <menuitem id="menu_action_encrypt_password_tree" 
+          name="Encrypt/Decrypt password" parent="network.menu_network_definition" 
+          action="action_network_encrypt_password" 
+          groups="network.group_network_manager" />
+  </data>
+</openerp>
