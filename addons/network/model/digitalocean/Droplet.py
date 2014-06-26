@@ -16,6 +16,7 @@ class Droplet(object):
         self.private_ip_address = None
         self.call_reponse = None
         self.ssh_key_ids = None
+        self.created_at = None
         self.events = []
 
         #Setting the attribute values
@@ -32,7 +33,7 @@ class Droplet(object):
     def __call_api(self, path, params=dict()):
         payload = {'client_id': self.client_id, 'api_key': self.api_key}
         payload.update(params)
-        r = requests.get("https://api.digitalocean.com/droplets/%s%s" % ( self.id, path ), params=payload)
+        r = requests.get("https://api.digitalocean.com/v1/droplets/%s%s" % ( self.id, path ), params=payload)
         data = r.json()
         self.call_response = data
         if data['status'] != "OK":
@@ -56,6 +57,7 @@ class Droplet(object):
         self.name = droplet['name']
         self.ip_address = droplet['ip_address']
         self.private_ip_address = droplet['private_ip_address']
+        self.created_at = droplet['created_at']
         self.id = droplet['id']
 
     def power_on(self):

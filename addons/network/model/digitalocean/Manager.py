@@ -16,7 +16,7 @@ class Manager(object):
     def __call_api(self, path, params=dict()):
         payload = {'client_id': self.client_id, 'api_key': self.api_key}
         payload.update(params)
-        r = requests.get("https://api.digitalocean.com/%s" % path, params=payload)
+        r = requests.get("https://api.digitalocean.com/v1/%s" % path, params=payload)
         data = r.json()
         self.call_response = data
         if data['status'] != "OK":
@@ -56,6 +56,7 @@ class Manager(object):
             droplet.id = jsoned['id']
             droplet.ip_address = jsoned['ip_address']
             droplet.private_ip_address = jsoned['private_ip_address']
+            droplet.created_at = jsoned['created_at']
             droplet.client_id = self.client_id
             droplet.api_key = self.api_key
             droplets.append(droplet)
