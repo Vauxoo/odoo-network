@@ -24,8 +24,10 @@
     "version": "1.0.6",
     "author": "Vauxoo",
     "category": "Hardware Administration",
+    "summary": "Hardware Administration, Server Management",
     "depends": [
         "base",
+        "mail",
         "project", #Because a change in hardware or update MUST be a task.
         ],
     "description": """

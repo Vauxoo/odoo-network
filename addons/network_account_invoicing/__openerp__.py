@@ -27,8 +27,9 @@
 {
     "name": "Network Account Invoicing",
     "version": "1.0",
-    "author": "Zikzakmedia SL",
+    "author": "Vauxoo & Zikzakmedia SL",
     "category": "Hardware Administration",
+    "summary": "Hardware Administration linked with invoicing",
     "website": "www.zikzakmedia.com",
     "license": "GPL-3",
     "depends": ["network", "account_analytic_analysis"],
