@@ -17,6 +17,10 @@
                     options="{'fold_field': 'fold'}"/>
             </header>
             <sheet>
+            <div class="oe_left">
+                <label for="name" class="oe_edit_only"/>
+                <h1><field name="name"/></h1>
+            </div>
             <div class="oe_right oe_button_box" name="buttons">
                   <button name="test_key" type="object" icon="fa-signal"
                         string="Test API Key" class="oe_stat_button"
@@ -29,7 +33,6 @@
             </div>
             <separator string="Network Definition"/>
             <group>
-                <field name="name"/>
                 <field name="type"/>
                 <field name="range" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="user_id"/>
@@ -39,7 +42,7 @@
                 <field name="public_ip_address" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="public_domain" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="client_id" attrs="{'invisible': [('type','!=','dedicated')], 'readonly': [('state', 'in', ['tested', 'synced'])]}"/>
-                <field name="api_key" attrs="{'invisible': [('type','!=','dedicated')], 'readonly': [('state', 'in', ['tested', 'synced'])]}"/>
+                <field name="api_key" widget="password" attrs="{'invisible': [('type','!=','dedicated')], 'readonly': [('state', 'in', ['tested', 'synced'])]}"/>
             </group>
             <field name="material_ids" nolabel="1">
             <form string="Network Material" version="7.0">

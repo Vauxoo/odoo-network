@@ -23,6 +23,13 @@
 import time
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
+import logging
+_logger = logging.getLogger(__name__)
+
+try:
+    import digitalocean
+except ImportError:
+    _logger.warning('Impossible import digitalocean library')
 
 #---------------------------------------------------------
 # Type of hardware: Printers, Screens, HD, ....
@@ -74,8 +81,8 @@ class network_network(osv.Model):
         'api_key': fields.char('API Key', 250,
                                 help='Api Key to connect'),
         'state': fields.selection([('draft', 'Draft'),
-                                   ('synced', 'Synced'),
                                    ('tested', 'Connection Tested'),
+                                   ('synced', 'Synced'),
                                    ('cancel', 'Cancel')], 'State',
                                    required=True, 
                                    help='State of the syncronization process '
@@ -88,23 +95,32 @@ class network_network(osv.Model):
     }
 
     def test_key(self, cr, uid, ids, context=None):
-        try:
-            import digitalocean
-        except ImportError:
-            raise osv.except_osv(
-                _('Error !'), _('Package python-digitalocean not installed.'))
-        try:
-            manager = digitalocean.Manager(client_id="ABC", api_key="ABC")
-            my_droplets = manager.get_all_droplets()
-            print my_droplets
-        except Exception as inst:
-            raise osv.except_osv(
-                _('Error !'),
-                _('Error with the conection to digitalocean. %s' % str(inst)))
+        obj = self.browse(cr, uid, ids, context=context)
+        for i in  obj:
+            try:
+                manager = digitalocean.Manager(client_id=i.client_id,
+                        api_key=i.api_key)
+                my_droplets = manager.get_all_droplets()
+            except Exception as inst:
+                raise osv.except_osv(
+                    _('Error !'),
+                    _('Error with the conection to digitalocean. %s' % str(inst)))
         return self.write(cr, uid, ids, {'state': 'tested'}, context=context)
 
     def sync_servers(self, cr, uid, ids, context=None):
-
+        obj = self.browse(cr, uid, ids, context=context)
+        for i in obj:
+            if i.state=='tested':
+                manager = digitalocean.Manager(client_id=i.client_id,
+                        api_key=i.api_key)
+                my_droplets = manager.get_all_droplets()
+                for droplet in my_droplets:
+                    self.write(cr, uid, i.id,
+                            {'material_ids': [(0, 0, {'name': droplet.name})]}) 
+            else:
+                raise osv.except_osv(
+                    _('Error !'),
+                    _('You must test the connection first'))
         return self.write(cr, uid, ids, {'state': 'synced'}, context=context)
 
 
@@ -157,7 +173,7 @@ class network_material(osv.Model):
         'date': fields.date('Installation Date'),
         'warranty': fields.date('Warranty deadline'),
         'type': fields.many2one('network.hardware.type',
-                                'Hardware type', required=True),
+                                'Hardware type'),
         'note': fields.text('Notes'),
         'parent_id': fields.many2one('network.material',
                                      'Parent Material'),
