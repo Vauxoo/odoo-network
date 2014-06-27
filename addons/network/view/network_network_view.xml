@@ -12,6 +12,21 @@
       <field name="model">network.network</field>
       <field name="arch" type="xml">
         <form string="Network Element" version="7.0">
+            <header>
+                <field name="state" widget="statusbar" clickable="True"
+                    options="{'fold_field': 'fold'}"/>
+            </header>
+            <sheet>
+            <div class="oe_right oe_button_box" name="buttons">
+                  <button name="test_key" type="object" icon="fa-signal"
+                        string="Test API Key" class="oe_stat_button"
+                        help="Test if the api key works."
+                        attrs="{'invisible': [('type','!=','dedicated')]}"/>
+                  <button name="sync_servers" type="object" icon="fa-download"
+                        string="Sync Servers" class="oe_stat_button"
+                        help="Download all servers."
+                        attrs="{'invisible': [('type','!=','dedicated')]}"/>
+            </div>
             <separator string="Network Definition"/>
             <group>
                 <field name="name"/>
@@ -23,9 +38,8 @@
                 <field name="dns" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="public_ip_address" attrs="{'invisible': [('type','=','dedicated')]}"/>
                 <field name="public_domain" attrs="{'invisible': [('type','=','dedicated')]}"/>
-                <field name="client_id" attrs="{'invisible': [('type','!=','dedicated')]}"/>
-                <field name="api_key" attrs="{'invisible': [('type','!=','dedicated')]}"/>
-                <button name="test_key" string="test_api" attrs="{'invisible': [('type','!=','dedicated')]}"/>
+                <field name="client_id" attrs="{'invisible': [('type','!=','dedicated')], 'readonly': [('state', 'in', ['tested', 'synced'])]}"/>
+                <field name="api_key" attrs="{'invisible': [('type','!=','dedicated')], 'readonly': [('state', 'in', ['tested', 'synced'])]}"/>
             </group>
             <field name="material_ids" nolabel="1">
             <form string="Network Material" version="7.0">
@@ -54,6 +68,7 @@
               </notebook>
             </form>
           </field>
+          </sheet>
         </form>
       </field>
     </record>

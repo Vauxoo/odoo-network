@@ -73,10 +73,18 @@ class network_network(osv.Model):
                                 help='Client Id to connect'),
         'api_key': fields.char('API Key', 250,
                                 help='Api Key to connect'),
+        'state': fields.selection([('draft', 'Draft'),
+                                   ('synced', 'Synced'),
+                                   ('tested', 'Connection Tested'),
+                                   ('cancel', 'Cancel')], 'State',
+                                   required=True, 
+                                   help='State of the syncronization process '
+                                   'if it applies')
     }
 
     _defaults = {
-            'type': 'intranet'
+            'type': 'intranet',
+            'state': 'draft'
     }
 
     def test_key(self, cr, uid, ids, context=None):
@@ -90,11 +98,14 @@ class network_network(osv.Model):
             my_droplets = manager.get_all_droplets()
             print my_droplets
         except Exception as inst:
-            print inst
-            print inst.args
-        finally:
-            return True
-        return False
+            raise osv.except_osv(
+                _('Error !'),
+                _('Error with the conection to digitalocean. %s' % str(inst)))
+        return self.write(cr, uid, ids, {'state': 'tested'}, context=context)
+
+    def sync_servers(self, cr, uid, ids, context=None):
+
+        return self.write(cr, uid, ids, {'state': 'synced'}, context=context)
 
 
 def _calc_warranty(*args):
