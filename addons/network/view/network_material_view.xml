@@ -11,6 +11,8 @@
                   <h1>
                       <separator string="Device Name"/>
                       <field name="name"/>
+                      <separator string="Status"/>
+                      <field name="status" />
                   </h1>
               </div>
               <div class="oe_right oe_button_box" name="buttons">
@@ -125,12 +127,14 @@
       <field name="field_parent">child_id</field>
       <field name="arch" type="xml">
         <tree string="All Network Material">
+          <field name="external_id" />
           <field name="name" />
           <field name="user_id" />
           <field name="type" />
           <field name="supplier_id" />
           <field name="date" />
           <field name="warranty" />
+          <field name="status" />
         </tree>
       </field>
     </record>
@@ -161,6 +165,7 @@
                             </div>
                             <div class="oe_kanban_content">
                                 <h4><field name="name"/></h4>
+                                <field name="status"/>
                                 <div class="oe_kanban_alias" t-if="record.network_id.raw_value">
                                     <span class="oe_e oe_e_alias">?</span><small><field name="network_id"/></small>
                                 </div>

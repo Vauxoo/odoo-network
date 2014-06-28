@@ -116,7 +116,9 @@ class network_network(osv.Model):
                 my_droplets = manager.get_all_droplets()
                 for droplet in my_droplets:
                     self.write(cr, uid, i.id,
-                            {'material_ids': [(0, 0, {'name': droplet.name})]}) 
+                            {'material_ids': [(0, 0,
+                                { 'name': droplet.name, 'external_id':
+                                    droplet.id })]}) 
             else:
                 raise osv.except_osv(
                     _('Error !'),
@@ -141,6 +143,7 @@ class network_material(osv.Model):
         'mail.thread',
         'ir.needaction_mixin',
     ]
+
     _track = {
         'name': {
             'network.mt_material_new': lambda self, cr, uid, obj, ctx=None:
@@ -150,6 +153,23 @@ class network_material(osv.Model):
             'network.mt_material_assigned': lambda self, cr, uid, obj, ctx=None: obj.user_id and obj.user_id.id,
         },
     }
+
+    def _get_status(self, cr, uid, ids, field_name, arg, context=None):    
+        res = dict.fromkeys(ids, '')
+        networks = {}
+        objs = self.browse(cr, uid, ids, context=context)
+        for server in objs:
+            manager = digitalocean.Manager(client_id=server.network_id.client_id,
+                    api_key=server.network_id.api_key)
+            if server.network_id.state in ['tested', 'synced']:
+                networks[server.network_id.id] = manager.get_all_droplets()
+            servers_do = networks.get(server.network_id.id, [])
+            res[server.id] = False
+            if servers_do:
+                server_do = [s for s in servers_do if s.id == int(server.external_id)]
+                res[server.id] = bool(server_do and server_do[0].status==u'active' or False)
+        return res
+
     _columns = {
         'name': fields.char('Device Name', required=True,
                             help="Unique identicator to have as reference.",
@@ -171,6 +191,8 @@ class network_material(osv.Model):
                                        " device: Be careful it is only for "
                                        "invoicing purpose."),
         'date': fields.date('Installation Date'),
+        'external_id': fields.char('External Id', size=256,
+            help='This id is the one used to link with an external system, like digitalocean or amazon.'),
         'warranty': fields.date('Warranty deadline'),
         'type': fields.many2one('network.hardware.type',
                                 'Hardware type'),
@@ -194,14 +216,19 @@ class network_material(osv.Model):
         'color': fields.integer('Color Index', select=True,
                                 help="Green: On Line, Red: OffLine, Orange: "
                                 "Under controlled"
-                                " mantainance")
+                                " mantainance"),
+        'status': fields.function(_get_status, type='boolean', string='Status',
+            help='Status getted with the webservice')
     }
+
     _defaults = {
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'warranty': _calc_warranty,
         'user_id': lambda s, c, u, i, ctx=None: u,
     }
 
+    _sql_constraints = [('external_id_uniq', 'unique (external_id)',
+                        'You can have only one server created with this external id.!')]
 
 class network_information(osv.Model):
     _name = 'network.information'
