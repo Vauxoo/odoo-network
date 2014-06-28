@@ -117,19 +117,18 @@ class network_network(osv.Model):
                 for droplet in my_droplets:
                     self.write(cr, uid, i.id,
                             {'material_ids': [(0, 0,
-                                { 'name': droplet.name, 'external_id':
-                                    droplet.id })]}) 
+                                { 'name': droplet.name,
+                                  'external_id': droplet.id,
+                                  'date': droplet.created_at,
+                                  'network_information_ids': [
+                                      (0, 0, {'hostname': droplet.name,
+                                              'ip_addr': droplet.ip_address})]})]}) 
             else:
                 raise osv.except_osv(
                     _('Error !'),
                     _('You must test the connection first'))
         return self.write(cr, uid, ids, {'state': 'synced'}, context=context)
 
-
-def _calc_warranty(*args):
-    now = list(time.localtime())
-    now[0] += 1
-    return time.strftime('%Y-%m-%d', tuple(now))
 
 #----------------------------------------------------------
 # Materials; computer, printer, switch, ...
@@ -223,7 +222,6 @@ class network_material(osv.Model):
 
     _defaults = {
         'date': lambda *a: time.strftime('%Y-%m-%d'),
-        'warranty': _calc_warranty,
         'user_id': lambda s, c, u, i, ctx=None: u,
     }
 
