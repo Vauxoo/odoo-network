@@ -11,9 +11,13 @@
                   <h1>
                       <separator string="Device Name"/>
                       <field name="name"/>
-                      <separator string="Status"/>
-                      <field name="status" />
                   </h1>
+                <t t-if="record.status.raw_value">
+                  <span class="oe_kanban_status oe_kanban_status_green"></span>
+                </t>
+                <t t-if="! record.status.raw_value">
+                  <span class="oe_kanban_status oe_kanban_status_red"></span>
+                </t>
               </div>
               <div class="oe_right oe_button_box" name="buttons">
               <button name="get_connection" icon="fa-signal"
@@ -152,6 +156,7 @@
                 <field name="color"/>
                 <field name="user_id"/>
                 <field name="type"/>
+                <field name="status"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_project oe_kanban_global_click">
@@ -164,8 +169,7 @@
                                 </ul>
                             </div>
                             <div class="oe_kanban_content">
-                                <h4><field name="name"/></h4>
-                                <field name="status"/>
+                               <h4><field name="name"/></h4>
                                 <div class="oe_kanban_alias" t-if="record.network_id.raw_value">
                                     <span class="oe_e oe_e_alias">?</span><small><field name="network_id"/></small>
                                 </div>
@@ -179,17 +183,18 @@
                                     <span class="oe_e oe_e_alias">%%</span><small><b style="color:red;">Set a Responsible</b></small>
                                 </div>
                                 <div class="oe_kanban_footer_left">
-                                    <span groups="project.group_time_work_estimation_tasks">
-                                        <span class="oe_e">R</span>
-                                    </span>
                                     <span t-if="record.date.raw_value">
                                         <span class="oe_e">N</span>
                                         <field name="date"/>
                                     </span>
-                                    <span t-if="record.warranty.raw_value">
-                                        <span class="oe_e">N</span>
-                                        <field name="date"/>
-                                    </span>
+                                    <div class="oe_right">
+                                        <t t-if="record.status.raw_value">
+                                          <span class="oe_kanban_status oe_kanban_status_green"></span>
+                                        </t>
+                                        <t t-if="! record.status.raw_value">
+                                          <span class="oe_kanban_status oe_kanban_status_red"></span>
+                                        </t>
+                                    </div>
                                 </div>
                             </div>
                         </div>
