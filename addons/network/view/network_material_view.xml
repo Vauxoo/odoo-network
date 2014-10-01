@@ -12,12 +12,6 @@
                       <separator string="Device Name"/>
                       <field name="name"/>
                   </h1>
-                <t t-if="record.status.raw_value">
-                  <span class="oe_kanban_status oe_kanban_status_green"></span>
-                </t>
-                <t t-if="! record.status.raw_value">
-                  <span class="oe_kanban_status oe_kanban_status_red"></span>
-                </t>
               </div>
               <div class="oe_right oe_button_box" name="buttons">
               <button name="get_connection" icon="fa-signal"
@@ -27,8 +21,11 @@
                   string="Restart" class="oe_stat_button"
                   help="Restart a server"/>
               <button name="get_connection" icon="fa-exclamation-circle"
-                  string="Turn Off" class="oe_stat_button"
-                  help="Turn off the server, You will be able to turn on, be careful you can left the network unusable."/>
+                  class="oe_stat_button" 
+                  attrs="{'invisible': [('status', '=', False)]}" 
+                  help="Turn off the server, You will be able to turn on, be careful you can left the network unusable.">
+                <field string="Turn Off" name="status" widget="statinfo"/>
+              </button>
               <button name="get_connection" icon="fa-file-text-o"
                   string="Status" class="oe_stat_button"
                   help="See logs of all services configured on this server"/>
@@ -38,7 +35,7 @@
               <button name="get_connection" icon="fa-camera" 
                   string="Make Image" class="oe_stat_button"
                   help="We here will turn off the server, make an image and then turn on again the server, usefull to replicate completly a droplet/server (only for digitalocean)"/>
-              <button name="get_connection" icon="fa-database"
+              <button name="get_connection" icon="fa-cloud-download"
                   string="Backup db" class="oe_stat_button" 
                   help="Using barman daemon make a temporal backup"/>
               <button name="get_connection" icon="fa-search"

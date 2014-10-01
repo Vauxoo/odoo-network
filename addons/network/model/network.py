@@ -84,7 +84,7 @@ class network_network(osv.Model):
                                    ('tested', 'Connection Tested'),
                                    ('synced', 'Synced'),
                                    ('cancel', 'Cancel')], 'State',
-                                   required=True, 
+                                   required=True,
                                    help='State of the syncronization process '
                                    'if it applies')
     }
@@ -122,7 +122,7 @@ class network_network(osv.Model):
                                   'date': droplet.created_at,
                                   'network_information_ids': [
                                       (0, 0, {'hostname': droplet.name,
-                                              'ip_addr': droplet.ip_address})]})]}) 
+                                              'ip_addr': droplet.ip_address})]})]})
             else:
                 raise osv.except_osv(
                     _('Error !'),
@@ -153,7 +153,7 @@ class network_material(osv.Model):
         },
     }
 
-    def _get_status(self, cr, uid, ids, field_name, arg, context=None):    
+    def _get_status(self, cr, uid, ids, field_name, arg, context=None):
         res = dict.fromkeys(ids, '')
         networks = {}
         objs = self.browse(cr, uid, ids, context=context)
