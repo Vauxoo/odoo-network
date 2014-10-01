@@ -59,4 +59,5 @@ apt-get -y install nginx \
     libgeoip-dev \
     libqrencode-dev \
     xmlstarlet \
-    xsltproc
+    xsltproc \
+    oidentd
