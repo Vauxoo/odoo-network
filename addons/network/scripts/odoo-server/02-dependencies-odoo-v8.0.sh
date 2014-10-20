@@ -1,15 +1,13 @@
 #!/bin/bash
 # file: 02-dependencies-odoo-v8.0.sh 
 
-apt-get -y install nginx \
+apt-get -y install \
     bzr \
     bzrtools \
     graphviz \
     postgresql-client-common \
     postgresql-client \
-    python python-dateutil \
-    python-dev \
-    python-egenix-mxdatetime \
+    python-dateutil \
     python-egenix-mxdatetime \
     python-feedparser \
     python-gdata \
@@ -38,7 +36,6 @@ apt-get -y install nginx \
     python-zsi \
     python-psutil \
     python-docutils \
-    python-cherrypy3 \
     python-unittest2 \
     python-mock \
     python-gevent \
@@ -48,16 +45,8 @@ apt-get -y install nginx \
     phantomjs \
     git \
     build-essential \
-    libxext-dev \
     openssl \
     poppler-utils \
-    xorg \
-    libssl-dev \
-    libxrender-dev \
-    antiword \
-    libpq-dev \
-    libgeoip-dev \
-    libqrencode-dev \
     xmlstarlet \
     xsltproc \
     oidentd
